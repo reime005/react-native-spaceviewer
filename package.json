@@ -1,0 +1,50 @@
+{
+  "name": "react-native-spaceviewer",
+  "version": "1.0.0",
+  "main": "App.js",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "appcenter": "^1.7.1",
+    "appcenter-analytics": "^1.7.1",
+    "appcenter-crashes": "^1.7.1",
+    "appcenter-push": "^1.7.1",
+    "axios": "^0.18.0",
+    "moment": "^2.22.2",
+    "native-base": "^2.7.2",
+    "react": "16.4.1",
+    "react-native": "0.56.0",
+    "react-native-code-push": "^5.4.2",
+    "react-native-countdown-component": "^1.7.3",
+    "react-native-fast-image": "^5.0.2",
+    "react-native-google-static-map": "^0.1.12",
+    "react-native-responsive-screen": "^1.1.7",
+    "react-native-settings-list": "git://github.com/reime005/react-native-settings-list.git#expo",
+    "react-native-vector-icons": "^5.0.0",
+    "react-navigation": "1.1.2",
+    "react-navigation-redux-helpers": "1.0.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
+    "watchman": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-jest": "23.4.2",
+    "babel-preset-react-native": "^5",
+    "jest": "23.5.0",
+    "react-test-renderer": "16.4.1"
+  },
+  "jest": {
+    "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/node_modules/appcenter/test/AppCenterMock.js",
+      "<rootDir>/node_modules/appcenter-analytics/test/AppCenterAnalyticsMock.js",
+      "<rootDir>/node_modules/appcenter-crashes/test/AppCenterCrashesMock.js",
+      "<rootDir>/node_modules/appcenter-push/test/AppCenterPushMock.js"
+    ]
+  }
+}
