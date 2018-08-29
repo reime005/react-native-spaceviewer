@@ -49,7 +49,6 @@ export function* shareData(action) {
     name,
     net,
     lsp,
-    status,
     vidURLs,
     locationName
   } = data;

@@ -1,7 +1,3 @@
-// import { Asset, Font } from 'expo';
-import { getItemFromStore } from '../storage';
-import FastImage from 'react-native-fast-image';
-
 /**
  * Load images and fonts into the cache.
  * @param {Array} assets - A list of required assets, eg. [ require('./images/some.png') ]
@@ -16,9 +12,6 @@ export const loadResourcesAsync = async (assets = [], fonts = {}) => {
 }
 
 const loadAsync = (files = []) => {
-  // FastImage.preload([
-  //   require('../../../assets/images/splash.png')
-  // ])
 }
 
 /**

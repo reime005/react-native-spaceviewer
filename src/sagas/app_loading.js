@@ -5,13 +5,9 @@ import {
     LOAD_APP_RESOURCES_STARTED,
     LOAD_APP_RESOURCES_SUCCESS,
     LOAD_APP_RESOURCES_ERROR,
-    loadNextLaunchesSagaAction,
-    settingsRehydrateSagaAction,
 } from '../actions';
 
-import { storageKeys } from '../constants/keys';
 import { loadResourcesAsync } from '../lib/caching';
-import { getItemFromStore } from '../lib/storage';
 import { FILE_NEXT_LAUNCHES, FILE_PREV_LAUNCHES } from '../constants/files';
 import { rehydrateSettings } from './settings';
 import { loadNextLaunches } from './api';
