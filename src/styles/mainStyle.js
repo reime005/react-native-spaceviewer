@@ -36,8 +36,8 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   headerImageStyle: {
-    width: headerImageWidth,
-    height: headerImageHeight
+    width: headerImageWidth * 1.15,
+    height: headerImageHeight * 1.15
   },
   headerTextTitleStyle: {
     color: 'white',

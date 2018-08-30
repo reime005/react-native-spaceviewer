@@ -51,6 +51,8 @@ export class OverviewList extends React.PureComponent {
         ListHeaderComponent={<View style={{height: headerBottomSpace}}></View>}
         // initialNumToRender={12}
         numColumns={overviewListNumColumns}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
         horizontal={false}
         style={overviewListStyle.flatList}
         data={data}
