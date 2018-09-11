@@ -1,5 +1,4 @@
 export function* changeImageUrlWithCached(launches) {
-  //TODO: consider using 'imageSizes' for thumbnail
   launches = JSON.parse(JSON.stringify(launches), (key, value) => {
     if (key === 'imageURL') {
       try {

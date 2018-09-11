@@ -21,7 +21,6 @@ export const handleAppLoading = function* handleAppLoading({ assets, fonts }) {
     try {
         const { res, timeout } = yield race({
             res: all({
-                // timeout: call(delay, 2000), //TODO: may remove this...
                 static: call(loadResourcesAsync, assets, fonts),
                 settingsLoaded: call(rehydrateSettings),
                 nextLoaded: call(loadNextLaunches, { launchType: FILE_NEXT_LAUNCHES }),
@@ -29,7 +28,6 @@ export const handleAppLoading = function* handleAppLoading({ assets, fonts }) {
             }),
             timeout: call(delay, 7000),
         });
-        //TODO: async loading
         
         if(res) {
             yield put({ 

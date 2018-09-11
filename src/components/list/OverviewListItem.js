@@ -52,7 +52,6 @@ export class OverviewListItem extends React.PureComponent {
 
     const dateFormat = settings[SETTING_FORMAT_DATE];
     
-    //TODO: list for better adjustments
     return (
       <CustomTouchableHighlight 
         onPress={this._onPress} 
