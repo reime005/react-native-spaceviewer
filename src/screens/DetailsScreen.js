@@ -38,7 +38,7 @@ export class DetailsScreen extends React.Component {
     }
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1}} accessibilityLabel={'upcoming-screen'}>
         <StatusBar backgroundColor={'red'} />
         <DetailsContainer 
           item={this.state.item}

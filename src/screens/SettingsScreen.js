@@ -1,10 +1,13 @@
 import React from 'react';
 import { SettingsContainer } from '../components/container';
+import { View } from 'react-native';
 
 export const SettingsScreen = (props) => {
   return (
-    <SettingsContainer 
-      {...props}
-    />
+    <View accessibilityLabel={'settings-screen'}>
+      <SettingsContainer 
+        {...props}
+      />
+    </View>
   );
 } 

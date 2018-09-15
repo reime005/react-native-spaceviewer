@@ -25,7 +25,7 @@ const HomeStack = StackNavigator({
   [Routes.DETAILS_SCREEN]: { screen: DetailsScreen },
 },
 {
-  navigationOptions: navOptions,
+  navigationOptions: navOptions('tab-button-home'),
 })
 
 const PreviousStack = StackNavigator({
@@ -97,7 +97,7 @@ const HomeNavigator = TabNavigator({
           // iconName = `ios-search${focused ? '' : '-outline'}`;
       }
 
-      return <View style={{alignItems: 'center', width: footerTabIconSize, height: footerTabIconSize}}><MaterialCommunityIcons name={iconName} size={footerTabIconSize} color={tintColor} /></View>;
+      return <View accessibilityLabel={`tab-btn-${navigation.state.routeName}`} style={{alignItems: 'center', width: footerTabIconSize, height: footerTabIconSize}}><MaterialCommunityIcons name={iconName} size={footerTabIconSize} color={tintColor} /></View>;
     },
   }),
 })
