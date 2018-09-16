@@ -40,12 +40,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta",
-    "babel-core": "^7.0.0-beta",
-    "babel-preset-react-native": "5.0.2",
     "appium": "^1.9.0",
     "appium-doctor": "^1.4.3",
+    "babel-core": "^7.0.0-beta",
     "babel-jest": "23.4.2",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-react-native": "5.0.2",
     "detox": "^8.2.3",
     "jest": "23.5.0",
     "react-test-renderer": "16.4.1"
@@ -53,7 +53,13 @@
   "jest": {
     "preset": "react-native",
     "transform": {
-        "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
-    }
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    },
+    "setupFiles": [
+      "<rootDir>/node_modules/appcenter/test/AppCenterMock.js",
+      "<rootDir>/node_modules/appcenter-analytics/test/AppCenterAnalyticsMock.js",
+      "<rootDir>/node_modules/appcenter-crashes/test/AppCenterCrashesMock.js",
+      "<rootDir>/node_modules/appcenter-push/test/AppCenterPushMock.js"
+    ]
   }
 }

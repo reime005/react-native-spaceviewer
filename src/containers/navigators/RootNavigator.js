@@ -97,7 +97,7 @@ const HomeNavigator = TabNavigator({
           // iconName = `ios-search${focused ? '' : '-outline'}`;
       }
 
-      return <View accessibilityLabel={`tab-btn-${navigation.state.routeName}`} style={{alignItems: 'center', width: footerTabIconSize, height: footerTabIconSize}}><MaterialCommunityIcons name={iconName} size={footerTabIconSize} color={tintColor} /></View>;
+      return <View accessibilityLabel={`tab-btn-${navigation.state.routeName} tab-btn-${navigation.state.routeName}`} style={{alignItems: 'center', width: footerTabIconSize, height: footerTabIconSize}}><MaterialCommunityIcons name={iconName} size={footerTabIconSize} color={tintColor} /></View>;
     },
   }),
 })

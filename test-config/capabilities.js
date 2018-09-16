@@ -4,6 +4,12 @@ const capabilities = {
     deviceName: 'Android Emulator',
     app: '/Users/marius/d/mr/react-native-spaceviewer/android/app/build/outputs/apk/app-x86-debug.apk'
   },
+  local_ios: {
+    platformName: 'iOS',
+    deviceName: 'iPhone X',
+    platformVersion: '11.4',
+    app: '/Users/marius/d/mr/react-native-spaceviewer/ios/build/Build/Products/Release-iphonesimulator/app.zip'
+  },
 };
 
 if (!process.env.E2E_DEVICE) {

@@ -601,14 +601,23 @@ accepts@~1.3.3, accepts@~1.3.5:
     negotiator "0.6.1"
 
 acorn-globals@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/acorn-globals/-/acorn-globals-4.1.0.tgz#ab716025dbe17c54d3ef81d32ece2b2d99fe2538"
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/acorn-globals/-/acorn-globals-4.3.0.tgz#e3b6f8da3c1552a95ae627571f7dd6923bb54103"
   dependencies:
-    acorn "^5.0.0"
+    acorn "^6.0.1"
+    acorn-walk "^6.0.1"
 
-acorn@^5.0.0, acorn@^5.5.3:
+acorn-walk@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-6.0.1.tgz#c7827bdbb8e21aa97b609adfa225400d9ae348ba"
+
+acorn@^5.5.3:
   version "5.7.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
+
+acorn@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.0.1.tgz#66e6147e1027704479dc6d9b20d884c572db3cc1"
 
 adbkit-logcat@^1.1.0:
   version "1.1.0"
@@ -765,9 +774,9 @@ append-transform@^0.4.0:
   dependencies:
     default-require-extensions "^1.0.0"
 
-appium-adb@^6.15.0, appium-adb@^6.15.2, appium-adb@^6.2.1, appium-adb@^6.2.2, appium-adb@^6.5.2, appium-adb@^6.8.0:
-  version "6.18.1"
-  resolved "https://registry.yarnpkg.com/appium-adb/-/appium-adb-6.18.1.tgz#8b7faa29cdd7071466b983369b482d5b6c24f21e"
+appium-adb@^6.15.0, appium-adb@^6.15.2, appium-adb@^6.19.0, appium-adb@^6.2.1, appium-adb@^6.2.2, appium-adb@^6.5.2, appium-adb@^6.8.0:
+  version "6.19.0"
+  resolved "https://registry.yarnpkg.com/appium-adb/-/appium-adb-6.19.0.tgz#082ada2f0adfeee10ef04728a79af4005b6e7048"
   dependencies:
     appium-support "^2.4.0"
     asyncbox "^2.3.1"
@@ -862,10 +871,10 @@ appium-android-driver@3.x:
     yargs "^12.0.1"
 
 appium-android-driver@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/appium-android-driver/-/appium-android-driver-4.0.0.tgz#97397054f3a2fceedf854a94e2d11351b415e599"
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/appium-android-driver/-/appium-android-driver-4.1.0.tgz#352f18f8fc029a3326298c4af7fc20054922f46b"
   dependencies:
-    appium-adb "^6.15.0"
+    appium-adb "^6.19.0"
     appium-android-ime "^2.0.0"
     appium-base-driver "^3.0.0"
     appium-chromedriver "^4.0.0"
@@ -874,7 +883,7 @@ appium-android-driver@^4.0.0:
     asyncbox "^2.0.4"
     babel-runtime "=5.8.24"
     bluebird "^3.4.7"
-    io.appium.settings "^2.4.0"
+    io.appium.settings "^2.5.0"
     jimp "^0.2.24"
     lodash "^4.17.4"
     moment "^2.22.2"
@@ -1009,8 +1018,8 @@ appium-fake-driver@^0.x:
     yargs "^12.0.1"
 
 appium-ios-driver@2.x, appium-ios-driver@^2.4.3:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/appium-ios-driver/-/appium-ios-driver-2.8.1.tgz#3e3672934b881644570810445483c98972f532d5"
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/appium-ios-driver/-/appium-ios-driver-2.9.0.tgz#064849b550f47d4f3d4479ba56bc564c9923639e"
   dependencies:
     appium-base-driver "^3.0.0"
     appium-ios-simulator "^3.0.0"
@@ -1043,8 +1052,8 @@ appium-ios-driver@2.x, appium-ios-driver@^2.4.3:
     yargs "^12.0.1"
 
 appium-ios-simulator@^3.0.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/appium-ios-simulator/-/appium-ios-simulator-3.3.0.tgz#cfae4ca8ca85a35ce885851f4de195972865457c"
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/appium-ios-simulator/-/appium-ios-simulator-3.3.1.tgz#d20b308181e7d4e9892394d6d26ec1a33dc0b2f8"
   dependencies:
     appium-support "^2.4.0"
     appium-xcode "^3.1.0"
@@ -1175,8 +1184,8 @@ appium-tizen-driver@1.1.1-beta:
     yargs "^6.6.0"
 
 appium-uiautomator2-driver@1.x:
-  version "1.17.1"
-  resolved "https://registry.yarnpkg.com/appium-uiautomator2-driver/-/appium-uiautomator2-driver-1.17.1.tgz#b75b1fefb2973b1f2ca49109a6bd096949475ac9"
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/appium-uiautomator2-driver/-/appium-uiautomator2-driver-1.18.0.tgz#1588f8eef1f0d19584eb54a5c3b0da193c54843c"
   dependencies:
     adbkit "^2.4.1"
     appium-adb "^6.5.2"
@@ -1198,8 +1207,8 @@ appium-uiautomator2-driver@1.x:
     yargs "^12.0.1"
 
 appium-uiautomator2-server@^1.9.2:
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/appium-uiautomator2-server/-/appium-uiautomator2-server-1.16.0.tgz#734ed66b9220ebac87ccbf522730f3b323c0485a"
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/appium-uiautomator2-server/-/appium-uiautomator2-server-1.17.0.tgz#fb04ca1ba113c2140173ea94843a832331cf480d"
 
 appium-uiautomator@^1.1.0:
   version "1.3.0"
@@ -1244,8 +1253,8 @@ appium-xcode@^3.0.0, appium-xcode@^3.1.0, appium-xcode@^3.2.0:
     teen_process "^1.3.0"
 
 appium-xcuitest-driver@2.x:
-  version "2.92.3"
-  resolved "https://registry.yarnpkg.com/appium-xcuitest-driver/-/appium-xcuitest-driver-2.92.3.tgz#565b1d5609c0fe5703bc81e86275c186bbd94344"
+  version "2.94.0"
+  resolved "https://registry.yarnpkg.com/appium-xcuitest-driver/-/appium-xcuitest-driver-2.94.0.tgz#28bed07476e6b8bb5c067fee3bf769a1dbf0ee9d"
   dependencies:
     appium-base-driver "^3.0.0"
     appium-ios-driver "^2.4.3"
@@ -2552,8 +2561,8 @@ child-process-promise@^2.2.0:
     promise-polyfill "^6.0.1"
 
 chownr@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.0.1.tgz#e2a75042a9551908bebd25b8523d5f9769d79181"
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.1.tgz#54726b8b8fff4df053c42187e801fb4412df1494"
 
 ci-info@^1.5.0:
   version "1.5.1"
@@ -3098,8 +3107,8 @@ ejs@^2.5.7:
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.6.1.tgz#498ec0d495655abc6f23cd61868d926464071aa0"
 
 electron-to-chromium@^1.3.47:
-  version "1.3.66"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.66.tgz#1410d8f8768a14dcd09d96222990f43c969af270"
+  version "1.3.67"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.67.tgz#5e8f3ffac89b4b0402c7e1a565be06f3a109abbc"
 
 emitter-listener@^1.1.1:
   version "1.1.1"
@@ -4145,7 +4154,7 @@ ini@^1.3.4, ini@~1.3.0:
 
 inquirer@1.1.2:
   version "1.1.2"
-  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-1.1.2.tgz#ac3ba5f06b8e7291abd9f22912c03f09cfe2dd1f"
+  resolved "http://registry.npmjs.org/inquirer/-/inquirer-1.1.2.tgz#ac3ba5f06b8e7291abd9f22912c03f09cfe2dd1f"
   dependencies:
     ansi-escapes "^1.1.0"
     chalk "^1.0.0"
@@ -4164,7 +4173,7 @@ inquirer@1.1.2:
 
 inquirer@^0.10.1:
   version "0.10.1"
-  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-0.10.1.tgz#ea25e4ce69ca145e05c99e46dcfec05e4012594a"
+  resolved "http://registry.npmjs.org/inquirer/-/inquirer-0.10.1.tgz#ea25e4ce69ca145e05c99e46dcfec05e4012594a"
   dependencies:
     ansi-escapes "^1.1.0"
     ansi-regex "^2.0.0"
@@ -4222,7 +4231,7 @@ invert-kv@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-2.0.0.tgz#7393f5afa59ec9ff5f67a27620d11c226e3eec02"
 
-io.appium.settings@^2.4.0:
+io.appium.settings@^2.4.0, io.appium.settings@^2.5.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/io.appium.settings/-/io.appium.settings-2.5.1.tgz#b16a4a443059fe4a7ded4d4c87414c01f86f98a2"
 
@@ -5757,8 +5766,8 @@ node-pre-gyp@^0.10.0:
     tar "^4"
 
 node-simctl@^3.10.0, node-simctl@^3.11.0, node-simctl@^3.11.5:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/node-simctl/-/node-simctl-3.13.0.tgz#339bf1c06b0504fe39797655b1d854566d6837a3"
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/node-simctl/-/node-simctl-3.14.0.tgz#a87304a8fa107567115c5d71c8bf16fc45da2e2f"
   dependencies:
     appium-support "^2.4.0"
     appium-xcode "^3.1.0"
@@ -6167,8 +6176,8 @@ pegjs@^0.10.0:
   resolved "https://registry.yarnpkg.com/pegjs/-/pegjs-0.10.0.tgz#cf8bafae6eddff4b5a7efb185269eaaf4610ddbd"
 
 pem@^1.8.3:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/pem/-/pem-1.13.0.tgz#ac9f97dc0c1938fc8eebe3d1bc304a65de0eadc4"
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/pem/-/pem-1.13.1.tgz#57dd3e0c044fbcf709db026a737e1aad7dc8330f"
   dependencies:
     es6-promisify "^6.0.0"
     md5 "^2.2.1"
@@ -6496,8 +6505,8 @@ react-devtools-core@^3.2.2:
     ws "^3.3.1"
 
 react-is@^16.4.1:
-  version "16.5.0"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.0.tgz#2ec7c192709698591efe13722fab3ef56144ba55"
+  version "16.5.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.1.tgz#c6e8734fd548a22e1cef4fd0833afbeb433b85ee"
 
 react-native-code-push@^5.4.2:
   version "5.4.2"
@@ -8126,8 +8135,8 @@ whatwg-fetch@>=0.10.0:
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#fc804e458cc460009b1a2b966bc8817d2578aefb"
 
 whatwg-mimetype@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/whatwg-mimetype/-/whatwg-mimetype-2.1.0.tgz#f0f21d76cbba72362eb609dbed2a30cd17fcc7d4"
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/whatwg-mimetype/-/whatwg-mimetype-2.2.0.tgz#a3d58ef10b76009b042d03e25591ece89b88d171"
 
 whatwg-url@^6.4.1:
   version "6.5.0"
