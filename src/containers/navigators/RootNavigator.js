@@ -76,6 +76,8 @@ const HomeNavigator = TabNavigator({
   },
   navigationOptions: ({ navigation }) => ({
     tabBarLabel: navigation.state.routeName,
+    tabBarAccessibilityLabel: `tab-btn-${navigation.state.routeName.replace(' ', '')}`,
+    tabBarTestID: `tab-btn-${navigation.state.routeName.replace(' ', '')}`,
     tabBarIcon: ({ focused, tintColor }) => {
       const { routeName } = navigation.state;
       let iconName = `home${focused ? '' : '-outline'}`;
@@ -97,7 +99,10 @@ const HomeNavigator = TabNavigator({
           // iconName = `ios-search${focused ? '' : '-outline'}`;
       }
 
-      return <View accessibilityLabel={`tab-btn-${navigation.state.routeName} tab-btn-${navigation.state.routeName}`} style={{alignItems: 'center', width: footerTabIconSize, height: footerTabIconSize}}><MaterialCommunityIcons name={iconName} size={footerTabIconSize} color={tintColor} /></View>;
+      //TODO: [mr] only remove one white space
+      const lbl = `tab-btn-${routeName.replace(' ', '')}`;
+
+      return <View accessible={true} testID={lbl} accessibilityLabel={lbl} style={{alignItems: 'center', width: footerTabIconSize, height: footerTabIconSize}}><MaterialCommunityIcons name={iconName} size={footerTabIconSize} color={tintColor} /></View>;
     },
   }),
 })

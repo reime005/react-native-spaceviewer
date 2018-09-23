@@ -1,14 +1,21 @@
 const capabilities = {
-  local_android: {
+  local_android_debug: {
     platformName: 'Android',
+    automationName: 'UiAUtomator2',
     deviceName: 'Android Emulator',
-    app: '/Users/marius/d/mr/react-native-spaceviewer/android/app/build/outputs/apk/app-x86-debug.apk'
+    app: 'android/app/build/outputs/apk/debug/app-debug.apk'
+  },
+  local_android_release: {
+    platformName: 'Android',
+    automationName: 'UiAUtomator2',
+    deviceName: 'Android Emulator',
+    app: 'android/app/build/outputs/apk/release/app-release.apk'
   },
   local_ios: {
     platformName: 'iOS',
     deviceName: 'iPhone X',
     platformVersion: '11.4',
-    app: '/Users/marius/d/mr/react-native-spaceviewer/ios/build/Build/Products/Release-iphonesimulator/app.zip'
+    app: 'ios/build/Build/Products/Release-iphonesimulator/app.zip'
   },
 };
 

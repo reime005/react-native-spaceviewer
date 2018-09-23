@@ -5,11 +5,14 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test-android": "E2E_DEVICE=local_android jest",
-    "test-ios": "E2E_DEVICE=local_ios jest",
     "appium": "appium",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios"
+    "run-android": "react-native run-android",
+    "run-ios": "react-native run-ios --simulator 'iPhone 6s'",
+    "test-ios": "E2E_DEVICE=local_ios jest",
+    "test-android-debug": "E2E_DEVICE=local_android_debug jest",
+    "test-android-release": "E2E_DEVICE=local_android_release jest",
+    "build-android-debug": "cd android; ./gradlew assembleDebug",
+    "build-android-release": "cd android; ./gradlew assembleRelease"
   },
   "dependencies": {
     "appcenter": "^1.7.1",
@@ -19,8 +22,8 @@
     "axios": "^0.18.0",
     "moment": "^2.22.2",
     "native-base": "^2.7.2",
-    "react": "16.4.1",
-    "react-native": "0.56.0",
+    "react": "^16.5.2",
+    "react-native": "^0.57.1",
     "react-native-code-push": "^5.4.2",
     "react-native-countdown-component": "^1.7.3",
     "react-native-fast-image": "^5.0.2",
@@ -34,21 +37,22 @@
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
+    "schedule": "^0.4.0",
     "venv": "^1.0.1",
     "watchman": "^1.0.0",
     "wd": "^1.10.3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta",
-    "appium": "^1.9.0",
+    "appium": "^1.9.1",
     "appium-doctor": "^1.4.3",
     "babel-core": "^7.0.0-beta",
     "babel-jest": "23.4.2",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react-native": "5.0.2",
-    "detox": "^8.2.3",
-    "jest": "23.5.0",
-    "react-test-renderer": "16.4.1"
+    "babel-preset-react-native": "4.0.1",
+    "jest": "^23.6.0",
+    "metro-react-native-babel-preset": "0.45.6",
+    "react-test-renderer": "16.5.2"
   },
   "jest": {
     "preset": "react-native",

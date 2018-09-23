@@ -5,4 +5,10 @@ keystore(
     visibility = [
         "PUBLIC",
     ],
+    name = "release",
+    properties = "release.keystore.properties",
+    store = "release.keystore",
+    visibility = [
+        "PRIVATE",
+    ],
 )

@@ -39,6 +39,7 @@ export class OverviewListItem extends React.PureComponent {
 
     const {
       name,
+      id,
       net,
     } = item;
 
@@ -63,6 +64,7 @@ export class OverviewListItem extends React.PureComponent {
         </Text>
 
         <View 
+          accessibilityLabel={`list-item-${id}`}
           style={overviewListStyle.contentContainer}
         >
           <OverviewListIconContainer 
