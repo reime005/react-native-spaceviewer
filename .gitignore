@@ -59,4 +59,3 @@ buck-out/
 third-party/
 *.apk
 .vscode
-/*.png
