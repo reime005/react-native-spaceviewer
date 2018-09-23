@@ -2,6 +2,7 @@ import wd from 'wd';
 import server from '../../test-config/server';
 import capabilities from '../../test-config/capabilities';
 import Axios from 'axios';
+import { platform } from 'os';
 
 const fs = require('fs');
 
@@ -40,8 +41,14 @@ describe('App', () => {
 
   async function screenIsThere(screen = 'Upcoming') {
     const lower = screen.toLowerCase();
+
     const viewLabel = `${lower}-screen`;
-    const tabBtn = `tab-btn-${screen}`;
+    let tabBtn = `tab-btn-${screen}`;
+
+    //TODO: [mr] hack (issue on iOS, doubled ID, probably caused by nesting views)
+    if (/ios/.test(process.env.E2E_DEVICE)) {
+      tabBtn = `${tabBtn} ${tabBtn}`;
+    }
 
     const element = await driver.elementByAccessibilityId(tabBtn);
 

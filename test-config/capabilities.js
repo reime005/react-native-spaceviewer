@@ -2,20 +2,32 @@ const capabilities = {
   local_android_debug: {
     platformName: 'Android',
     automationName: 'UiAUtomator2',
+    printPageSourceOnFindFailure: false,
     deviceName: 'Android Emulator',
     app: 'android/app/build/outputs/apk/debug/app-debug.apk'
   },
   local_android_release: {
     platformName: 'Android',
     automationName: 'UiAUtomator2',
+    printPageSourceOnFindFailure: false,
     deviceName: 'Android Emulator',
     app: 'android/app/build/outputs/apk/release/app-release.apk'
   },
-  local_ios: {
+  local_ios_debug: {
     platformName: 'iOS',
     deviceName: 'iPhone X',
+    printPageSourceOnFindFailure: false,
+    automationName: 'XCUITest',
     platformVersion: '11.4',
-    app: 'ios/build/Build/Products/Release-iphonesimulator/app.zip'
+    app: 'ios/app-debug.zip'
+  },
+  local_ios_release: {
+    platformName: 'iOS',
+    deviceName: 'iPhone X',
+    printPageSourceOnFindFailure: false,
+    automationName: 'XCUITest',
+    platformVersion: '11.4',
+    app: 'ios/app-release.zip'
   },
 };
 

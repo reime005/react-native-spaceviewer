@@ -56,6 +56,7 @@ export class OverviewListItem extends React.PureComponent {
     return (
       <CustomTouchableHighlight 
         onPress={this._onPress} 
+        accessibilityLabel={`list-item-${id}`}
         style={overviewListStyle.container}
       >
         <Text 
@@ -64,7 +65,6 @@ export class OverviewListItem extends React.PureComponent {
         </Text>
 
         <View 
-          accessibilityLabel={`list-item-${id}`}
           style={overviewListStyle.contentContainer}
         >
           <OverviewListIconContainer 

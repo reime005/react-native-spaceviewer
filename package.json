@@ -12,7 +12,11 @@
     "test-android-debug": "E2E_DEVICE=local_android_debug jest",
     "test-android-release": "E2E_DEVICE=local_android_release jest",
     "build-android-debug": "cd android; ./gradlew assembleDebug",
-    "build-android-release": "cd android; ./gradlew assembleRelease"
+    "build-android-release": "cd android; ./gradlew assembleRelease",
+    "test-ios-debug": "E2E_DEVICE=local_ios_debug jest",
+    "test-ios-release": "E2E_DEVICE=local_ios_release jest",
+    "build-ios-debug": "cd ios; xcodebuild -scheme 'Space Viewer' -sdk iphonesimulator -configuration Debug -derivedDataPath build/app; zip -r app-debug.zip build/app/Build/Products/Debug-iphonesimulator/*.app",
+    "build-ios-release": "cd ios; xcodebuild -scheme 'Space Viewer' -sdk iphonesimulator -configuration Release -derivedDataPath build/app; zip -r app-release.zip build/app/Build/Products/Release-iphonesimulator/*.app"
   },
   "dependencies": {
     "appcenter": "^1.7.1",
