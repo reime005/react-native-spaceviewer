@@ -18,7 +18,6 @@ const capabilities = {
     deviceName: 'iPhone X',
     printPageSourceOnFindFailure: false,
     automationName: 'XCUITest',
-    platformVersion: '11.4',
     app: 'ios/app-debug.zip'
   },
   local_ios_release: {
@@ -26,7 +25,6 @@ const capabilities = {
     deviceName: 'iPhone X',
     printPageSourceOnFindFailure: false,
     automationName: 'XCUITest',
-    platformVersion: '11.4',
     app: 'ios/app-release.zip'
   },
 };
