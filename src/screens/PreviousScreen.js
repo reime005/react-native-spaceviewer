@@ -9,7 +9,7 @@ export class PreviousScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }} accessibilityLabel={'previous-screen'}>
+      <View style={{ flex: 1 }} accessibilityLabel={'previous-screen'} testID={'previous-screen'}>
         <PreviousContainer
           {...this.props}
         />

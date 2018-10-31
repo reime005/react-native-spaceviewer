@@ -5,7 +5,7 @@ import { Provider, connect } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import codePush from "react-native-code-push";
 import {
-  createReduxBoundAddListener,
+  reduxifyNavigator,
   createReactNavigationReduxMiddleware,
 } from 'react-navigation-redux-helpers';
 
@@ -24,7 +24,6 @@ const navigationMiddleware = createReactNavigationReduxMiddleware(
   "root",
   state => state.nav,
 );
-export const addListener = createReduxBoundAddListener("root");
 
 const middleware = [
     navigationMiddleware,
@@ -38,6 +37,8 @@ sagaMiddleware.run(rootSaga);
 
 // Other configs
 console.disableYellowBox = true;
+
+const _AppNavigator = reduxifyNavigator(AppNavigator, 'root');
 
 // App: root component
 let _App = () => (

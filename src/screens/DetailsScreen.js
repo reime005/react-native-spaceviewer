@@ -38,7 +38,7 @@ export class DetailsScreen extends React.Component {
     }
 
     return (
-      <View style={{flex: 1}} accessibilityLabel={'details-screen'}>
+      <View style={{flex: 1}} accessibilityLabel={'details-screen'} testID={'details-screen'}>
         <StatusBar backgroundColor={'red'} />
         <DetailsContainer 
           item={this.state.item}

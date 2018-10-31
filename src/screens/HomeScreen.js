@@ -12,7 +12,7 @@ export class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }} accessibilityLabel={'upcoming-screen'}>
+      <View style={{ flex: 1 }} accessibilityLabel={'upcoming-screen'} testID={'upcoming-screen'}>
         <HomeContainer
           {...this.props}
         />

@@ -6,7 +6,6 @@ import { addNavigationHelpers, NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { RootNavigator } from '.';
 import { CLEAR_ALL_BLOCKED_EFFECTS } from '../../actions';
-import { addListener } from '../app/App.js';
 
 class _AppNavigator extends React.Component {
     static propTypes = {
@@ -54,7 +53,7 @@ class _AppNavigator extends React.Component {
 
         return (
             <RootNavigator
-                navigation={addNavigationHelpers({ dispatch, state: nav, addListener })}
+                 dispatch={dispatch} state={nav}
             />
         );
     }

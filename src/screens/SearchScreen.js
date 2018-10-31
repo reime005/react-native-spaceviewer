@@ -16,7 +16,7 @@ export class SearchScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }} accessibilityLabel={'search-screen'}>
+      <View style={{ flex: 1 }} accessibilityLabel={'search-screen'} testID={'search-screen'}>
         <SearchContainer
           {...this.props}
         />

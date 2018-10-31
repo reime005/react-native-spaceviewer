@@ -10,6 +10,7 @@ import { resetToMainRoute } from '../../actions/app/nav';
 import { AppLoadingError } from '../../components';
 import { colors } from '../../constants/theme';
 import mainStyle from '../../styles/mainStyle';
+import { HOME_SCREEN } from '../../constants/routes';
 
 const IMAGES_TO_LOAD = _.toArray(assetImages);
 
@@ -72,7 +73,7 @@ class _AppLoadingScreen extends Component  {
 
     _handleFinishLoading = (props) => {
         console.log('All Pre-loading complete!');
-        props.resetRoute();
+        props.navigation.navigate(HOME_SCREEN);
     };
 }
 
