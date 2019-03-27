@@ -89,7 +89,7 @@ jobs:
       - save-cache: *save-yarn-cache
 
       - restore-cache: *restore-cache-gradle
-      - run: cd android && chmod +x gradlew && ./gradlew buildDebug
+      - run: cd android && chmod +x gradlew && ./gradlew buildDebug --debug
 
 
 
