@@ -100,10 +100,10 @@ def enableProguardInReleaseBuilds = false
 def keystorePropertiesFile = rootProject.file("keystores/release.keystore.properties")
 
 // // Initialize a new Properties() object called keystoreProperties.
-// def keystoreProperties = new Properties()
+def keystoreProperties = new Properties()
 
 // // Load your keystore.properties file into the keystoreProperties object.
-// keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -140,10 +140,10 @@ android {
     }
     signingConfigs {
         release {
-            // keyAlias keystoreProperties['key.alias']
-            // keyPassword keystoreProperties['key.alias.password']
-            // storeFile file(keystoreProperties['key.store'])
-            // storePassword keystoreProperties['key.store.password']
+            keyAlias keystoreProperties['key.alias']
+            keyPassword keystoreProperties['key.alias.password']
+            storeFile file(keystoreProperties['key.store'])
+            storePassword keystoreProperties['key.store.password']
 	    }
     }
     splits {
