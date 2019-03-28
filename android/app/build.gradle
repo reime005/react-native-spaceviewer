@@ -99,13 +99,17 @@ def enableProguardInReleaseBuilds = false
 // keystore.properties file, in the rootProject folder.
 def keystorePropertiesFile = rootProject.file("keystores/release.keystore.properties")
 
-// // Initialize a new Properties() object called keystoreProperties.
+// Initialize a new Properties() object called keystoreProperties.
 def keystoreProperties = new Properties()
 
+// CI workaround
 if (keystorePropertiesFile.isFile() && keystorePropertiesFile.canRead()) {
     // Load your keystore.properties file into the keystoreProperties object.
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-}          
+} else {
+    keystorePropertiesFile = rootProject.file("keystores/debug.keystore.properties")
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
