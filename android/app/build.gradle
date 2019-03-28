@@ -74,7 +74,7 @@ import com.android.build.OutputFile
 
 project.ext.react = [
     entryFile: "index.js",
-    nodeExecutableAndArgs : ["/usr/local/bin/node"]
+    bundleInDebug: true,
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -93,7 +93,7 @@ def enableSeparateBuildPerCPUArchitecture = true
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = true
+def enableProguardInReleaseBuilds = false
 
 // Create a variable called keystorePropertiesFile, and initialize it to your
 // keystore.properties file, in the rootProject folder.
@@ -102,12 +102,36 @@ def keystorePropertiesFile = rootProject.file("keystores/release.keystore.proper
 // Initialize a new Properties() object called keystoreProperties.
 def keystoreProperties = new Properties()
 
-// Load your keystore.properties file into the keystoreProperties object.
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+// CI workaround
+if (keystorePropertiesFile.isFile() && keystorePropertiesFile.canRead()) {
+    // Load your keystore.properties file into the keystoreProperties object.
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+} else {
+    keystorePropertiesFile = rootProject.file("keystores/debug.keystore.properties")
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // todo: remove after cleanup (https://stackoverflow.com/a/26294495/5841225)
+    dexOptions {
+        preDexLibraries = false
+    }
+
+    // https://github.com/wix/detox/blob/master/docs/Introduction.Android.md
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
 
     defaultConfig {
         applicationId "com.mariusreimer.spaceviewer"
@@ -115,12 +139,10 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 3
         versionName "1.0.0"
-        ndk {
-            abiFilters "armeabi-v7a", "x86", "arm64-v8a"
-        }
         testBuildType System.getProperty('testBuildType', 'debug')
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         missingDimensionStrategy "minReactNative", "minReactNative46"
+        multiDexEnabled true
     }
     signingConfigs {
         release {
@@ -158,6 +180,12 @@ android {
             }
         }
     }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -167,10 +195,15 @@ dependencies {
     implementation project(':react-native-vector-icons')
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
+
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib:${rootProject.ext.kotlinVersion}"
+    androidTestImplementation(project(path: ":detox"), {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+    })
     androidTestImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test:rules:1.0.1'
-    androidTestImplementation project(path: ':detox')
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+
 }
 
 // Run this once to be able to run the application with BUCK
