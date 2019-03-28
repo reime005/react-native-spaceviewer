@@ -71,7 +71,7 @@ android_defaults: &android_defaults
   environment:
     - TERM: "dumb"
     - ADB_INSTALL_TIMEOUT: 10
-    - _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+    #- _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
     - GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
     - ANDROID_BUILD_TOOLS_VERSION: '28.0.3'
     - ANDROID_NDK: '/opt/ndk/android-ndk-r17c'
@@ -84,12 +84,12 @@ jobs:
     <<: *android_defaults
     steps:
       - checkout
-      - restore-cache: *restore-yarn-cache
+      #- restore-cache: *restore-yarn-cache
       - run: *yarn
-      - save-cache: *save-yarn-cache
+      #- save-cache: *save-yarn-cache
 
-      - restore-cache: *restore-cache-gradle
-      - run: cd android && chmod +x gradlew && ./gradlew buildDebug --debug
+      #- restore-cache: *restore-cache-gradle
+      - run: cd android && chmod +x gradlew && ./gradlew buildDebug
 
 
 
