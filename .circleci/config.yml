@@ -84,11 +84,11 @@ jobs:
     <<: *android_defaults
     steps:
       - checkout
-      #- restore-cache: *restore-yarn-cache
+      - restore-cache: *restore-yarn-cache
       - run: *yarn
-      #- save-cache: *save-yarn-cache
+      - save-cache: *save-yarn-cache
 
-      #- restore-cache: *restore-cache-gradle
+      - restore-cache: *restore-cache-gradle
       - run: cd android && chmod +x gradlew && ./gradlew buildDebug
 
 
