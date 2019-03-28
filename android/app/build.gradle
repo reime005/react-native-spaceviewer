@@ -102,9 +102,6 @@ def keystorePropertiesFile = rootProject.file("keystores/release.keystore.proper
 // // Initialize a new Properties() object called keystoreProperties.
 def keystoreProperties = new Properties()
 
-// // Load your keystore.properties file into the keystoreProperties object.
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -140,6 +137,8 @@ android {
     }
     signingConfigs {
         release {
+            // Load your keystore.properties file into the keystoreProperties object.
+            keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
             keyAlias keystoreProperties['key.alias']
             keyPassword keystoreProperties['key.alias.password']
             storeFile file(keystoreProperties['key.store'])
