@@ -12,7 +12,7 @@ buildscript {
     }
     repositories {
         google()
-        mavenLocal()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.1'
@@ -24,6 +24,8 @@ buildscript {
 }
 
 configurations.all {
+    resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
+
     resolutionStrategy.eachDependency { DependencyResolveDetails details ->
         def requested = details.requested
         if (requested.group == "com.android.support") {
