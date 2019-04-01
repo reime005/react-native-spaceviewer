@@ -11,8 +11,8 @@ buildscript {
         ext.detoxKotlinVersion = ext.kotlinVersion // Detox' version: should be 1.1.0 or higher!
     }
     repositories {
-        jcenter()
         google()
+        mavenLocal()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.1'
@@ -36,13 +36,17 @@ configurations.all {
 
 allprojects {
     repositories {
-        mavenLocal()
+        google()
         jcenter()
+        maven {
+            url 'https://maven.google.com'
+        }
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
-        google()
+        maven {
+            url "https://jitpack.io"
+        }
     }
 }
-

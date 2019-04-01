@@ -1,4 +1,4 @@
-import Axios from 'axios';
+const Axios = require('axios');
 
 if (!process.env.E2E_DEVICE) {
 

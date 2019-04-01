@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "postinstall": "sh scripts/postinstall.sh",
     "appium": "appium",
     "run-android": "react-native run-android",
     "run-ios": "react-native run-ios --simulator 'iPhone 6s'",
@@ -26,7 +27,7 @@
     "moment": "^2.24.0",
     "native-base": "^2.12.1",
     "react": "16.8.3",
-    "react-native": "^0.59.2",
+    "react-native": "^0.59.3",
     "react-native-code-push": "^5.6.0",
     "react-native-countdown-component": "^1.7.3",
     "react-native-fast-image": "^5.2.0",
@@ -52,7 +53,7 @@
     "babel-jest": "23.6.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react-native": "4.0.1",
-    "detox": "^10.0.13",
+    "detox": "^12.1.1",
     "jest": "^23.6.0",
     "metro-react-native-babel-preset": "^0.53.1",
     "react-test-renderer": "16.8.3"
@@ -62,6 +63,9 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|tcomb-form-native|apsl-react-native-button|react|parse|nect-frontend-common|nect-frontend-media-analyzer)"
+    ],
     "setupFiles": [
       "<rootDir>/node_modules/appcenter/test/AppCenterMock.js",
       "<rootDir>/node_modules/appcenter-analytics/test/AppCenterAnalyticsMock.js",
@@ -70,6 +74,7 @@
     ]
   },
   "detox": {
+    "specs": "",
     "configurations": {
       "ios.sim.debug": {
         "binaryPath": "ios/build/app/Build/Products/Debug-iphonesimulator/Space Viewer.app",
@@ -81,7 +86,7 @@
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
         "build": "pushd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && popd",
         "type": "android.emulator",
-        "name": "Nexus_5X_API_28_x86"
+        "name": "Nexus_5X_API_28"
       }
     },
     "test-runner": "jest"
