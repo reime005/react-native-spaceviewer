@@ -35,6 +35,7 @@
     "react-native-responsive-screen": "^1.2.1",
     "react-native-settings-list": "git://github.com/reime005/react-native-settings-list.git#expo",
     "react-native-vector-icons": "^6.4.2",
+    "react-native-webview": "^5.5.0",
     "react-navigation": "2.18.2",
     "react-navigation-redux-helpers": "2.0.8",
     "react-redux": "^5.1.1",

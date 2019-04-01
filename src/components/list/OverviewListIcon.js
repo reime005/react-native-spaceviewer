@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import FastImage from 'react-native-fast-image'
 
 import { overviewListIconBorderWidth, colors } from '../../constants/theme';
 import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
@@ -38,13 +37,13 @@ export class OverviewListIcon extends React.Component {
     if (!uri) {
       uri = 'https://s3.amazonaws.com/launchlibrary/RocketImages/placeholder_320.png';
     }
-    
+
     return(
       <View>
       {
           <CustomTouchableHighlight
           >
-            <FastImage 
+            <Image 
               style={{ 
                 // backgroundColor: colors.PRERENDER_IMAGE_BACKGROUND,
                 alignSelf: 'center',
@@ -57,9 +56,7 @@ export class OverviewListIcon extends React.Component {
               }}
               source={{
                 uri,
-                priority: FastImage.priority.fast,
               }}
-              resizeMode={FastImage.resizeMode.cover}
             />
           </CustomTouchableHighlight>
         }

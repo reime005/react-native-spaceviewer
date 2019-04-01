@@ -1,8 +1,7 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { assetImages } from '../../../assets/images';
 import { loadAppResources } from '../../actions';
@@ -47,10 +46,10 @@ class _AppLoadingScreen extends Component  {
 
         return (
           <View style={{flex: 1, backgroundColor: colors.PRIMARY, justifyContent: 'center'}}>
-            <FastImage
+            <Image
               style={mainStyle.splashImage}
               source={require('../../../assets/images/splash.png')}
-              resizeMode={FastImage.resizeMode.contain}
+              resizeMode='contain'
             />
           
           </View>
