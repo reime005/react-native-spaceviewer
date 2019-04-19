@@ -3271,7 +3271,7 @@ chalk@^2.0.0, chalk@^2.0.1:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^2.4.1:
+chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
   integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
@@ -3837,13 +3837,14 @@ detect-newline@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
 
-detox@^12.1.1:
-  version "12.1.1"
-  resolved "https://registry.yarnpkg.com/detox/-/detox-12.1.1.tgz#98fd44ee003b4ed159cc6a3d68d34598e4ae26a9"
-  integrity sha512-QbZ9F+XD4UFsEIn4QTiObhiEXs1Tq5nvPt3UIG9123uAfp4WHFTVnCJomQliMwJu6flK4JP9fXYHfzwcccyFug==
+detox@^12.4.0:
+  version "12.4.0"
+  resolved "https://registry.yarnpkg.com/detox/-/detox-12.4.0.tgz#f5c011af8a3264ea64e1caabfef8d10c35d9129a"
+  integrity sha512-QWITfaX4ra+zjl/VJdnCiiG4F8q6NzLhs2geOACKkgseLc7XJdczGS7qkKhTCoilGWvbgrMGPi4GXcK1kB3Cdw==
   dependencies:
     bunyan "^1.8.12"
     bunyan-debug-stream "^1.1.0"
+    chalk "^2.4.2"
     child-process-promise "^2.2.0"
     fs-extra "^4.0.2"
     get-port "^2.1.0"
@@ -3853,7 +3854,7 @@ detox@^12.1.1:
     proper-lockfile "^3.0.2"
     sanitize-filename "^1.6.1"
     shell-utils "^1.0.9"
-    tail "^1.2.3"
+    tail "^2.0.0"
     telnet-client "0.15.3"
     tempfile "^2.0.0"
     ws "^1.1.1"
@@ -7814,10 +7815,10 @@ react-native-webview@^5.5.0:
     escape-string-regexp "1.0.5"
     invariant "2.2.4"
 
-react-native@^0.59.3:
-  version "0.59.3"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.59.3.tgz#b984bbe457f63d5515046d32ea5721fd22843548"
-  integrity sha512-dv3AA2rH0L0IccxRkIs4YsriaECy9ttTXrwrgwETXqmE45uVrBFRGePUFnqjcikYkkm6sS0FRxcva088un76JA==
+react-native@^0.59.5:
+  version "0.59.5"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.59.5.tgz#79500d2885a3dc83216715e1fc6effa878ad6ea9"
+  integrity sha512-8Q/9cS6IMsGNiFhJgzmncbUeuacXQMe5EJl0c63fW30DvjEjeTVCvhM08eGzSpsNlOvL2XDRa4YOiCrwI7S1TA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@react-native-community/cli" "^1.2.1"
@@ -8979,9 +8980,10 @@ symbol-tree@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
 
-tail@^1.2.3:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/tail/-/tail-1.4.0.tgz#884b216220b90804bfe87a4c8174c2efed0e2661"
+tail@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/tail/-/tail-2.0.2.tgz#86073f3a9a568807b7fd886897a7350314275b5f"
+  integrity sha512-raFipiKWdGKEzxbvZwnhUGqjvsv0gpa/1A479rL//NOxnNwYZDN4MPk6xJJdUFs8P2Xrff3nbH5fcyYRLU4UHQ==
 
 tar-stream@^1.5.0:
   version "1.6.2"
