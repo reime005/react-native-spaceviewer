@@ -74,7 +74,7 @@ android_defaults: &android_defaults
     - GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx4G -XX:MaxPermSize=256M -XX:+HeapDumpOnOutOfMemoryError"'
     - ANDROID_BUILD_TOOLS_VERSION: '28.0.3'
     - ANDROID_NDK: '/opt/ndk/android-ndk-r17c'
-    - REACT_NATIVE_MAX_WORKERS: 2
+    - REACT_NATIVE_MAX_WORKERS: 1
 
 version: 2
 jobs:
