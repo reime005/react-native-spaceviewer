@@ -71,7 +71,7 @@ android_defaults: &android_defaults
   environment:
     - TERM: "dumb"
     - ADB_INSTALL_TIMEOUT: 10
-    - GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2g -XX:+HeapDumpOnOutOfMemoryError"'
+    - GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2G -XX:MaxPermSize=512M -XX:+HeapDumpOnOutOfMemoryError"'
     - ANDROID_BUILD_TOOLS_VERSION: '28.0.3'
     - ANDROID_NDK: '/opt/ndk/android-ndk-r17c'
     - REACT_NATIVE_MAX_WORKERS: 2
@@ -88,7 +88,7 @@ jobs:
       - save-cache: *save-yarn-cache
 
       - restore-cache: *restore-cache-gradle
-      - run: cd android && chmod +x gradlew && ./gradlew --debug assembleDebug assembleAndroidTest -DtestBuildType=debug
+      - run: cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug
 #      - run: node_modules/.bin/detox build -c android.emu.debug
 
 # Workflows enables us to run multiple jobs in parallel
