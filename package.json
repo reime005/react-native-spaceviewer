@@ -27,7 +27,7 @@
     "moment": "^2.24.0",
     "native-base": "^2.12.1",
     "react": "16.8.3",
-    "react-native": "^0.59.5",
+    "react-native": "^0.59.8",
     "react-native-code-push": "^5.6.0",
     "react-native-countdown-component": "^1.7.3",
     "react-native-fast-image": "^5.2.0",
@@ -44,20 +44,21 @@
     "redux-saga": "^0.16.0",
     "schedule": "^0.4.0",
     "venv": "^1.0.1",
-    "watchman": "^1.0.0",
-    "wd": "^1.11.1"
+    "watchman": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
-    "appium": "^1.12.0",
+    "@babel/helper-create-class-features-plugin": "^7.4.4",
+    "appium": "^1.13.0",
     "appium-doctor": "^1.9.0",
     "babel-jest": "23.6.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react-native": "4.0.1",
-    "detox": "^12.4.0",
+    "detox": "^12.7.0",
     "jest": "^23.6.0",
     "metro-react-native-babel-preset": "^0.53.1",
-    "react-test-renderer": "16.8.3"
+    "react-test-renderer": "16.8.3",
+    "wd": "^1.11.2"
   },
   "jest": {
     "preset": "react-native",
@@ -85,9 +86,9 @@
       },
       "android.emu.debug": {
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
-        "build": "pushd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && popd",
+        "build": "sed -i -e 's/targetSdkVersion = 28/targetSdkVersion = 27/g' ./android/build.gradle && pushd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && popd && sed -i -e 's/targetSdkVersion = 27/targetSdkVersion = 28/g' ./android/build.gradle",
         "type": "android.emulator",
-        "name": "Nexus_5X_API_28"
+        "name": "Pixel_2_API_28"
       }
     },
     "test-runner": "jest"

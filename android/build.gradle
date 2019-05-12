@@ -7,7 +7,7 @@ buildscript {
         compileSdkVersion = 28
         targetSdkVersion = 28
         supportLibVersion = "28.0.0"
-        ext.kotlinVersion = '1.3.0' // Your app's version
+        ext.kotlinVersion = '1.3.30' // Your app's version
         ext.detoxKotlinVersion = ext.kotlinVersion // Detox' version: should be 1.1.0 or higher!
     }
     repositories {
