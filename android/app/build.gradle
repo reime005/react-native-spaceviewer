@@ -75,6 +75,20 @@ import com.android.build.OutputFile
 project.ext.react = [
     entryFile: "index.js",
     bundleInDebug: true,
+    bundleInStaging: true,
+    bundleInRelease: true,
+    jsBundleDirDebug: "$buildDir/intermediates/assets/debug",
+    resourcesDirDebug: "$buildDir/intermediates/res/merged/debug",
+    jsBundleDirStaging: "$buildDir/intermediates/assets/staging",
+    resourcesDirStaging:
+        "$buildDir/intermediates/res/merged/staging",
+    jsBundleDirRelease: "$buildDir/intermediates/assets/release",
+    resourcesDirRelease:
+        "$buildDir/intermediates/res/merged/release",
+    devDisabledInDebug: false,
+    devDisabledInStaging: true,
+    devDisabledInRelease: true,
+    inputExcludes: ["ios/**", "__tests__/**", "bundle_out/**"]
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
