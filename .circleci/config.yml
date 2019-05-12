@@ -79,7 +79,7 @@ android_defaults: &android_defaults
 version: 2
 jobs:
   # Set up a Node environment for downstream jobs
-  build-android:
+  build-test-android:
     <<: *android_defaults
     steps:
       - checkout
@@ -88,17 +88,7 @@ jobs:
       - save-cache: *save-yarn-cache
 
       - restore-cache: *restore-cache-gradle
-      - run: cd android && chmod +x gradlew && ./gradlew assembleDebug
-
-  test-android:
-    <<: *android_defaults
-    steps:
-      - checkout
-      - restore-cache: *restore-yarn-cache
-      - run: *yarn
-      - save-cache: *save-yarn-cache
-
-      - restore-cache: *restore-cache-gradle
+#      - run: cd android && chmod +x gradlew && ./gradlew assembleDebug
       - run: node_modules/.bin/detox build -c android.emu.debug
 
 # Workflows enables us to run multiple jobs in parallel
@@ -106,5 +96,4 @@ workflows:
   version: 2
   build-and-test:
     jobs:
-      - build-android
-      - test-android
+      - build-test-android
