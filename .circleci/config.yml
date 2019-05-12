@@ -90,7 +90,16 @@ jobs:
       - restore-cache: *restore-cache-gradle
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug
 
+  test-android:
+    <<: *android_defaults
+    steps:
+      - checkout
+      - restore-cache: *restore-yarn-cache
+      - run: *yarn
+      - save-cache: *save-yarn-cache
 
+      - restore-cache: *restore-cache-gradle
+      - run: node_modules/.bin/detox build -c android.emu.debug
 
 # Workflows enables us to run multiple jobs in parallel
 workflows:
@@ -98,3 +107,4 @@ workflows:
   build-and-test:
     jobs:
       - build-android
+      - test-android
