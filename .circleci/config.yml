@@ -87,8 +87,16 @@ jobs:
       - run: *yarn
       - save-cache: *save-yarn-cache
 
+      - lint-check
+      - run: yarn lint-ci
+
+      - tests
+      - run: yarn test-ci
+
+      - build-android
       - restore-cache: *restore-cache-gradle
       - run: cd android && chmod +x gradlew && ./gradlew buildDebug
+      - save-cache: *save-gradle-cache
 
 
 
