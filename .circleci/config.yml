@@ -42,6 +42,14 @@ aliases:
     name: Build Android Space Viewer App
     command: ./gradlew assembleRelease -Pjobs=$BUILD_THREADS
 
+  - &lint-ci
+    name: Lint Checks
+    command: yarn lint-ci
+
+  - &test-ci
+    name: Tests
+    command: yarn test-ci
+
   - &yarn
     name: Run Yarn
     command: |
@@ -85,20 +93,14 @@ jobs:
       - checkout
       - restore-cache: *restore-yarn-cache
       - run: *yarn
-      - save-cache: *save-yarn-cache
 
-      - run:
-        name: lint-check
-        command: yarn lint-ci
-
-      - run:
-        name: tests
-        command: yarn test-ci
+      - run: *lint-ci
+      - run: *test-ci
 
       - build-android
       - run: cd android && chmod +x gradlew && ./gradlew buildDebug
 
-
+      - save-cache: *save-yarn-cache
 
 # Workflows enables us to run multiple jobs in parallel
 workflows:
