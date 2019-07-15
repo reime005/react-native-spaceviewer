@@ -50,6 +50,10 @@ aliases:
     name: Tests
     command: yarn test-ci
 
+  - &build-android
+    name: Build Android App
+    command: cd android && chmod +x gradlew && ./gradlew buildDebug
+
   - &yarn
     name: Run Yarn
     command: |
@@ -97,14 +101,6 @@ jobs:
       - run: *lint-ci
       - run: *test-ci
 
-      - build-android
-      - run: cd android && chmod +x gradlew && ./gradlew buildDebug
+      - run: *build-android
 
       - save-cache: *save-yarn-cache
-
-# Workflows enables us to run multiple jobs in parallel
-workflows:
-  version: 2
-  build-and-test:
-    jobs:
-      - build-android
