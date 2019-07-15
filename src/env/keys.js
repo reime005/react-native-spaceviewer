@@ -1,4 +1,4 @@
 module.exports = {
-    env: 'env',
-    apiHost: 'apiHost',
+  env: 'env',
+  apiHost: 'apiHost',
 };

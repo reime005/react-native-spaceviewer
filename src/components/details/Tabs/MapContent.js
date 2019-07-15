@@ -7,11 +7,6 @@ export class MapContent extends React.Component {
   render() {
     const size = Math.floor(mapSize);
 
-    return(
-      <MapContainer
-        size={size}
-        pad={this.props.pad}
-      />
-    )
+    return <MapContainer size={size} pad={this.props.pad} />;
   }
 }

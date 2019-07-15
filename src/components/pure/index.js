@@ -1,4 +1,4 @@
 /**
  * Components that could be shared between apps.
  */
-export * from './SocialIcons'
+export * from './SocialIcons';

@@ -1,16 +1,21 @@
-import {
-  connect
-} from 'react-redux';
+import { connect } from 'react-redux';
 import { SearchFieldView } from '../views';
-import { searchOnChangeTextSagaAction, searchClearSagaAction } from '../../actions';
+import {
+  searchOnChangeTextSagaAction,
+  searchClearSagaAction,
+} from '../../actions';
 
 export const SearchFieldContainer = connect(
-  (state) => ({
-    value: state.search.searchText
+  state => ({
+    value: state.search.searchText,
   }),
-  (dispatch) => ({
-    onClear: () => {dispatch(searchClearSagaAction())},
-    onChangeText: (searchText) => {dispatch(searchOnChangeTextSagaAction(searchText))}
+  dispatch => ({
+    onClear: () => {
+      dispatch(searchClearSagaAction());
+    },
+    onChangeText: searchText => {
+      dispatch(searchOnChangeTextSagaAction(searchText));
+    },
   })
 )(SearchFieldView);
 

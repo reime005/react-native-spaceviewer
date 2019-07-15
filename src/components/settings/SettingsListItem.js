@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-  Text,
-} from 'react-native';
+import { Text } from 'react-native';
 import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
 
 export class SettingsListItem extends React.Component {
   render() {
-    return(
+    return (
       <CustomTouchableHighlight>
         <Text>{this.props.title}</Text>
       </CustomTouchableHighlight>
-    )
+    );
   }
 }

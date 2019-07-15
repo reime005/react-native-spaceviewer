@@ -20,11 +20,11 @@ export default StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    flexDirection:'row',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'flex-end',
     alignSelf: 'flex-end',
-    marginTop: wp('2%')
+    marginTop: wp('2%'),
   },
   title: {
     flex: 0.2,
@@ -49,12 +49,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'center',
-    flexDirection:'row',
+    flexDirection: 'row',
   },
   smallTextIconContainer: {
     flex: 0.15,
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-  }
+  },
 });

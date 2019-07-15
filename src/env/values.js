@@ -1,7 +1,7 @@
 module.exports = {
-    env: {
-        dev: "development",
-        stag: "staging",
-        prod: "production"
-    },
-}
+  env: {
+    dev: 'development',
+    stag: 'staging',
+    prod: 'production',
+  },
+};

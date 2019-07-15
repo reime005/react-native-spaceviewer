@@ -6,26 +6,26 @@ export const SEARCH_SET_CLEAR = 'SEARCH_SET_CLEAR';
 export function searchSetTextAction(searchText) {
   return {
     type: SEARCH_SET_TEXT,
-    searchText
-  }
+    searchText,
+  };
 }
 
 export function searchSetResultAction(searchResult) {
   return {
     type: SEARCH_SET_RESULT,
-    searchResult
-  }
+    searchResult,
+  };
 }
 
 export function searchConcatResultAction(searchResult) {
   return {
     type: SEARCH_CONCAT_RESULT,
-    searchResult
-  }
+    searchResult,
+  };
 }
 
 export function searchSetClearAction() {
   return {
     type: SEARCH_SET_CLEAR,
-  }
+  };
 }

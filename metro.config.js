@@ -12,7 +12,7 @@ module.exports = {
       /android\/.*/,
       /node_modules\/.*\/node_modules\/react-native\/.*/,
       /e2e\/.*/,
-    ])
+    ]),
   },
   transformer: {
     getTransformOptions: async () => ({

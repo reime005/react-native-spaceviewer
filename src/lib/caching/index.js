@@ -5,17 +5,13 @@
  * @returns {Promise} Resolve when all child Promises resolved
  */
 export const loadResourcesAsync = async (assets = [], fonts = {}) => {
-    return Promise.all([
-        loadAsync(assets),
-        loadAsync(fonts),
-    ]);
-}
+  return Promise.all([loadAsync(assets), loadAsync(fonts)]);
+};
 
-const loadAsync = (files = []) => {
-}
+const loadAsync = (files = []) => {};
 
 /**
  * Load asset from the cache.
- * @param {Number} module - required asset e.g. [ require('./images/some.png') ] 
+ * @param {Number} module - required asset e.g. [ require('./images/some.png') ]
  */
 // export const loadCachedAsset = (module) => require(module);

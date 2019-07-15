@@ -1,8 +1,8 @@
-import { FILE_NEXT_LAUNCHES, FILE_PREV_LAUNCHES } from "../../constants/files";
+import { FILE_NEXT_LAUNCHES, FILE_PREV_LAUNCHES } from '../../constants/files';
 
-export default initialState = {
+export default {
   [FILE_NEXT_LAUNCHES]: [],
   [FILE_PREV_LAUNCHES]: [],
   isLoading: true,
   enddate: '',
-}
+};

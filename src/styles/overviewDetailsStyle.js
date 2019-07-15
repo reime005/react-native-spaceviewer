@@ -8,11 +8,11 @@ import layout from '../constants/layout';
 
 export default StyleSheet.create({
   modalContentent: {
-    flex: 1, 
-    backgroundColor: 'white', 
+    flex: 1,
+    backgroundColor: 'white',
     flexDirection: 'column',
     borderRadius: 15,
-    padding: layout.isSmallDevice ? 15 : 25
+    padding: layout.isSmallDevice ? 15 : 25,
   },
   modalStyle: {
     flex: 1,
@@ -27,12 +27,12 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     paddingTop: wp('3%'),
-    paddingBottom: wp('3%')
+    paddingBottom: wp('3%'),
   },
   detailsInfoTextHeader: {
-    backgroundColor: '#E0ECFE', 
-    alignItems: 'center', 
-    fontWeight: 'bold', 
+    backgroundColor: '#E0ECFE',
+    alignItems: 'center',
+    fontWeight: 'bold',
     // paddingTop: 0
   },
   contentContainer: {
@@ -45,7 +45,7 @@ export default StyleSheet.create({
   },
   tabsStyle: {
     borderWidth: 1,
-    borderColor: colors.DARK_TEXT_SECONDARY
+    borderColor: colors.DARK_TEXT_SECONDARY,
   },
   tabStyle: {
     // padding: wp('3%'),
@@ -63,14 +63,14 @@ export default StyleSheet.create({
     color: 'red',
   },
   tabTextStyle: {
-    color: colors.DARK_TEXT_PRIMARY
+    color: colors.DARK_TEXT_PRIMARY,
   },
   tabActiveTextStyle: {
     fontWeight: 'bold',
-    color: colors.DARK_TEXT_PRIMARY
+    color: colors.DARK_TEXT_PRIMARY,
   },
   tabBarUnderlineStyle: {
-    backgroundColor: colors.PRIMARY
+    backgroundColor: colors.PRIMARY,
   },
   detailsInfoContainer: {
     flex: 1,
@@ -83,7 +83,7 @@ export default StyleSheet.create({
     // flex: 1,
     width: layout.isSmallDevice ? '100%' : '45%',
     paddingLeft: layout.isSmallDevice ? 0 : wp('2%'),
-    marginTop: layout.isSmallDevice ? wp('2%') : 0
+    marginTop: layout.isSmallDevice ? wp('2%') : 0,
   },
   mapViewContainer: {
     justifyContent: 'center',
@@ -98,7 +98,7 @@ export default StyleSheet.create({
     fontSize: layout.isSmallDevice ? wp('8%') : wp('3%'),
   },
   timerContainer: {
-    flex: 1, 
+    flex: 1,
     height: layout.isSmallDevice ? hp('12%') : hp('6%'),
     alignItems: 'center',
     justifyContent: 'center',
@@ -119,16 +119,16 @@ export default StyleSheet.create({
   },
   rocketContentContainer: {
     width: layout.isSmallDevice ? wp('90%') : wp('70%'),
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   missionContent: {
-    width: '90%', 
-    alignSelf: 'center'
+    width: '90%',
+    alignSelf: 'center',
   },
   padContent: {
     marginLeft: wp('1%'),
     marginRight: wp('1%'),
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   agencyContent: {
     marginTop: wp('2%'),
@@ -137,8 +137,8 @@ export default StyleSheet.create({
     marginBottom: wp('2%'),
   },
   cardItem: {
-    flex: 1, 
-    flexDirection: 'row', 
-    flexWrap: 'wrap'
-  }
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
 });

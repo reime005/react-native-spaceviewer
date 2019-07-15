@@ -1,17 +1,19 @@
-import { call, put, select, race } from "redux-saga/effects";
-import { delay } from "redux-saga";
+import { call, put, select, race } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 import axios from 'axios';
 
 import * as selectors from './selectors';
-import * as actions from "../actions";
-import * as apiConstants from "../constants/api";
-import { searchSetClearAction, searchSetResultAction, searchSetTextAction, searchConcatResultAction } from "../actions";
-import { changeImageUrlWithCached } from "./cache";
+import * as apiConstants from '../constants/api';
+import {
+  searchSetClearAction,
+  searchSetResultAction,
+  searchSetTextAction,
+  searchConcatResultAction,
+} from '../actions';
+import { changeImageUrlWithCached } from './cache';
 
 export function* searchOnChangeText(action) {
-  const {
-    searchText
-  } = action;
+  const { searchText } = action;
 
   yield put(searchSetTextAction(searchText));
 
@@ -45,19 +47,16 @@ function* fetchSearchData(name = '', offset = 0) {
   const mode = apiConstants.DEFAULT_PARAM_MODE;
 
   try {
-    const {
-      res,
-      timeout
-    } = yield race({
+    const { res, timeout } = yield race({
       res: call(axios.get, apiConstants.URI_SEARCH_LAUNCHES, {
         params: {
           name,
           offset,
           sort: 'desc',
           limit: 20,
-          mode
+          mode,
         },
-        timeout: 10000
+        timeout: 10000,
       }),
       timeout: call(delay, 10000),
     });

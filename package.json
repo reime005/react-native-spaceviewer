@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "lint": "eslint 'src/**/*.{js,jsx}' --quiet --fix",
     "postinstall": "sh scripts/postInstallHacks.sh",
     "appium": "appium",
     "run-android": "react-native run-android",
@@ -44,7 +45,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/runtime": "^7.5.4",
-    "@react-native-community/eslint-config": "^0.0.5",
+    "@react-native-community/eslint-config": "0.0.5",
     "appium": "^1.14.0",
     "appium-doctor": "^1.11.1",
     "babel-jest": "23.6.0",
@@ -52,7 +53,16 @@
     "babel-preset-react-native": "4.0.1",
     "detox": "^13.1.1",
     "eslint": "^6.0.1",
+    "eslint-config-react-native-prettier": "^1.0.1",
+    "eslint-plugin-flowtype": "^3.11.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "eslint-plugin-react-native": "^3.7.0",
+    "eslint-plugin-redux-saga": "^1.0.0",
+    "husky": "^3.0.0",
     "jest": "^24.8.0",
+    "lint-staged": "^9.2.0",
     "metro-react-native-babel-preset": "^0.55.0",
     "react-test-renderer": "16.8.6"
   },
@@ -61,11 +71,8 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
-    "setupFiles": [
-      "<rootDir>/node_modules/appcenter/test/AppCenterMock.js",
-      "<rootDir>/node_modules/appcenter-analytics/test/AppCenterAnalyticsMock.js",
-      "<rootDir>/node_modules/appcenter-crashes/test/AppCenterCrashesMock.js",
-      "<rootDir>/node_modules/appcenter-push/test/AppCenterPushMock.js"
+    "testMatch": [
+      "<rootDir>/(test/unit/**/*.spec.(js|jsx|ts|tsx)|**/__test__/*.(js|jsx|ts|tsx))"
     ]
   },
   "detox": {

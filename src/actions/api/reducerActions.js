@@ -10,28 +10,27 @@ export function setLaunchesAction(launches, launchType) {
   return {
     type: SET_LAUNCHES,
     launches,
-    launchType
-  }
+    launchType,
+  };
 }
 
 export function setPrevEnddateAction(enddate) {
   return {
     type: SET_PREV_ENDDATE,
-    enddate
-  }
+    enddate,
+  };
 }
 
 export function concatLaunchesAction(launches, launchType) {
   return {
     type: CONCAT_LAUNCHES,
     launches,
-    launchType
-  }
+    launchType,
+  };
 }
 
 export function setNextLaunchesFailAction() {
   return {
     type: LOAD_NEXT_LAUNCHES_FAIL,
-  }
+  };
 }
-
