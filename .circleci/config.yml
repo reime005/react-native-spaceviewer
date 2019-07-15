@@ -94,9 +94,7 @@ jobs:
       - run: yarn test-ci
 
       - build-android
-      - restore-cache: *restore-cache-gradle
       - run: cd android && chmod +x gradlew && ./gradlew buildDebug
-      - save-cache: *save-gradle-cache
 
 
 
