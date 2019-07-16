@@ -91,7 +91,7 @@ android_defaults: &android_defaults
 version: 2
 jobs:
   # Set up a Node environment for downstream jobs
-  build-android:
+  build:
     <<: *android_defaults
     steps:
       - checkout
