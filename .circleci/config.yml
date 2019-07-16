@@ -79,7 +79,7 @@ android_defaults: &android_defaults
   <<: *defaults
   docker:
   - image: reactnativecommunity/react-native-android
-  resource_class: "large"
+  resource_class: "medium"
   environment:
       - GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
       - REACT_NATIVE_MAX_WORKERS: 2

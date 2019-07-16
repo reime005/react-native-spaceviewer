@@ -4,7 +4,7 @@
   "main": "App.js",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native start --max-workers=1",
     "lint-ci": "eslint 'src/**/*.{js,jsx}' --quiet",
     "lint": "yarn lint-ci --fix",
     "postinstall": "sh scripts/postInstallHacks.sh",
