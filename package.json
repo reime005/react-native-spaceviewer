@@ -4,7 +4,7 @@
   "main": "App.js",
   "private": true,
   "scripts": {
-    "start": "react-native start --max-workers=1",
+    "start": "react-native start",
     "lint-ci": "eslint 'src/**/*.{js,jsx}' --quiet",
     "lint": "yarn lint-ci --fix",
     "postinstall": "sh scripts/postInstallHacks.sh",
@@ -23,7 +23,6 @@
     "build-ios-release": "pushd ios; xcodebuild -UseModernBuildSystem=NO -scheme 'Space Viewer' -sdk iphonesimulator -configuration Release -derivedDataPath build/app; zip -r app-release.zip build/app/Build/Products/Release-iphonesimulator/*.app; popd"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "flow": "^0.2.3",
     "moment": "^2.24.0",
     "native-base": "git://github.com/GeekyAnts/NativeBase.git",

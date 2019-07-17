@@ -37,7 +37,7 @@ const store = createStore(reducers, {}, applyMiddleware(...middleware));
 sagaMiddleware.run(rootSaga);
 
 // Other configs
-console.disableYellowBox = true;
+console.disableYellowBox = false;
 
 const _AppNavigator = reduxifyNavigator(AppNavigator, 'root');
 

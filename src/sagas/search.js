@@ -1,6 +1,5 @@
 import { call, put, select, race } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
-import axios from 'axios';
 
 import * as selectors from './selectors';
 import * as apiConstants from '../constants/api';
@@ -48,21 +47,22 @@ function* fetchSearchData(name = '', offset = 0) {
 
   try {
     const { res, timeout } = yield race({
-      res: call(axios.get, apiConstants.URI_SEARCH_LAUNCHES, {
-        params: {
-          name,
-          offset,
-          sort: 'desc',
-          limit: 20,
-          mode,
-        },
-        timeout: 10000,
-      }),
+      res: fetch(
+        `${
+          apiConstants.URI_SEARCH_LAUNCHES
+        }?name=${name}&offset=${offset}&sort=desc&limit=20&mode=${mode}`
+      ),
       timeout: call(delay, 10000),
     });
 
-    if (res && res.data.launches) {
-      return res.data.launches;
+    if (timeout) {
+      return [];
+    }
+
+    const data = yield res.json();
+
+    if (data && data.launches) {
+      return data.launches;
     }
   } catch (e) {
     //TODO: error handling

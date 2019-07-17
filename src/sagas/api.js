@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { delay } from 'redux-saga';
 import { call, put, race, select } from 'redux-saga/effects';
 import * as actions from '../actions';
@@ -53,19 +52,22 @@ function* fetchReturnNextLaunches(action) {
   // fetch the initial sequence
   try {
     const { res, timeout } = yield race({
-      res: call(axios.get, apiConstants.URI_NEXT_LAUNCHES, {
-        params: {
-          next,
-          offset,
-          mode,
-        },
-        timeout: 10000,
-      }),
+      res: fetch(
+        `${
+          apiConstants.URI_NEXT_LAUNCHES
+        }?next=${next}&offset=${offset}&mode=${mode}`
+      ),
       timeout: call(delay, 10000),
     });
 
-    if (res) {
-      launches = res.data.launches;
+    if (timeout) {
+      return [];
+    }
+
+    const data = yield res.json();
+
+    if (data && data.launches) {
+      return data.launches;
     }
   } catch (e) {
     //TODO: error handling
@@ -98,24 +100,25 @@ function* fetchReturnPrevLaunches(action) {
   // fetch the initial sequence
   try {
     const { res, timeout } = yield race({
-      res: call(axios.get, apiConstants.URI_PREV_LAUNCHES, {
-        params: {
-          startdate,
-          enddate,
-          limit,
-          sort: 'desc',
-          mode,
-        },
-        timeout: apiConstants.DEFAULT_GET_TIMEOUT_MILISECONDS,
-      }),
+      res: fetch(
+        `${
+          apiConstants.URI_PREV_LAUNCHES
+        }?startdate=${startdate}&enddate=${enddate}&limit=${limit}&sort=desc&mode=${mode}`
+      ),
       timeout: call(
         delay,
         apiConstants.DEFAULT_GET_TIMEOUT_MILISECONDS * 1.125
       ),
     });
 
-    if (res) {
-      prevLaunches = res.data.launches;
+    if (timeout) {
+      return [];
+    }
+
+    const data = yield res.json();
+
+    if (data && data.launches) {
+      return data.launches;
     }
   } catch (e) {
     //TODO: error handling
