@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import idx from 'idx';
 
 if (!process.env.E2E_DEVICE) {
   let nextLaunchId = -1;
@@ -6,14 +6,13 @@ if (!process.env.E2E_DEVICE) {
   describe('Example', () => {
     beforeAll(async () => {
       try {
-        const response = await Axios.get(
+        const response = await fetch(
           'https://launchlibrary.net/1.4/launch?next=1'
         );
-        nextLaunchId =
-          response.data &&
-          response.data.launches &&
-          response.data.launches[0] &&
-          response.data.launches[0].id;
+
+        const data = await response.json();
+
+        nextLaunchId = idx(data, _ => _.launches[0].id);
       } catch (error) {
         console.error(error);
       }

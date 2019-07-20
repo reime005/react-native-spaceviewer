@@ -3,7 +3,6 @@
 import wd from 'wd';
 import server from '../../test-config/server';
 import capabilities from '../../test-config/capabilities';
-import Axios from 'axios';
 
 const fs = require('fs');
 
@@ -16,14 +15,13 @@ let nextLaunchId = -1;
 describe('App', () => {
   beforeAll(async () => {
     try {
-      const response = await Axios.get(
+      const response = await fetch(
         'https://launchlibrary.net/1.4/launch?next=1'
       );
-      nextLaunchId =
-        response.data &&
-        response.data.launches &&
-        response.data.launches[0] &&
-        response.data.launches[0].id;
+
+      const data = await response.json();
+
+      nextLaunchId = idx(data, _ => _.launches[0].id);
 
       await driver.init(capabilities);
 
