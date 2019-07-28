@@ -1,15 +1,12 @@
-import { call, put } from "redux-saga/effects";
+import { call, put } from 'redux-saga/effects';
 
-import { settingsSetValueAction } from "../actions";
+import { settingsSetValueAction } from '../actions';
 import * as settingsKeys from '../constants/settings';
-import { setItemToStore, getItemFromStore } from "../lib/storage";
-import { defaultSettingForKey } from "../lib/storage/defaultSettingForKey";
+import { setItemToStore, getItemFromStore } from '../lib/storage';
+import { defaultSettingForKey } from '../lib/storage/defaultSettingForKey';
 
 export function* saveValue(action) {
-  const {
-    key,
-    value
-  } = action;
+  const { key, value } = action;
 
   if (!key || !value) {
     return;
@@ -26,7 +23,7 @@ export function* saveValue(action) {
 export function* rehydrateSettings() {
   const keys = Object.values(settingsKeys);
   let value = {};
-  
+
   for (let i = 0; i < keys.length; i++) {
     try {
       const key = keys[i];
@@ -34,9 +31,9 @@ export function* rehydrateSettings() {
 
       if (!value) {
         value = yield call(defaultSettingForKey, key);
-        yield call(saveValue, {key, value});
+        yield call(saveValue, { key, value });
         // return;
-      } 
+      }
       yield put(settingsSetValueAction(key, value));
     } catch (error) {
       console.log(error);

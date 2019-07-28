@@ -4,10 +4,15 @@
   "main": "App.js",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native start",
+    "lint-ci": "eslint 'src/**/*.{js,jsx}' --quiet",
+    "lint": "yarn lint-ci --fix",
+    "postinstall": "sh scripts/postInstallHacks.sh",
     "appium": "appium",
     "run-android": "react-native run-android",
     "run-ios": "react-native run-ios --simulator 'iPhone 6s'",
+    "test-ci": "jest --passWithNoTests",
+    "test": "yarn test-ci --watch",
     "test-android-debug": "E2E_DEVICE=local_android_debug jest",
     "test-android-release": "E2E_DEVICE=local_android_release jest",
     "build-android-debug": "pushd android; ./gradlew assembleDebug; popd",
@@ -18,55 +23,59 @@
     "build-ios-release": "pushd ios; xcodebuild -UseModernBuildSystem=NO -scheme 'Space Viewer' -sdk iphonesimulator -configuration Release -derivedDataPath build/app; zip -r app-release.zip build/app/Build/Products/Release-iphonesimulator/*.app; popd"
   },
   "dependencies": {
-    "appcenter": "^1.13.0",
-    "appcenter-analytics": "^1.13.0",
-    "appcenter-crashes": "^1.13.0",
-    "appcenter-push": "^1.13.0",
-    "axios": "^0.18.0",
+    "flow": "^0.2.3",
+    "idx": "^2.5.6",
     "moment": "^2.24.0",
-    "native-base": "^2.12.1",
-    "react": "16.8.3",
-    "react-native": "^0.59.2",
+    "native-base": "git://github.com/GeekyAnts/NativeBase.git",
+    "react": "16.8.6",
+    "react-native": "0.60.4",
     "react-native-code-push": "^5.6.0",
     "react-native-countdown-component": "^1.7.3",
-    "react-native-fast-image": "^5.2.0",
+    "react-native-fast-image": "^7.0.2",
     "react-native-google-static-map": "^0.1.13",
     "react-native-responsive-screen": "^1.2.1",
     "react-native-settings-list": "git://github.com/reime005/react-native-settings-list.git#expo",
-    "react-native-vector-icons": "^6.4.2",
+    "react-native-vector-icons": "6.6.0",
     "react-navigation": "2.18.2",
     "react-navigation-redux-helpers": "2.0.8",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
-    "schedule": "^0.4.0",
     "venv": "^1.0.1",
-    "watchman": "^1.0.0",
-    "wd": "^1.11.1"
+    "wd": "^1.11.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "appium": "^1.12.0",
-    "appium-doctor": "^1.9.0",
-    "babel-jest": "23.6.0",
+    "@babel/core": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@react-native-community/eslint-config": "0.0.5",
+    "appium": "^1.14.0",
+    "appium-doctor": "^1.11.1",
+    "babel-jest": "24.8.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react-native": "4.0.1",
-    "detox": "^10.0.13",
-    "jest": "^23.6.0",
-    "metro-react-native-babel-preset": "^0.53.1",
-    "react-test-renderer": "16.8.3"
+    "detox": "^13.1.1",
+    "eslint": "^6.0.1",
+    "eslint-config-react-native-prettier": "^1.0.1",
+    "eslint-plugin-flowtype": "^3.12.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "eslint-plugin-react-native": "^3.7.0",
+    "eslint-plugin-redux-saga": "^1.0.0",
+    "husky": "^3.0.1",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.2.0",
+    "metro-react-native-babel-preset": "0.55.0",
+    "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native",
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
-    "setupFiles": [
-      "<rootDir>/node_modules/appcenter/test/AppCenterMock.js",
-      "<rootDir>/node_modules/appcenter-analytics/test/AppCenterAnalyticsMock.js",
-      "<rootDir>/node_modules/appcenter-crashes/test/AppCenterCrashesMock.js",
-      "<rootDir>/node_modules/appcenter-push/test/AppCenterPushMock.js"
+    "testMatch": [
+      "<rootDir>/(test/unit/**/*.spec.(js|jsx|ts|tsx)|**/__test__/*.(js|jsx|ts|tsx))"
     ]
   },
   "detox": {
@@ -85,5 +94,9 @@
       }
     },
     "test-runner": "jest"
+  },
+  "resolutions": {
+    "js-yaml": "^3.13.1",
+    "pem": "^1.13.2"
   }
 }

@@ -6,20 +6,20 @@ export function settingsSetValueAction(key, value) {
   return {
     type: SETTINGS_SET_VALUE,
     key,
-    value
-  }
+    value,
+  };
 }
 
 export function settingsSaveValueSagaAction(key, value) {
   return {
     type: SETTINGS_SAVE_VALUE,
     key,
-    value
-  }
+    value,
+  };
 }
 
 export function settingsRehydrateSagaAction() {
   return {
     type: SETTINGS_REHYDRATE,
-  }
+  };
 }

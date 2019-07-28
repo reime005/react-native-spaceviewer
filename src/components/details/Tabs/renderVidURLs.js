@@ -7,11 +7,5 @@ export const renderVidURLs = (vidURLs = [], openURLMethod) => {
     return null;
   }
 
-  return(
-    Array.from(vidURLs, vidURL => (
-      <StreamBadge
-        url={vidURL}
-      />
-    ))
-  )
-} 
+  return Array.from(vidURLs, vidURL => <StreamBadge url={vidURL} />);
+};

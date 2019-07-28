@@ -6,20 +6,11 @@ import { ItemContent } from './ItemContent';
 import { Card } from 'native-base';
 
 const renderItems = (data, renderItem) => {
-  return(
-      
-        Array.from(data, item => ItemContent(item, renderItem))
-      
-  )
-}
+  return Array.from(data, item => ItemContent(item, renderItem));
+};
 
-export const ArrayContent = (props) => {
+export const ArrayContent = props => {
   const data = props.data || [];
 
-  return(
-    
-      renderItems(data, props.renderItem)
-    
-);
-}
-
+  return renderItems(data, props.renderItem);
+};

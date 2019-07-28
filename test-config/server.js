@@ -1,9 +1,9 @@
 const server_url = {
-  'local': 'localhost',
-}
+  local: 'localhost',
+};
 const server_port = {
-  'local': 4723,
-}
+  local: 4723,
+};
 
 if (!process.env.E2E_DEVICE) {
   throw new Error('E2E_DEVICE environment variable is not defined');
@@ -12,7 +12,9 @@ if (!process.env.E2E_DEVICE) {
 const server = process.env.E2E_DEVICE.split('_')[0];
 
 if (!server_url[server]) {
-  throw new Error(`Server URL not found for E2E_DEVICE environment ${process.env.E2E_DEVICE}`);
+  throw new Error(
+    `Server URL not found for E2E_DEVICE environment ${process.env.E2E_DEVICE}`
+  );
 }
 
 export default {

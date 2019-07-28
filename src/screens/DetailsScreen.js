@@ -7,29 +7,29 @@ import mainStyle from '../styles/mainStyle';
 
 export class DetailsScreen extends React.Component {
   state = {
-    item: undefined
-  }
-  
+    item: undefined,
+  };
+
   static navigationOptions = ({ navigation }) => {
     return {
-      headerTitle: navigation
-        .getParam('name', 'Details'),
-      headerLeft: 
-        <SocialUrlIcon 
-          iconName='chevron-left'
+      headerTitle: navigation.getParam('name', 'Details'),
+      headerLeft: (
+        <SocialUrlIcon
+          iconName="chevron-left"
           size={headerLeftSize}
           color={colors.HEADER_LEFT_COLOR}
           onPress={() => navigation.goBack()}
         />
+      ),
     };
   };
 
-  componentWillMount() {
-    const item = this.props.navigation.getParam("item", {});
+  componentDidMount() {
+    const item = this.props.navigation.getParam('item', {});
 
     this.setState({
-      item
-    })
+      item,
+    });
   }
 
   render() {
@@ -38,9 +38,12 @@ export class DetailsScreen extends React.Component {
     }
 
     return (
-      <View style={{flex: 1}} accessibilityLabel={'details-screen'} testID={'details-screen'}>
+      <View
+        style={{ flex: 1 }}
+        accessibilityLabel={'details-screen'}
+        testID={'details-screen'}>
         <StatusBar backgroundColor={'red'} />
-        <DetailsContainer 
+        <DetailsContainer
           item={this.state.item}
           navigation={this.props.navigation}
         />

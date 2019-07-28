@@ -5,24 +5,14 @@ import overviewDetailsStyle from '../../styles/overviewDetailsStyle';
 import { OverviewListIconContainer } from '../container/OverviewListIconContainer';
 import { DetailsInfoTextContent } from './DetailsInfoTextContent';
 
-export const DetailsInfoContent = (props) => {
-  const {
-    uri,
-  } = props;
+export const DetailsInfoContent = props => {
+  const { uri } = props;
 
-  return(
-    <View 
-      style={overviewDetailsStyle.detailsInfoContainer}
-    >
-      <OverviewListIconContainer 
-        uri={uri} 
-        size={detailViewImageSize}
-      />
+  return (
+    <View style={overviewDetailsStyle.detailsInfoContainer}>
+      <OverviewListIconContainer uri={uri} size={detailViewImageSize} />
 
-      <DetailsInfoTextContent
-        {...props}
-      />
-
+      <DetailsInfoTextContent {...props} />
     </View>
-  )
-}
+  );
+};

@@ -4,12 +4,13 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { colors, settingsListItemIconSize } from '../../constants/theme';
 import settingsStyle from '../../styles/settingsStyle';
 
-export const SettingsListItemIcon = (props) => {
-  return(
-    <MaterialCommunityIcons 
+export const SettingsListItemIcon = props => {
+  return (
+    <MaterialCommunityIcons
       {...props}
       style={settingsStyle.iconStyle}
-      color={colors.PRIMARY} 
-      size={settingsListItemIconSize} />
-  )
-}
+      color={colors.PRIMARY}
+      size={settingsListItemIconSize}
+    />
+  );
+};

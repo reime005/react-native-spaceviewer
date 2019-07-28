@@ -5,10 +5,9 @@ import GoogleStaticMap from 'react-native-google-static-map';
 import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
 import overviewDetailsStyle from '../../styles/overviewDetailsStyle';
 
-export const MapView = (props) => (
+export const MapView = props => (
   <CustomTouchableHighlight
-    onPress={() => props.openFirstMapLocation([props.pad])}   
-  >
+    onPress={() => props.openFirstMapLocation([props.pad])}>
     <View style={{ position: 'relative' }}>
       <GoogleStaticMap
         style={overviewDetailsStyle.mapView}
@@ -20,6 +19,6 @@ export const MapView = (props) => (
       />
     </View>
   </CustomTouchableHighlight>
-)
+);
 
 export default MapView;

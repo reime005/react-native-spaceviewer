@@ -3,7 +3,8 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import codePush from "react-native-code-push";
+/* eslint-disable-next-line */
+import codePush from 'react-native-code-push';
 import {
   reduxifyNavigator,
   createReactNavigationReduxMiddleware,
@@ -21,14 +22,14 @@ const sagaMiddleware = createSagaMiddleware();
 
 // Note: createReactNavigationReduxMiddleware must be run before createReduxBoundAddListener
 const navigationMiddleware = createReactNavigationReduxMiddleware(
-  "root",
-  state => state.nav,
+  'root',
+  state => state.nav
 );
 
 const middleware = [
-    navigationMiddleware,
-    sagaMiddleware,
-    // logger,
+  navigationMiddleware,
+  sagaMiddleware,
+  // logger,
 ];
 
 const store = createStore(reducers, {}, applyMiddleware(...middleware));
@@ -36,38 +37,38 @@ const store = createStore(reducers, {}, applyMiddleware(...middleware));
 sagaMiddleware.run(rootSaga);
 
 // Other configs
-console.disableYellowBox = true;
+console.disableYellowBox = false;
 
 const _AppNavigator = reduxifyNavigator(AppNavigator, 'root');
 
 // App: root component
 let _App = () => (
-    <Provider store={store}>
-        <View style={styles.container}>
-            {Platform.OS === 'ios' && <StatusBar hidden={true} barStyle="default" />}
-            {Platform.OS === 'android' && <StatusBar hidden={true} />}
-            <AppNavigator />
-        </View>
-    </Provider>
+  <Provider store={store}>
+    <View style={styles.container}>
+      {Platform.OS === 'ios' && <StatusBar hidden={true} barStyle="default" />}
+      {Platform.OS === 'android' && <StatusBar hidden={true} />}
+      <AppNavigator />
+    </View>
+  </Provider>
 );
 
 export const App = codePush(codePushOptions)(_App);
 
-const mapStateToProps = (state) => ({
-  nav: state.nav
+const mapStateToProps = state => ({
+  nav: state.nav,
 });
 
 const AppWithNavigationState = connect(mapStateToProps)(App);
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: colors.BACKGROUND,
-    },
-    // statusBarUnderlay: {
-    //     height: 24,paddingTop: 20, marginTop: -20,
-    //     backgroundColor: colors.PRIMARY_ALPHA,
-    // },
+  container: {
+    flex: 1,
+    backgroundColor: colors.BACKGROUND,
+  },
+  // statusBarUnderlay: {
+  //     height: 24,paddingTop: 20, marginTop: -20,
+  //     backgroundColor: colors.PRIMARY_ALPHA,
+  // },
 });
 
 export default AppWithNavigationState;

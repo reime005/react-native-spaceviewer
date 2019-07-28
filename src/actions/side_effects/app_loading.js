@@ -16,17 +16,17 @@ export const LOAD_APP_RESOURCES_ERROR = pfx + 'LOAD_APP_RESOURCES_ERROR';
  * @param {Array} assets - A list of required assets, eg. [ require('./images/some.png') ]
  * @param {Object} fonts - A list of required fonts, eg. [ 'space-mono': require('../../assets/fonts/SpaceMono-Regular.ttf') ]
  */
-export const loadAppResources = (assets=[], fonts={}) => ({
-    type: LOAD_APP_RESOURCES,
-    assets,
-    fonts
+export const loadAppResources = (assets = [], fonts = {}) => ({
+  type: LOAD_APP_RESOURCES,
+  assets,
+  fonts,
 });
 
 export default {
-    LOAD_APP_RESOURCES,
-    LOAD_APP_RESOURCES_STARTED,
-    LOAD_APP_RESOURCES_SUCCESS,
-    LOAD_APP_RESOURCES_ERROR,
+  LOAD_APP_RESOURCES,
+  LOAD_APP_RESOURCES_STARTED,
+  LOAD_APP_RESOURCES_SUCCESS,
+  LOAD_APP_RESOURCES_ERROR,
 
-    loadAppResources
+  loadAppResources,
 };
