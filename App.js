@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { App } from './src/containers/app';
+import { AppWithNavigationState } from './src/containers/app/App';
 
 // In case any props is passed from expo configs to App.js
-export default (props) => <App {...props} />
+export default props => <AppWithNavigationState {...props} />;

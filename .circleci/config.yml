@@ -42,6 +42,18 @@ aliases:
     name: Build Android Space Viewer App
     command: ./gradlew assembleRelease -Pjobs=$BUILD_THREADS
 
+  - &lint-ci
+    name: Lint Checks
+    command: yarn lint-ci
+
+  - &test-ci
+    name: Tests
+    command: yarn test-ci
+
+  - &build-android
+    name: Build Android App
+    command: cd android && chmod +x gradlew && ./gradlew buildDebug
+
   - &yarn
     name: Run Yarn
     command: |
@@ -66,35 +78,26 @@ js_defaults: &js_defaults
 android_defaults: &android_defaults
   <<: *defaults
   docker:
-  - image: entria/react-native-android:0.1.86
-  resource_class: "large"
+  - image: reactnativecommunity/react-native-android
+  resource_class: "medium"
   environment:
-    - TERM: "dumb"
-    - ADB_INSTALL_TIMEOUT: 10
-    - GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2g -XX:+HeapDumpOnOutOfMemoryError"'
-    - ANDROID_BUILD_TOOLS_VERSION: '28.0.3'
-    - ANDROID_NDK: '/opt/ndk/android-ndk-r17c'
-    - REACT_NATIVE_MAX_WORKERS: 2
+      - GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+      - REACT_NATIVE_MAX_WORKERS: 2
+      - ANDROID_BUILD_TOOLS_VERSION: '28.0.3'
 
 version: 2
 jobs:
   # Set up a Node environment for downstream jobs
-  build-android:
+  build:
     <<: *android_defaults
     steps:
       - checkout
       - restore-cache: *restore-yarn-cache
       - run: *yarn
+
+      - run: *lint-ci
+      - run: *test-ci
+
+      - run: *build-android
+
       - save-cache: *save-yarn-cache
-
-      - restore-cache: *restore-cache-gradle
-      - run: cd android && chmod +x gradlew && ./gradlew buildDebug
-
-
-
-# Workflows enables us to run multiple jobs in parallel
-workflows:
-  version: 2
-  build-and-test:
-    jobs:
-      - build-android

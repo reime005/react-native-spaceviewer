@@ -1,33 +1,29 @@
-import axios from 'axios';
-import { delay } from "redux-saga";
-import { call, put, race, select } from "redux-saga/effects";
-import * as actions from "../actions";
-import { setLaunchesAction } from "../actions";
-import * as apiConstants from "../constants/api";
-import * as fileKeys from "../constants/files";
-import { getItemFromStore, setItemToStore } from "../lib/storage";
-import getApiDateDaysAgo from "../lib/time/getApiDateDaysAgo";
-import getApiDateToday from "../lib/time/getApiDateToday";
-import { changeImageUrlWithCached } from "./cache";
+import { delay } from 'redux-saga';
+import { call, putResolve, race, select } from 'redux-saga/effects';
+import * as actions from '../actions';
+import * as apiConstants from '../constants/api';
+import * as fileKeys from '../constants/files';
+import { getItemFromStore, setItemToStore } from '../lib/storage';
+import getApiDateDaysAgo from '../lib/time/getApiDateDaysAgo';
+import getApiDateToday from '../lib/time/getApiDateToday';
+import { changeImageUrlWithCached } from './cache';
 import * as selectors from './selectors';
 
 export function* loadNextLaunches(action) {
-  const {
-    launchType
-  } = action;
-  
+  const { launchType } = action;
+
   // initially load from store
-  let launches =  yield call(getItemFromStore, launchType);
+  let launches = yield call(getItemFromStore, launchType);
   launches = JSON.parse(launches);
   launches = yield call(changeImageUrlWithCached, launches);
-  yield put.resolve(actions.setLaunchesAction(launches, launchType));
+  yield putResolve(actions.setLaunchesAction(launches, launchType));
 
   if (launchType === fileKeys.FILE_NEXT_LAUNCHES) {
     launches = yield call(fetchReturnNextLaunches, action);
   } else if (launchType === fileKeys.FILE_PREV_LAUNCHES) {
     const enddate = getApiDateToday();
-    yield put.resolve(actions.setPrevEnddateAction(enddate))
-    launches = yield call(fetchReturnPrevLaunches, {...action, enddate});
+    yield putResolve(actions.setPrevEnddateAction(enddate));
+    launches = yield call(fetchReturnPrevLaunches, { ...action, enddate });
   }
 
   // persist for later offline loading
@@ -41,7 +37,7 @@ export function* loadNextLaunches(action) {
 
   launches = yield call(changeImageUrlWithCached, launches);
 
-  yield put.resolve(setLaunchesAction(launches, launchType));
+  yield putResolve(actions.setLaunchesAction(launches, launchType));
 
   return {};
 }
@@ -55,22 +51,17 @@ function* fetchReturnNextLaunches(action) {
 
   // fetch the initial sequence
   try {
-    const { res, timeout } = yield race({
-      res: call(axios.get, apiConstants.URI_NEXT_LAUNCHES, {
-        params: {
-          next,
-          offset,
-          mode,
-        },
-        timeout: 10000
-      }),
-      timeout: call(delay, 10000),
-    });
-  
-  if(res) {
-    launches = res.data.launches;
-  } 
+    const res = yield fetch(
+      `${
+        apiConstants.URI_NEXT_LAUNCHES
+      }?next=${next}&offset=${offset}&mode=${mode}`
+    );
 
+    const data = yield res.json();
+
+    if (data && data.launches) {
+      return data.launches;
+    }
   } catch (e) {
     //TODO: error handling
     // console.error(e)
@@ -81,9 +72,7 @@ function* fetchReturnNextLaunches(action) {
 }
 
 function* fetchReturnPrevLaunches(action) {
-  let {
-    enddate
-  } = action;
+  let { enddate } = action;
 
   if (!enddate) {
     enddate = yield select(selectors.getPrevEnddate);
@@ -95,47 +84,38 @@ function* fetchReturnPrevLaunches(action) {
 
   let startdate = yield call(getApiDateDaysAgo, enddate);
 
-  yield put.resolve(actions.setPrevEnddateAction(startdate))
+  yield putResolve(actions.setPrevEnddateAction(startdate));
 
   if (!startdate || !enddate) {
     return;
   }
-  
+
   // fetch the initial sequence
   try {
-    const { res, timeout } = yield race({
-      res: call(axios.get, apiConstants.URI_PREV_LAUNCHES, {
-        params: {
-          startdate,
-          enddate,
-          limit,
-          sort: 'desc',
-          mode
-        },
-        timeout: apiConstants.DEFAULT_GET_TIMEOUT_MILISECONDS
-      }),
-      timeout: call(delay, apiConstants.DEFAULT_GET_TIMEOUT_MILISECONDS * 1.125),
-    });
-  
-  if(res) {
-    prevLaunches = res.data.launches;
-  } 
-  
-} catch (e) {
+    const res = yield fetch(
+      `${
+        apiConstants.URI_PREV_LAUNCHES
+      }?startdate=${startdate}&enddate=${enddate}&limit=${limit}&sort=desc&mode=${mode}`
+    );
+
+    const data = yield res.json();
+
+    if (data && data.launches) {
+      return data.launches;
+    }
+  } catch (e) {
     //TODO: error handling
     // console.error(e);
     // yield put(setNextLaunchesFailAction());
   }
 
-  yield put.resolve(actions.setPrevEnddateAction(startdate))
+  yield putResolve(actions.setPrevEnddateAction(startdate));
 
   return prevLaunches;
 }
 
 export function* endReached(action) {
-  const {
-    launchType
-  } = action;
+  const { launchType } = action;
 
   let launches = [];
 
@@ -143,26 +123,24 @@ export function* endReached(action) {
     const offset = yield select(selectors.getCurrentLaunchesLength);
     launches = yield call(fetchReturnNextLaunches, { offset });
   } else if (launchType === fileKeys.FILE_PREV_LAUNCHES) {
-    const enddate = yield select((state) => state.api.enddate)
+    const enddate = yield select(state => state.api.enddate);
     launches = yield call(fetchReturnPrevLaunches, { enddate });
   }
 
   if (Array.isArray(launches) && launches.length > 0) {
     launches = yield call(changeImageUrlWithCached, launches);
-    
-    yield put.resolve(actions.concatLaunchesAction(launches, launchType));
-  } 
+
+    yield putResolve(actions.concatLaunchesAction(launches, launchType));
+  }
 }
 
 export function* refresh(action) {
-  const {
-    launchType
-  } = action;
+  const { launchType } = action;
 
-  yield put.resolve(actions.setLaunchesAction([], launchType));
-  yield put.resolve(actions.setPrevEnddateAction(''))
+  yield putResolve(actions.setLaunchesAction([], launchType));
+  yield putResolve(actions.setPrevEnddateAction(''));
 
   // yield call(delay, REFRESH_DELAY_MS)
 
-  yield call(loadNextLaunches, { launchType })
+  yield call(loadNextLaunches, { launchType });
 }

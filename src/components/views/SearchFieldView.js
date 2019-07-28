@@ -1,29 +1,40 @@
 import React from 'react';
-import { View, TextInput, Text } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import searchStyle from '../../styles/searchStyle';
-import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
-import { overviewListSmallIconSize, footerTabIconSize } from '../../constants/theme';
+import { useTranslation } from 'react-i18next';
+import { Item, Input, Icon } from 'native-base';
+import * as Animatable from 'react-native-animatable';
 
-export const SearchFieldView = (props) => (
-  <View style={searchStyle.searchFieldViewContainer}>
-  <Ionicons size={footerTabIconSize} name="ios-search" style={searchStyle.searchIcon}/>
-      <TextInput 
-        style={searchStyle.textInput}
-        inlineImageLeft='ic_launcher'
-        onChangeText={(text) => props.onChangeText(text)}
-        value={props.value}
-        multiline={false}
-        placeholder="Search"
-      >
-      </TextInput>
-      
-      <CustomTouchableHighlight
-       onPress={() => props.onClear()}
-      >
-        <Ionicons size={footerTabIconSize} name="md-close-circle" style={searchStyle.searchIcon}/>
-      </CustomTouchableHighlight>
-  </View>
-)
+export const SearchFieldView = ({ value, onChangeText, onClear }) => {
+  const { t } = useTranslation();
+
+  return (
+    <Animatable.View
+      animation="fadeIn"
+      style={searchStyle.searchFieldViewContainer}>
+      <Item>
+        <Icon
+          style={searchStyle.searchIcon}
+          name="ios-search"
+          type="Ionicons"
+        />
+        <Input
+          placeholder={t('search')}
+          autoCapitalize="none"
+          autoFocus
+          autoCorrect={false}
+          multiline={false}
+          value={value}
+          onChangeText={onChangeText}
+        />
+        <Icon
+          color="red"
+          style={searchStyle.searchIcon}
+          name="close-circle"
+          onPress={onClear}
+        />
+      </Item>
+    </Animatable.View>
+  );
+};
 
 export default SearchFieldView;

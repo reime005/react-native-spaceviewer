@@ -1,15 +1,21 @@
-import {
-  connect
-} from 'react-redux';
+import { connect } from 'react-redux';
 import { SearchView } from '../views/SearchView';
-import { searchEndReachedSagaAction, searchClearSagaAction } from '../../actions';
+import {
+  searchEndReachedSagaAction,
+  searchClearSagaAction,
+} from '../../actions';
 
 export const SearchContainer = connect(
-  (state) => ({
-    data: state.search.searchResult
+  state => ({
+    data: state.search.searchResult,
+    loading: state.search.loading,
   }),
-  (dispatch) => ({
-    endReached: () => {dispatch(searchEndReachedSagaAction())},
-    refresh: () => {dispatch(searchClearSagaAction())}
+  dispatch => ({
+    endReached: () => {
+      dispatch(searchEndReachedSagaAction());
+    },
+    refresh: () => {
+      dispatch(searchClearSagaAction());
+    },
   })
 )(SearchView);

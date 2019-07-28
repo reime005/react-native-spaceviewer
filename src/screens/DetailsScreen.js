@@ -7,43 +7,60 @@ import mainStyle from '../styles/mainStyle';
 
 export class DetailsScreen extends React.Component {
   state = {
-    item: undefined
-  }
-  
+    item: undefined,
+  };
+
   static navigationOptions = ({ navigation }) => {
     return {
-      headerTitle: navigation
-        .getParam('name', 'Details'),
-      headerLeft: 
-        <SocialUrlIcon 
-          iconName='chevron-left'
+      // headerTitle: null,
+      headerTransparent: true,
+      headerStyle: {
+        backgroundColor: 'transparent',
+      },
+      // headerTitle: navigation.getParam('name', 'Details'),
+      headerTitle: ({ style, children: title }) => {
+        return (
+          <Text style={style} numberOfLines={2}>
+            {navigation.getParam('name', 'Details')}
+          </Text>
+        );
+      },
+      headerTitleStyle: {
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: 16,
+      },
+      headerLeft: (
+        <SocialUrlIcon
+          iconName="chevron-left"
           size={headerLeftSize}
           color={colors.HEADER_LEFT_COLOR}
           onPress={() => navigation.goBack()}
         />
+      ),
     };
   };
 
-  componentWillMount() {
-    const item = this.props.navigation.getParam("item", {});
+  componentDidMount() {
+    const item = this.props.navigation.getParam('item', {});
 
     this.setState({
-      item
-    })
+      item,
+    });
   }
 
   render() {
-    if (typeof this.state.item === 'undefined') {
-      return null;
-    }
-
     return (
-      <View style={{flex: 1}} accessibilityLabel={'details-screen'} testID={'details-screen'}>
-        <StatusBar backgroundColor={'red'} />
-        <DetailsContainer 
-          item={this.state.item}
-          navigation={this.props.navigation}
-        />
+      <View
+        style={{ flex: 1, paddingTop: 20 }}
+        accessibilityLabel={'details-screen'}
+        testID={'details-screen'}>
+        {this.state.item ? (
+          <DetailsContainer
+            item={this.state.item}
+            navigation={this.props.navigation}
+          />
+        ) : null}
       </View>
     );
   }

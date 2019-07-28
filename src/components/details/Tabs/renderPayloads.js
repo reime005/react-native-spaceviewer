@@ -10,30 +10,19 @@ export const renderPayloads = (payloads = []) => {
 
   const multiple = payloads.length > 1;
 
-  return(
+  return (
     <View>
-    <CardItem header>
-    {
-      multiple &&
-      <Text>Payloads: </Text>
-    }
-    {
-      !multiple &&
-      <Text>Payload: </Text>
-    }
-    </CardItem>
-    <View>
-    {
-      
-      Array.from(payloads, payload => (
-        <CardItem>
-          <Text>
-            {payload.name}
-          </Text>
-        </CardItem>
-      ))
-    }
+      <CardItem header>
+        {multiple && <Text>Payloads: </Text>}
+        {!multiple && <Text>Payload: </Text>}
+      </CardItem>
+      <View>
+        {Array.from(payloads, payload => (
+          <CardItem>
+            <Text>{payload.name}</Text>
+          </CardItem>
+        ))}
+      </View>
     </View>
-    </View>
-  )
-} 
+  );
+};

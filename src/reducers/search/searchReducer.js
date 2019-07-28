@@ -7,38 +7,37 @@ import {
 
 const INITIAL_STATE = {
   searchText: '',
-  searchResult: []
+  searchResult: [],
 };
 
 export const searchReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-      case SEARCH_SET_CLEAR: {
-        return INITIAL_STATE;
-      }
-      case SEARCH_SET_TEXT: {
-        return {
-          ...state,
-          searchText: action.searchText
-        }
-      }
-      case SEARCH_CONCAT_RESULT: {
-        return {
-          ...state,
-          searchResult: state.searchResult.concat(action.searchResult)
-          // searchResult: [
-          //   ...state.searchResult,
-          //   action.searchResult
-          // ]
-        }
-      }
-      case SEARCH_SET_RESULT: {
-        return {
-          ...state,
-          searchResult: action.searchResult
-        }
-      }
-      default:
-        return state;
+    case SEARCH_SET_CLEAR: {
+      return INITIAL_STATE;
+    }
+    case SEARCH_SET_TEXT: {
+      return {
+        ...state,
+        searchText: action.searchText,
+        loading: true,
+      };
+    }
+    case SEARCH_CONCAT_RESULT: {
+      return {
+        ...state,
+        loading: false,
+        searchResult: state.searchResult.concat(action.searchResult),
+      };
+    }
+    case SEARCH_SET_RESULT: {
+      return {
+        ...state,
+        loading: false,
+        searchResult: action.searchResult,
+      };
+    }
+    default:
+      return state;
   }
 };
 

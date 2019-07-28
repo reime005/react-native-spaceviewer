@@ -8,19 +8,20 @@ export class SearchScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       tabBarLabel: '',
-      headerStyle: [mainStyle.headerStyle, {height: headerHeight * 1.5}],
+      headerStyle: [mainStyle.headerStyle, { height: headerHeight * 1.75 }],
       headerTitle: <SearchFieldContainer />,
       // headerTitleStyle: mainStyle.headerTextTitleStyle,
-    }
+    };
   };
 
   render() {
     return (
-      <View style={{ flex: 1 }} accessibilityLabel={'search-screen'} testID={'search-screen'}>
-        <SearchContainer
-          {...this.props}
-        />
+      <View
+        style={{ flex: 1 }}
+        accessibilityLabel={'search-screen'}
+        testID={'search-screen'}>
+        <SearchContainer {...this.props} />
       </View>
     );
   }
-} 
+}

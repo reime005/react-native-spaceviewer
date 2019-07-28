@@ -3,11 +3,11 @@
 buildscript {
     ext {
         buildToolsVersion = "28.0.3"
-        minSdkVersion = 18
+        minSdkVersion = 16
         compileSdkVersion = 28
         targetSdkVersion = 28
         supportLibVersion = "28.0.0"
-        ext.kotlinVersion = '1.3.0' // Your app's version
+        ext.kotlinVersion = '1.3.10' // Your app's version
         ext.detoxKotlinVersion = ext.kotlinVersion // Detox' version: should be 1.1.0 or higher!
     }
     repositories {
@@ -15,7 +15,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.1'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -23,26 +23,19 @@ buildscript {
     }
 }
 
-configurations.all {
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == "com.android.support") {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion "28.+"
-            }
-        }
-    }
-}
-
 allprojects {
     repositories {
         mavenLocal()
-        jcenter()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/../node_modules/jsc-android/dist")
+        }
         google()
+        jcenter()
     }
 }
 

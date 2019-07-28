@@ -12,11 +12,11 @@ export const CLEAR_ALL_BLOCKED_EFFECTS = pfx + 'CLEAR_ALL_BLOCKED_EFFECTS';
  * Typical use case: user login.
  */
 export const resetToMainRoute = () => ({
-    type: RESET_TO_MAIN_ROUTE,
-})
+  type: RESET_TO_MAIN_ROUTE,
+});
 
 export default {
-    RESET_TO_MAIN_ROUTE,
+  RESET_TO_MAIN_ROUTE,
 
-    resetToMainRoute,
-}
+  resetToMainRoute,
+};
