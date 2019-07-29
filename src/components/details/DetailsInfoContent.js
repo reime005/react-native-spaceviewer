@@ -34,7 +34,7 @@ export const DetailsInfoContent = props => {
           flex: 1,
           flexDirection: 'column',
           justifyContent: 'flex-start',
-          alignItems: 'flex-end',
+          alignItems: 'center',
         }}>
         <OverviewListIconContainer uri={uri} size={detailViewImageSize} />
         <Text style={overviewDetailsStyle.titleStyle}>{lsp.name}</Text>
