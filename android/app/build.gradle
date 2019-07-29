@@ -125,14 +125,14 @@ def debugKeystorePropertiesFile = rootProject.file("keystores/debug.keystore.pro
 // Initialize a new Properties() object called keystoreProperties.
 def keystoreProperties = new Properties()
 
-// CI workaround
-if (keystorePropertiesFile.isFile() && keystorePropertiesFile.canRead()) {
-    // Load your keystore.properties file into the keystoreProperties object.
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-} else if (debugKeystorePropertiesFile.isFile() && debugKeystorePropertiesFile.canRead()) {
-    keystorePropertiesFile = rootProject.file("keystores/debug.keystore.properties")
-    keystoreProperties.load(new FileInputStream(debugKeystorePropertiesFile))
-}
+// // CI workaround
+// if (keystorePropertiesFile.isFile() && keystorePropertiesFile.canRead()) {
+//     // Load your keystore.properties file into the keystoreProperties object.
+//     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+// } else if (debugKeystorePropertiesFile.isFile() && debugKeystorePropertiesFile.canRead()) {
+//     keystorePropertiesFile = rootProject.file("keystores/debug.keystore.properties")
+//     keystoreProperties.load(new FileInputStream(debugKeystorePropertiesFile))
+// }
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -146,19 +146,19 @@ android {
         applicationId "com.mariusreimer.spaceviewer"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 10
+        versionCode 11
         versionName "2.0.0"
         // testBuildType System.getProperty('testBuildType', 'debug')
         // testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         // missingDimensionStrategy "minReactNative", "minReactNative46"
     }
     signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-        }
+        // debug {
+        //     storeFile file('debug.keystore')
+        //     storePassword 'android'
+        //     keyAlias 'androiddebugkey'
+        //     keyPassword 'android'
+        // }
         release {
             keyAlias keystoreProperties['key.alias']
             keyPassword keystoreProperties['key.alias.password']
@@ -176,7 +176,7 @@ android {
     }
     buildTypes {
         debug {
-            signingConfig signingConfigs.debug
+            // signingConfig signingConfigs.debug
         }
         release {
 	        signingConfig signingConfigs.release
