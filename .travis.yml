@@ -18,7 +18,12 @@ matrix:
 
     - os: osx
       language: objective-c
-      osx_image: xcode9.4
+      xcode_project: ios/SpaceViewer.xcworkspace
+      xcode_scheme: SpaceViewer
+      osx_image: xcode11.1
       env:
         - JOB_NAME=IOS
+      before_install:
+        - yarn
+        - cd ios; pod install
       script: ./scripts/ci_deploy_ios.sh
