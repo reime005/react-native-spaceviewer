@@ -1,0 +1,45 @@
+branches:
+  only:
+    - master
+    - travis-ci
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.19.1
+  - export PATH="$HOME/.yarn/bin:$PATH"
+
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "8"
+      script: .travis/ci_node.sh
+
+    - language: android
+      sudo: required
+      jdk: oraclejdk8
+      before_cache:
+        - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+        - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+      cache:
+        directories:
+          - $HOME/.yarn-cache
+          - $HOME/.gradle/caches/
+          - $HOME/.gradle/wrapper/
+      before_install:
+        - yarn
+        - echo yes | sdkmanager "platforms;android-28"
+      android:
+        components:
+          - tools
+          - platform-tools
+          - build-tools-28.0.3
+          - tools
+      env: LANE='android'
+      script: .travis/run.sh
+
+    - os: osx
+      language: objective-c
+      osx_image: xcode9.4
+      env:
+        - JOB_NAME=IOS
+      script: .travis/ci.sh
