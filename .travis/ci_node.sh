@@ -1,1 +1,3 @@
-#!/bin/bash
+#!/bin/sh
+
+yarn test-ci
