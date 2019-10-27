@@ -152,12 +152,6 @@ android {
         missingDimensionStrategy "minReactNative", "minReactNative46"
     }
     signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-        }
         release {
             keyAlias keystoreProperties['key.alias']
             keyPassword keystoreProperties['key.alias.password']
@@ -174,9 +168,6 @@ android {
         }
     }
     buildTypes {
-        debug {
-            signingConfig signingConfigs.debug
-        }
         release {
 	        signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
