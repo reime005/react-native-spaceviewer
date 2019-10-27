@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
 yarn build-ios-debug
