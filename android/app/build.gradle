@@ -120,7 +120,6 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 // Create a variable called keystorePropertiesFile, and initialize it to your
 // keystore.properties file, in the rootProject folder.
 def keystorePropertiesFile = rootProject.file("keystores/release.keystore.properties")
-def debugKeystorePropertiesFile = rootProject.file("keystores/debug.keystore.properties")
 
 // Initialize a new Properties() object called keystoreProperties.
 def keystoreProperties = new Properties()
@@ -129,9 +128,6 @@ def keystoreProperties = new Properties()
 if (keystorePropertiesFile.isFile() && keystorePropertiesFile.canRead()) {
     // Load your keystore.properties file into the keystoreProperties object.
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-} else if (debugKeystorePropertiesFile.isFile() && debugKeystorePropertiesFile.canRead()) {
-    keystorePropertiesFile = rootProject.file("keystores/debug.keystore.properties")
-    keystoreProperties.load(new FileInputStream(debugKeystorePropertiesFile))
 }
 
 android {
