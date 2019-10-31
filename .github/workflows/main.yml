@@ -7,15 +7,28 @@ jobs:
     runs-on: macOS-10.14
 
     steps:
+    - name: checkout
     - uses: actions/checkout@v1
+
+    - name: setup node
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - name: Run a one-line script
+
+    - uses: actions/cache@preview
+      with:
+        path: ~/.cache/yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+        restore-keys: |
+          ${{ runner.os }}-yarn
+
+    - name: install node_modules
       run: yarn install --frozen-lockfile
+
     - name: lint checks
       run:
         yarn lint-ci
+
     - name: unit tests
       run:
         yarn test-ci
