@@ -19,8 +19,8 @@
     "build-android-release": "pushd android; ./gradlew assembleRelease; popd",
     "test-ios-debug": "E2E_DEVICE=local_ios_debug jest",
     "test-ios-release": "E2E_DEVICE=local_ios_release jest",
-    "build-ios-debug": "pushd ios; xcodebuild -UseModernBuildSystem=NO -scheme 'Space Viewer' -sdk iphonesimulator -configuration Debug -derivedDataPath build/app; rm app-debug.zip; zip -r app-debug.zip build/app/Build/Products/Debug-iphonesimulator/*.app; popd",
-    "build-ios-release": "pushd ios; xcodebuild -UseModernBuildSystem=NO -scheme 'Space Viewer' -sdk iphonesimulator -configuration Release -derivedDataPath build/app; zip -r app-release.zip build/app/Build/Products/Release-iphonesimulator/*.app; popd"
+    "build-ios-debug": "pushd ios; xcodebuild -UseModernBuildSystem=NO -scheme 'SpaceViewer' -sdk iphonesimulator -configuration Debug -derivedDataPath build/app; rm app-debug.zip; zip -r app-debug.zip build/app/Build/Products/Debug-iphonesimulator/*.app; popd",
+    "build-ios-release": "pushd ios; xcodebuild -UseModernBuildSystem=NO -scheme 'SpaceViewer' -sdk iphonesimulator -configuration Release -derivedDataPath build/app; zip -r app-release.zip build/app/Build/Products/Release-iphonesimulator/*.app; popd"
   },
   "dependencies": {
     "flow": "^0.2.3",
