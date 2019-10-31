@@ -38,4 +38,5 @@ jobs:
         cd ios; pod install; cd -
 
     - name: iOS build
+      run:
         yarn build-ios-debug
