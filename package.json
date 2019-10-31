@@ -18,9 +18,10 @@
     "build-android-debug": "pushd android; ./gradlew assembleDebug; popd",
     "build-android-release": "pushd android; ./gradlew assembleRelease; popd",
     "test-ios-debug": "E2E_DEVICE=local_ios_debug jest",
+    "detox-test-ios": "detox test -c ios.sim.debug",
     "test-ios-release": "E2E_DEVICE=local_ios_release jest",
-    "build-ios-debug": "xcodebuild -workspace ios/SpaceViewer.xcworkspace -scheme SpaceViewer -configuration Debug -sdk iphonesimulator -UseModernBuildSystem=NO -derivedDataPath ios/build/app; rm ios/app-debug.zip; zip -r ios/app-debug.zip ios/build/app/Build/Products/Debug-iphonesimulator/*.app",
-    "build-ios-release": "xcodebuild -workspace ios/SpaceViewer.xcworkspace -scheme SpaceViewer -configuration Release -sdk iphonesimulator -UseModernBuildSystem=NO -derivedDataPath ios/build/app; rm ios/app-release.zip; zip -r ios/app-release.zip ios/build/app/Build/Products/Release-iphonesimulator/*.app"
+    "build-ios-debug": "xcodebuild -workspace ios/SpaceViewer.xcworkspace -scheme SpaceViewer -configuration Debug -sdk iphonesimulator -UseModernBuildSystem=NO -derivedDataPath ios/build/app -quiet; rm ios/app-debug.zip; zip -r ios/app-debug.zip ios/build/app/Build/Products/Debug-iphonesimulator/*.app",
+    "build-ios-release": "xcodebuild -workspace ios/SpaceViewer.xcworkspace -scheme SpaceViewer -configuration Release -sdk iphonesimulator -UseModernBuildSystem=NO -derivedDataPath ios/build/app -quiet; rm ios/app-release.zip; zip -r ios/app-release.zip ios/build/app/Build/Products/Release-iphonesimulator/*.app"
   },
   "dependencies": {
     "flow": "^0.2.3",
@@ -34,6 +35,7 @@
     "react-native-fast-image": "^7.0.2",
     "react-native-google-static-map": "^0.1.13",
     "react-native-responsive-screen": "^1.2.1",
+    "react-native-settings-list": "github:reime005/react-native-settings-list.git#expo",
     "react-native-vector-icons": "6.6.0",
     "react-navigation": "2.18.2",
     "react-navigation-redux-helpers": "2.0.8",
@@ -80,10 +82,10 @@
   "detox": {
     "configurations": {
       "ios.sim.debug": {
-        "binaryPath": "ios/build/app/Build/Products/Debug-iphonesimulator/Space Viewer.app",
-        "build": "pushd ios; xcodebuild -UseModernBuildSystem=NO -scheme 'Space Viewer' -sdk iphonesimulator -configuration Debug -derivedDataPath ios/build",
+        "binaryPath": "ios/build/app/Build/Products/Debug-iphonesimulator/SpaceViewer.app",
+        "build": "yarn build-ios-debug",
         "type": "ios.simulator",
-        "name": "iPhone X"
+        "name": "iPhone 11"
       },
       "android.emu.debug": {
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",

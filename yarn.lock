@@ -4739,7 +4739,7 @@ crc@^3.4.4:
   dependencies:
     buffer "^5.1.0"
 
-create-react-class@^15.6.3:
+create-react-class@^15.6.2, create-react-class@^15.6.3:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   dependencies:
@@ -9954,6 +9954,13 @@ react-native-safe-area-view@0.11.0:
 react-native-screens@^1.0.0-alpha.11:
   version "1.0.0-alpha.15"
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.15.tgz#5b5a0041310b46f12048fda1908d52e7290ec18f"
+
+"react-native-settings-list@github:reime005/react-native-settings-list.git#expo":
+  version "1.8.0"
+  resolved "https://codeload.github.com/reime005/react-native-settings-list/tar.gz/18f27d88f387b41655f5c62aa66a42dacbb32ed2"
+  dependencies:
+    create-react-class "^15.6.2"
+    prop-types "^15.5.10"
 
 react-native-tab-view@^0.0.77:
   version "0.0.77"
