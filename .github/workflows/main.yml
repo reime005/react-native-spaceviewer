@@ -32,3 +32,8 @@ jobs:
     - name: unit tests
       run:
         yarn test-ci
+
+    - name: iOS build
+      run: |
+        cd ios; pod install; cd -
+        yarn build-ios-debug
