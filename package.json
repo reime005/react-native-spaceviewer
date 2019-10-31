@@ -19,22 +19,21 @@
     "build-android-release": "pushd android; ./gradlew assembleRelease; popd",
     "test-ios-debug": "E2E_DEVICE=local_ios_debug jest",
     "test-ios-release": "E2E_DEVICE=local_ios_release jest",
-    "build-ios-debug": "pushd ios; xcodebuild -UseModernBuildSystem=NO -scheme 'SpaceViewer' -sdk iphonesimulator -configuration Debug -derivedDataPath build/app; rm app-debug.zip; zip -r app-debug.zip build/app/Build/Products/Debug-iphonesimulator/*.app; popd",
-    "build-ios-release": "pushd ios; xcodebuild -UseModernBuildSystem=NO -scheme 'SpaceViewer' -sdk iphonesimulator -configuration Release -derivedDataPath build/app; zip -r app-release.zip build/app/Build/Products/Release-iphonesimulator/*.app; popd"
+    "build-ios-debug": "xcodebuild -workspace ios/SpaceViewer.xcworkspace -scheme SpaceViewer -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=NO -derivedDataPath ios/build/app; rm ios/app-debug.zip; zip -r ios/app-debug.zip ios/build/app/Build/Products/Debug-iphonesimulator/*.app",
+    "build-ios-release": "xcodebuild -workspace ios/SpaceViewer.xcworkspace -scheme SpaceViewer -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=NO -derivedDataPath ios/build/app; rm ios/app-release.zip; zip -r ios/app-release.zip ios/build/app/Build/Products/Release-iphonesimulator/*.app"
   },
   "dependencies": {
     "flow": "^0.2.3",
     "idx": "^2.5.6",
     "moment": "^2.24.0",
-    "native-base": "git://github.com/GeekyAnts/NativeBase.git",
+    "native-base": "^2.13.8",
     "react": "16.8.6",
-    "react-native": "0.60.4",
+    "react-native": "0.61.3",
     "react-native-code-push": "^5.6.0",
     "react-native-countdown-component": "^1.7.3",
     "react-native-fast-image": "^7.0.2",
     "react-native-google-static-map": "^0.1.13",
     "react-native-responsive-screen": "^1.2.1",
-    "react-native-settings-list": "git://github.com/reime005/react-native-settings-list.git#expo",
     "react-native-vector-icons": "6.6.0",
     "react-navigation": "2.18.2",
     "react-navigation-redux-helpers": "2.0.8",
@@ -66,7 +65,7 @@
     "husky": "^3.0.1",
     "jest": "^24.8.0",
     "lint-staged": "^9.2.0",
-    "metro-react-native-babel-preset": "0.55.0",
+    "metro-react-native-babel-preset": "0.56.3",
     "react-test-renderer": "16.8.6"
   },
   "jest": {
