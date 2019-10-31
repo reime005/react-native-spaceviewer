@@ -1,17 +1,21 @@
 name: CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  build:
-
+  node-stuff:
     runs-on: macOS-10.14
 
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
     - name: Run a one-line script
       run: yarn install --frozen-lockfile
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: lint checks
+      run:
+        yarn lint-ci
+    - name: unit tests
+      run:
+        yarn test-ci
