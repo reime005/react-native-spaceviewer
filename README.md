@@ -19,8 +19,8 @@ This includes rocket launches from SpaceX, NASA, ROSCOSMOS, ISRO, ULA and many m
 Should be as easy as:
 
       yarn
-      yarn run android
-      yarn run ios
+      yarn run-android
+      yarn run-ios
 
 ## Credits / Special Thanks
 
