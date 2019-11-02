@@ -5009,10 +5009,10 @@ detect-newline@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
 
-detox@^13.1.1:
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/detox/-/detox-13.1.1.tgz#44b1f0152b1d93533b3ce77d3f571808fc372642"
-  integrity sha512-dDtV64wMryeHk/+Np339Gm5uEzjxFySUHxLmz9iMsDFgkPn+XDkBdPZtb76pRQwJnpSWlbKVP1zhcN9B6vfsJg==
+detox@^14.5.1:
+  version "14.5.1"
+  resolved "https://registry.yarnpkg.com/detox/-/detox-14.5.1.tgz#dd3cbdb4f26aaf461774303eb825f2f0fc8e8260"
+  integrity sha512-ZFt9LOHRXTxX1HVefysCnF5tLQQRQvr+w4KSXxkdJUa+9afr9/avZyz5kR0elasC2aU6/pnuzUiOJmCCyy7f6w==
   dependencies:
     "@babel/core" "^7.4.5"
     bunyan "^1.8.12"
@@ -5031,6 +5031,7 @@ detox@^13.1.1:
     tail "^2.0.0"
     telnet-client "0.15.3"
     tempfile "^2.0.0"
+    which "^1.3.1"
     ws "^3.3.1"
     yargs "^13.0.0"
     yargs-parser "^13.0.0"
@@ -8052,7 +8053,7 @@ lodash@^4.17.12:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
   integrity sha512-mmKYbW3GLuJeX+iGP+Y7Gp1AiGHGbXHCOh/jZmrawMmsE7MS4znI3RL2FsjbqOyMayHInjOeykW7PEajUk1/xw==
 
-lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15:
+lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -8767,7 +8768,7 @@ node-fetch@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.2.0.tgz#4ee79bde909262f9775f731e3656d0db55ced5b5"
 
-node-fetch@^2.5.0:
+node-fetch@^2.5.0, node-fetch@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
@@ -9878,11 +9879,12 @@ react-native-code-push@^5.6.0:
     semver "^5.6.0"
     xcode "1.0.0"
 
-react-native-countdown-component@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/react-native-countdown-component/-/react-native-countdown-component-1.7.3.tgz#da62eb1d4306e375f97f92cdb5f3542ebc5290ca"
+react-native-countdown-component@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-countdown-component/-/react-native-countdown-component-2.6.0.tgz#0f6f38134e76ce8aedb26e47d6fc284a0352ecfa"
+  integrity sha512-jHimXUoxjK/2Izvg8imQhhWEsptxwBCjSiKfg5NHaURDtNyOgi1Ne2jX45WYs8SE75ANXTyyHXW5dKI1POcAeA==
   dependencies:
-    lodash "^4.0.0"
+    lodash "^4.17.3"
     prop-types "^15.5.8"
     sprintf-js "^1.1.1"
 

@@ -37,16 +37,17 @@ jobs:
       run:
         cd ios; pod install; cd -
 
+    - name: detox setup
+      run: |
+        brew tap wix/brew
+        brew install applesimutils
+        npx detox clean-framework-cache && npx detox build-framework-cache
+
     - name: iOS build
       env:
           DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
       run:
         yarn build-ios-debug
-
-    - name: detox setup
-      run: |
-        brew tap wix/brew
-        brew install applesimutils
 
     - name: iOS test
       env:

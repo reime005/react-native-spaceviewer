@@ -31,7 +31,7 @@
     "react": "16.8.6",
     "react-native": "0.61.3",
     "react-native-code-push": "^5.6.0",
-    "react-native-countdown-component": "^1.7.3",
+    "react-native-countdown-component": "^2.6.0",
     "react-native-fast-image": "^7.0.2",
     "react-native-google-static-map": "^0.1.13",
     "react-native-responsive-screen": "^1.2.1",
@@ -55,7 +55,7 @@
     "babel-jest": "24.8.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react-native": "4.0.1",
-    "detox": "^13.1.1",
+    "detox": "^14.5.1",
     "eslint": "^6.0.1",
     "eslint-config-react-native-prettier": "^1.0.1",
     "eslint-plugin-flowtype": "^3.12.1",
@@ -68,6 +68,7 @@
     "jest": "^24.8.0",
     "lint-staged": "^9.2.0",
     "metro-react-native-babel-preset": "0.56.3",
+    "node-fetch": "^2.6.0",
     "react-test-renderer": "16.8.6"
   },
   "jest": {

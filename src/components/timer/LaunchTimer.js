@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { CountDown } from 'react-native-countdown-component';
+import CountDown from 'react-native-countdown-component';
 import overviewDetailsStyle from '../../styles/overviewDetailsStyle';
 import { getFormattedTime } from '../../lib/time/getFormattedTime';
 import { SETTING_FORMAT_DATE } from '../../constants/settings';

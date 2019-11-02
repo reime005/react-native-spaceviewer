@@ -1,11 +1,14 @@
 import idx from 'idx';
 
+const fetch = require('node-fetch');
+
 if (!process.env.E2E_DEVICE) {
   let nextLaunchId = -1;
 
   describe('Example', () => {
     beforeAll(async () => {
       try {
+        //TODO: mock-api
         const response = await fetch(
           'https://launchlibrary.net/1.4/launch?next=1'
         );
@@ -49,6 +52,7 @@ if (!process.env.E2E_DEVICE) {
     });
 
     it('upcoming details screen should render correctly', async () => {
+      await screenIsThere('Search');
       await screenIsThere('Upcoming');
 
       // renderer should now be on the upcoming screen
@@ -58,6 +62,8 @@ if (!process.env.E2E_DEVICE) {
       await element(by.id(`list-item-${nextLaunchId}`))
         .atIndex(0)
         .tap();
+
+      await expect(element(by.id('details-screen'))).toBeVisible();
     });
   });
 } else {

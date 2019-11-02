@@ -23,6 +23,8 @@ DerivedData
 project.xcworkspace
 app-*.zip
 
+.swp
+
 # Android/IntelliJ
 #
 build/
