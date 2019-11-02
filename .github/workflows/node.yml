@@ -1,4 +1,4 @@
-name: node tests
+name: node
 
 on: [push, pull_request]
 
