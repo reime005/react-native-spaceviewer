@@ -1,5 +1,7 @@
 import idx from 'idx';
 
+const fetch = require('node-fetch');
+
 if (!process.env.E2E_DEVICE) {
   let nextLaunchId = -1;
 
@@ -33,22 +35,29 @@ if (!process.env.E2E_DEVICE) {
         .atIndex(0)
         .tap();
 
+      //HACK: hide auto-focused keyboard
+      if (screen === 'Search') {
+        await element(by.id('searchInput')).typeText('\n');
+      }
+
       await expect(element(by.id(viewLabel)).atIndex(0)).toBeVisible();
     }
 
-    it('settings screen should render correctly', async () => {
+    it('should step to settings screen', async () => {
       await screenIsThere('Settings');
     });
 
-    it('previous screen should render correctly', async () => {
+    it('should step to previous screen', async () => {
       await screenIsThere('Previous');
     });
 
-    it('search screen should render correctly', async () => {
+    it('should step to search screen', async () => {
       await screenIsThere('Search');
     });
 
-    it('upcoming details screen should render correctly', async () => {
+    it('step through screens and show details screen on item click', async () => {
+      await screenIsThere('Previous');
+      await screenIsThere('Settings');
       await screenIsThere('Upcoming');
 
       // renderer should now be on the upcoming screen
@@ -58,6 +67,8 @@ if (!process.env.E2E_DEVICE) {
       await element(by.id(`list-item-${nextLaunchId}`))
         .atIndex(0)
         .tap();
+
+      await expect(element(by.id('details-screen'))).toBeVisible();
     });
   });
 } else {

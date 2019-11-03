@@ -18,6 +18,7 @@ export const SearchFieldView = ({ value, onChangeText, onClear }) => {
           type="Ionicons"
         />
         <Input
+          testID="searchInput"
           placeholder={t('search')}
           autoCapitalize="none"
           autoFocus
