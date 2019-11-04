@@ -21,7 +21,7 @@ if (!process.env.E2E_DEVICE) {
     });
 
     beforeEach(async () => {
-      await device.reloadReactNative();
+      //await device.reloadReactNative();
     });
 
     async function screenIsThere(screen = 'Upcoming') {

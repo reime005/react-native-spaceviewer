@@ -32,7 +32,8 @@ jobs:
       run: |
         brew tap wix/brew
         brew install applesimutils
-        brew cask install fastlane
+        # brew cask install fastlane
+        # bundle install
 
     - name: iOS build
       env:
