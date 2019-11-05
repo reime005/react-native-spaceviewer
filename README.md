@@ -1,6 +1,6 @@
 # Space Viewer - Rocket Infos
 
-[![Actions Status](https://github.com/reime005/react-native-spaceviewer/workflows/.github/workflows/iOS.yml/badge.svg)](https://github.com/{owner}/{repo}/actions)
+[![Actions Status](https://github.com/reime005/react-native-spaceviewer/workflows/.github/workflows/iOS.yml/badge.svg)](https://github.com/reime005/react-native-spaceviewer/actions)
 
 [![CircleCI](https://circleci.com/gh/reime005/react-native-spaceviewer/tree/master.svg?style=svg)](https://circleci.com/gh/reime005/react-native-spaceviewer/tree/master)
 
