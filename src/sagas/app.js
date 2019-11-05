@@ -1,5 +1,5 @@
 import { Linking, Platform, Alert, Share } from 'react-native';
-import Moment from 'moment';
+import { Moment } from 'moment';
 
 export function openFirstMapLocation(action) {
   const { pads } = action;

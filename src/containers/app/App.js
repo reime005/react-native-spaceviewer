@@ -33,7 +33,7 @@ const middleware = [
 ];
 
 // Other configs
-console.disableYellowBox = true;
+console.disableYellowBox = false;
 
 // let Navigation = createReduxContainer(RootNavigator);
 
