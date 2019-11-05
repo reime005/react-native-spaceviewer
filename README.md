@@ -1,5 +1,7 @@
 # Space Viewer - Rocket Infos
 
+![](https://github.com/reime005/react-native-spaceviewer/workflows/.github/workflows/iOS.yml/badge.svg)
+
 [![CircleCI](https://circleci.com/gh/reime005/react-native-spaceviewer/tree/master.svg?style=svg)](https://circleci.com/gh/reime005/react-native-spaceviewer/tree/master)
 
 ![space-viewer](assets/images/mockup.png)

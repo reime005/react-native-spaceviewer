@@ -15,15 +15,8 @@ import {
 
 export default StyleSheet.create({
   headerStyle: {
-    position: 'absolute',
-    width: '100%',
     backgroundColor: colors.PRIMARY_ALPHA,
-    top: 0,
-    left: 0,
-    right: 0,
-    color: 'white',
-    fontWeight: 'bold',
-    height: headerHeight,
+    height: 60,
   },
   headerTitleStyle: {
     flex: 1,
@@ -50,17 +43,18 @@ export default StyleSheet.create({
     height: headerImageHeight * 1.15,
   },
   headerTextTitleStyle: {
+    // textTransform: 'uppercase',
+    textAlign: 'center',
     color: 'white',
     fontWeight: 'bold',
     width: '100%',
     fontSize: headerFontSize,
   },
   viewContainer: {
+    width: '100%',
     flex: 1,
     backgroundColor: colors.BACKGROUND,
-    paddingLeft: wp('1.5%'),
-    paddingRight: wp('1.5%'),
-    paddingBottom: wp('2%'),
+    padding: 5,
   },
   basicCenterContainer: {
     flex: 1,
@@ -86,8 +80,14 @@ export default StyleSheet.create({
     width: '100%',
   },
   splashImage: {
+    marginBottom: 50,
     alignSelf: 'center',
     width: splashImageWidth,
     height: splashImageHeight,
+  },
+  splashTitle: {
+    alignSelf: 'center',
+    width: splashImageWidth * 1.5,
+    height: splashImageHeight * 1.5,
   },
 });

@@ -1,11 +1,12 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { Animated, View, FlatList } from 'react-native';
 import {
   headerBottomSpace,
   overviewListNumColumns,
 } from '../../constants/theme';
 import overviewListStyle from '../../styles/overviewListStyle';
 import { OverviewListItemContainer } from '../container/OverviewListItemContainer';
+import { Separator } from 'native-base';
 
 export class OverviewList extends React.PureComponent {
   state = { selected: new Map() };
@@ -25,6 +26,7 @@ export class OverviewList extends React.PureComponent {
   _renderItem = ({ item }) =>
     item && item.id ? (
       <OverviewListItemContainer
+        key={item.id}
         navigation={this.props.navigation}
         id={item.id}
         onPressItem={this._onPressItem}
@@ -46,7 +48,8 @@ export class OverviewList extends React.PureComponent {
 
     return (
       <FlatList
-        ListHeaderComponent={<View style={{ height: headerBottomSpace }} />}
+        useNativeDriver={true}
+        ListHeaderComponent={<View style={{ height: 5 }} />}
         // initialNumToRender={12}
         numColumns={overviewListNumColumns}
         showsHorizontalScrollIndicator={false}
@@ -60,7 +63,6 @@ export class OverviewList extends React.PureComponent {
         renderItem={this._renderItem}
         onEndReached={this._endReached}
         onRefresh={this._refresh}
-        // ItemSeparatorComponent={() => <Separator />}
       />
     );
   }

@@ -6,4 +6,9 @@ import layout from '../constants/layout';
 export default StyleSheet.create({
   missionsContainer: {},
   missionContainer: {},
+  tabStyle: {
+    backgroundColor: 'white',
+    borderTopWidth: 1,
+    borderColor: colors.COOL_GREY,
+  },
 });

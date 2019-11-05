@@ -12,53 +12,31 @@ import { StreamBadge, ShareBadge } from '../pure';
 
 const style = status => ({
   backgroundColor: statusToColor(status),
+  fontWeight: 'bold',
 });
 
 export const DetailsInfoTextContent = props => {
-  const { net, lsp, status, vidURLs } = props;
+  const { net, lsp, vidURLs } = props;
 
   return (
     <View style={overviewDetailsStyle.detailsInfoTextContainer}>
-      <Card style={{ backgroundColor: '#F4F8FF' }}>
-        <CardItem
-          bordered
-          header
-          style={overviewDetailsStyle.detailsInfoTextHeader}>
-          <Text style={{ fontWeight: 'bold', color: 'black' }}>{lsp.name}</Text>
-        </CardItem>
-
-        <CardItem bordered style={style(status)}>
-          <Text>{statusToMessage(status)}</Text>
-        </CardItem>
-
-        {
-          <CardItem
-            bordered
-            style={[
-              overviewDetailsStyle.cardItem,
-              { backgroundColor: '#F4F8FF' },
-            ]}>
-            {lsp.wikiURL && <WikiBadge url={lsp.wikiURL} />}
-            <ShareBadge data={props} />
-            {vidURLs && vidURLs.length > 0 && renderVidURLs(vidURLs, () => {})}
-          </CardItem>
-        }
-
-        {
-          <CardItem
-            bordered
-            style={[
-              overviewDetailsStyle.cardItem,
-              { backgroundColor: '#F4F8FF' },
-            ]}>
-            {renderInfoURLs(lsp.infoURLs, false)}
-          </CardItem>
-        }
-
-        <View style={{ flex: 1, minHeight: countdownSize * 5 }}>
-          <LaunchTimerContainer net={net} />
+      <View style={{ flex: 1, width: '100%', alignItems: 'center' }}>
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          {renderInfoURLs(lsp.infoURLs, false, 0, 3)}
         </View>
-      </Card>
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          {renderInfoURLs(lsp.infoURLs, false, 2, 5)}
+        </View>
+
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          {vidURLs && vidURLs.length > 0 && renderVidURLs(vidURLs, 0, 3)}
+        </View>
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          {lsp.wikiURL && <WikiBadge url={lsp.wikiURL} />}
+          <ShareBadge data={props} />
+        </View>
+        <LaunchTimerContainer net={net} />
+      </View>
     </View>
   );
 };

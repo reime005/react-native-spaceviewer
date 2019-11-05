@@ -11,9 +11,10 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    paddingTop: headerBottomSpace,
+    paddingTop: 15,
   },
   headerStyle: {
+    margin: 20,
     fontWeight: 'bold',
     fontSize: layout.isSmallDevice ? wp('5%') : wp('3%'),
     height: layout.isSmallDevice ? wp('8%') : wp('8%'),

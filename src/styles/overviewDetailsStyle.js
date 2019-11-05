@@ -26,10 +26,11 @@ export default StyleSheet.create({
   headerContainer: {
     flex: 1,
     flexDirection: 'row',
-    paddingTop: wp('3%'),
-    paddingBottom: wp('3%'),
+    paddingTop: 15,
+    paddingBottom: 15,
   },
   detailsInfoTextHeader: {
+    width: '100%',
     backgroundColor: '#E0ECFE',
     alignItems: 'center',
     fontWeight: 'bold',
@@ -40,7 +41,6 @@ export default StyleSheet.create({
   },
   tabContainer: {
     flex: 1,
-    marginBottom: hp('20%'),
     paddingTop: wp('3%'),
   },
   tabsStyle: {
@@ -48,19 +48,16 @@ export default StyleSheet.create({
     borderColor: colors.DARK_TEXT_SECONDARY,
   },
   tabStyle: {
-    // padding: wp('3%'),
     alignItems: 'center',
-    backgroundColor: '#f0f5ff',
+    backgroundColor: '#f7faff',
   },
   tabContentStyle: {
-    color: 'red',
-    padding: wp('3%'),
+    padding: wp('1%'),
     alignItems: 'center',
-    backgroundColor: '#f0f5ff',
+    backgroundColor: '#f7faff',
   },
   activeTabStyle: {
-    backgroundColor: '#E0ECFE',
-    color: 'red',
+    backgroundColor: 'red',
   },
   tabTextStyle: {
     color: colors.DARK_TEXT_PRIMARY,
@@ -74,34 +71,36 @@ export default StyleSheet.create({
   },
   detailsInfoContainer: {
     flex: 1,
-    justifyContent: 'center',
-    // paddingBottom: wp('2%'),
-    alignItems: 'center',
-    flexDirection: layout.isSmallDevice ? 'column' : 'row',
+    width: '100%',
+    paddingTop: hp('5%'),
+    flexDirection: 'row',
+    paddingLeft: 5,
+    paddingRight: 5,
   },
   detailsInfoTextContainer: {
-    // flex: 1,
-    width: layout.isSmallDevice ? '100%' : '45%',
-    paddingLeft: layout.isSmallDevice ? 0 : wp('2%'),
-    marginTop: layout.isSmallDevice ? wp('2%') : 0,
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
   mapViewContainer: {
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   mapView: {
+    flex: 1,
     width: layout.isSmallDevice ? wp('75%') : wp('85%'),
     height: layout.isSmallDevice ? wp('75%') : wp('85%'),
   },
   timerText: {
     textAlign: 'center',
-    fontSize: layout.isSmallDevice ? wp('8%') : wp('3%'),
+    fontSize: layout.isSmallDevice ? wp('5%') : wp('3%'),
   },
   timerContainer: {
-    flex: 1,
-    height: layout.isSmallDevice ? hp('12%') : hp('6%'),
+    paddingTop: 5,
+    paddingRight: 3,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
   badgeContainerStyle: {
     width: wikiBadgeSize * 2.5,
@@ -137,8 +136,16 @@ export default StyleSheet.create({
     marginBottom: wp('2%'),
   },
   cardItem: {
-    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
+  },
+  titleStyle: {
+    fontWeight: 'bold',
+    color: 'black',
+    fontSize: fontSize.DETAILS_VIEW_TITLE,
+  },
+  subTitleStyle: {
+    color: 'grey',
+    fontSize: fontSize.DETAILS_VIEW_SUBTITLE,
   },
 });

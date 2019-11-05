@@ -4,8 +4,8 @@ import settingsStyle from '../../styles/settingsStyle';
 import { SettingsList } from '../settings/SettingsList';
 
 export class SettingsView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.onValueChange = this.onValueChange.bind(this);
     this.state = { switchValue: false };
   }

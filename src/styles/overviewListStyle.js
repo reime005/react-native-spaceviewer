@@ -1,5 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import layout from '../constants/layout';
 import { colors } from '../constants/theme';
 
@@ -10,12 +13,20 @@ export default StyleSheet.create({
     // paddingTop: headerBottomSpace * 1.125,
   },
   container: {
+    height: layout.isSmallDevice ? 180 : 220,
     flex: 1,
-    marginBottom: wp('2%'),
-    marginLeft: wp('1%'),
-    marginRight: wp('1%'),
-    padding: wp('2%'),
-    borderRadius: wp('1.125%'),
+    marginBottom: layout.isSmallDevice ? hp('2.25%') : hp('1%'),
+    marginLeft: 5,
+    marginRight: 5,
+    padding: 25,
+    borderRadius: 5,
+    elevation: 2,
+    shadowColor: colors.PRIMARY,
+    shadowOpacity: 0.25,
+    shadowOffset: {
+      height: 0,
+      width: 0,
+    },
     backgroundColor: colors.LIST_CONTAINER_BACKGROUND,
   },
   contentContainer: {
@@ -23,27 +34,24 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'flex-end',
-    alignSelf: 'flex-end',
-    marginTop: wp('2%'),
+    // marginTop: 50,
   },
   title: {
-    flex: 0.2,
-    fontSize: layout.isSmallDevice ? wp('3%') : wp('2%'),
+    fontSize: layout.isSmallDevice ? wp('3.25%') : wp('2%'),
     color: colors.DARK_TEXT_PRIMARY,
     fontWeight: 'bold',
   },
   text: {
-    flex: 0.8,
-    fontSize: layout.isSmallDevice ? wp('2.5%') : wp('1.5%'),
+    flex: 1,
+    fontSize: layout.isSmallDevice ? wp('2.6%') : wp('1.5%'),
     color: colors.DARK_TEXT_SECONDARY,
-    margin: wp('0.75%'),
+    margin: 6,
   },
   textContainer: {
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'flex-start',
     flex: 1,
-    paddingLeft: 10,
+    marginLeft: 20,
   },
   listStyleContainer: {
     justifyContent: 'center',
@@ -52,9 +60,6 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   smallTextIconContainer: {
-    flex: 0.15,
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
+    margin: 2,
   },
 });

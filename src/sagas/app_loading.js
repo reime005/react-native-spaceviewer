@@ -29,6 +29,8 @@ export const handleAppLoading = function* handleAppLoading({ assets, fonts }) {
       timeout: call(delay, 7000),
     });
 
+    console.error(res);
+
     if (res) {
       yield put({
         type: LOAD_APP_RESOURCES_SUCCESS,

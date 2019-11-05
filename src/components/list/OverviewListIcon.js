@@ -29,7 +29,7 @@ export class OverviewListIcon extends React.Component {
     let { uri } = this.state;
 
     const size = this.props.size || 80;
-    const rad = size / 5;
+    const rad = size / 2;
 
     if (!uri) {
       uri =
@@ -37,17 +37,21 @@ export class OverviewListIcon extends React.Component {
     }
 
     return (
-      <View>
+      <View style={{ margin: 10 }}>
         {
-          <CustomTouchableHighlight>
+          <CustomTouchableHighlight
+            style={{
+              height: size,
+              width: size,
+              padding: 2,
+              backgroundColor: 'white',
+              borderWidth: overviewListIconBorderWidth,
+              borderColor: colors.BORDER_GREY,
+              borderRadius: rad,
+            }}>
             <FastImage
               style={{
-                // backgroundColor: colors.PRERENDER_IMAGE_BACKGROUND,
-                alignSelf: 'center',
-                borderWidth: overviewListIconBorderWidth,
-                borderColor: colors.BORDER_GREY,
-                height: size,
-                width: size,
+                flex: 1,
                 borderRadius: rad,
               }}
               source={{

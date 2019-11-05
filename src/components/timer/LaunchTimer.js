@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { CountDown } from 'react-native-countdown-component';
+//eslint-disable-next-line
+import CountDown from 'react-native-countdown-component';
 import overviewDetailsStyle from '../../styles/overviewDetailsStyle';
 import { getFormattedTime } from '../../lib/time/getFormattedTime';
 import { SETTING_FORMAT_DATE } from '../../constants/settings';
@@ -51,8 +52,8 @@ export class LaunchTimer extends React.PureComponent {
         style={overviewDetailsStyle.timerContainer}>
         {countdown ? (
           <CountDown
-            digitBgColor={colors.YOUTUBE_BACKGROUND}
-            digitTxtColor={colors.YOUTUBE_FONT}
+            digitBgColor={colors.BACKGROUND_LAUNCH_SUCCESS}
+            digitTxtColor={colors.FORM_LIGHT_INPUT}
             until={this._getSecondsSinceNow()}
             onFinish={this._toggle}
             size={countdownSize}

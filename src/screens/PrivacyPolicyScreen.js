@@ -1,5 +1,6 @@
 import React from 'react';
-import { WebView } from 'react-native';
+import { WebView } from 'react-native-webview';
+
 import { headerBottomSpace, headerLeftSize, colors } from '../constants/theme';
 import { HeaderTitle } from '../components/layout/HeaderTitle';
 import { SocialUrlIcon } from '../components/pure';
@@ -23,7 +24,7 @@ export class PrivacyPolicyScreen extends React.Component {
     return (
       <WebView
         source={{ uri: 'https://mariusreimer.com/privacy-policy' }}
-        style={{ marginTop: headerBottomSpace }}
+        style={{ marginTop: 0 }}
       />
     );
   }

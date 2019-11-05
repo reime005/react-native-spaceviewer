@@ -6,8 +6,8 @@ import { fontFix } from '../lib/dimension';
 import { default as Layout, default as layout } from './layout';
 
 export const colors = {
-  BACKGROUND: '#ededed',
-  LIST_CONTAINER_BACKGROUND: '#F9F9F9',
+  BACKGROUND: '#f2f2f2',
+  LIST_CONTAINER_BACKGROUND: '#fafafa',
   LIST_CONTAINER_BACKGROUND_SHADOW: '#F9F9F9',
   LIST_ICON: '#4F8EF7',
   TOUCHABLE_UNDERLAY: '#fcfcfc',
@@ -18,7 +18,8 @@ export const colors = {
   PRIMARY_ALPHA_2: 'rgba(51, 93, 156, 0.55)',
   ACCENT: '#08ce94',
   BORDER_GREY: '#95989A',
-  COOL_GREY: '#CEDFDE',
+  DARK_GREY: '#636363',
+  COOL_GREY: '#ebebeb',
 
   DARK_TEXT_PRIMARY: '#0c0b0c',
   DARK_TEXT_SECONDARY: '#332f33',
@@ -49,18 +50,19 @@ export const colors = {
 
   HEADER_LEFT_COLOR: '#212121',
 
-  BACKGROUND_LAUNCH_SUCCESS: '#E5FFE6',
+  BACKGROUND_LAUNCH_SUCCESS: '#29963f',
   BACKGROUND_LAUNCH_FAIL: '#FFCCCC',
 
   PRERENDER_IMAGE_BACKGROUND: '#d4d4d4',
-  TABBAR_BACKGROUND: '#ededed',
+  TABBAR_BACKGROUND: '#fff',
 
   SHARE_BACKGROUND: '#4191bd',
   SHARE_FONT: '#f2f2f2',
 };
 
 export const fontSize = {
-  DETAILS_VIEW_TITLE: Layout.isSmallDevice ? 24 : 48,
+  DETAILS_VIEW_TITLE: Layout.isSmallDevice ? 16 : 30,
+  DETAILS_VIEW_SUBTITLE: Layout.isSmallDevice ? 12 : 26,
   DISPLAY: 24,
   TITLE: 20,
   SUB_TITLE: 16,
@@ -78,23 +80,23 @@ const THUMB_HEIGHT = 320;
 
 export const touchableOpacity = 0.75;
 export const wikiBadgeSize = Layout.isSmallDevice ? wp('5%') : wp('3%');
-export const detailViewImageSize = Layout.isSmallDevice ? wp('60%') : wp('47%');
+export const detailViewImageSize = Layout.isSmallDevice ? wp('40%') : wp('45%');
 export const detailViewCloseIconSize = Layout.isSmallDevice
   ? wp('8%')
   : wp('8%');
 export const overviewListSmallIconSize = Layout.isSmallDevice
-  ? wp('5%')
-  : wp('2.25%');
+  ? wp('5.5%')
+  : wp('2.5%');
 export const overviewListBigIconSize = Layout.isSmallDevice
-  ? wp('15%')
-  : wp('9%');
+  ? wp('22%')
+  : wp('100%');
 export const overviewListNumColumns = Layout.isSmallDevice ? 1 : 2;
 export const settingsListItemIconSize = Layout.isSmallDevice
   ? wp('8%')
   : wp('5%');
 export const overviewListIconBorderWidth = Layout.isSmallDevice
-  ? wp('0.35%')
-  : wp('0.25%');
+  ? wp('0.6%')
+  : wp('0.4%');
 
 export const mapSize = Layout.isSmallDevice ? wp('75%') : wp('85%');
 
@@ -120,7 +122,7 @@ export const headerFontSize = headerHeight * 0.35;
 export const headerBottomSpace =
   headerHeight * (layout.isSmallDevice ? 2 : 1.5);
 export const headerLeftSize = headerHeight * 0.6;
-export const countdownSize = Layout.isSmallDevice ? wp('5%') : wp('3%');
+export const countdownSize = Layout.isSmallDevice ? wp('4%') : wp('3%');
 
 export const footerTabIconSize = hp('3%');
 

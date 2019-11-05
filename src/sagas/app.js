@@ -45,6 +45,7 @@ export function shareData(action) {
 
   const { name, net, lsp, vidURLs, locationName } = data;
 
+  // check if current time is behind shared one
   const inPast = Moment().isAfter(net);
   const hasStream = typeof vidURLs[0] === 'string' && vidURLs[0].length > 5;
 

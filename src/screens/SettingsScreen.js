@@ -1,6 +1,7 @@
 import React from 'react';
 import { SettingsContainer } from '../components/container';
 import { View } from 'react-native';
+import { HeaderTitle } from '../components/layout/HeaderTitle';
 
 export const SettingsScreen = props => {
   return (
@@ -11,4 +12,10 @@ export const SettingsScreen = props => {
       <SettingsContainer {...props} />
     </View>
   );
+};
+
+SettingsScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerTitle: () => <HeaderTitle text="Settings" />,
+  };
 };

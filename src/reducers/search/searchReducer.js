@@ -19,21 +19,20 @@ export const searchReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         searchText: action.searchText,
+        loading: true,
       };
     }
     case SEARCH_CONCAT_RESULT: {
       return {
         ...state,
+        loading: false,
         searchResult: state.searchResult.concat(action.searchResult),
-        // searchResult: [
-        //   ...state.searchResult,
-        //   action.searchResult
-        // ]
       };
     }
     case SEARCH_SET_RESULT: {
       return {
         ...state,
+        loading: false,
         searchResult: action.searchResult,
       };
     }

@@ -31,6 +31,17 @@ export const statusToMessage = status => {
   }
 };
 
+export const statusToIconName = status => {
+  switch (status) {
+    case 1:
+    case 3:
+      return 'check-circle-outline';
+    case 2:
+    case 4:
+      return 'cancel';
+  }
+};
+
 export const statusToColor = status => {
   switch (status) {
     case 1:

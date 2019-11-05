@@ -6,7 +6,7 @@ import { OverviewListItemText } from './OverviewListItemText';
 import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
 import { SETTING_FORMAT_DATE } from '../../constants/settings';
 import { getFormattedTime } from '../../lib/time/getFormattedTime';
-import { DETAILS_SCREEN } from '../../constants/routes';
+import { Routes } from '../../constants/routes';
 import { overviewListBigIconSize } from '../../constants/theme';
 
 export class OverviewListItem extends React.PureComponent {
@@ -15,14 +15,14 @@ export class OverviewListItem extends React.PureComponent {
   };
 
   _onPress = () => {
-    this.props.navigation.navigate(DETAILS_SCREEN, {
+    this.props.navigation.navigate(Routes.DETAILS_SCREEN, {
       item: this.props.item,
       name: this.props.item.name,
     });
   };
 
   // componentDidMount() {
-  //   if (this.props.item.id == 1392) {
+  //   if (this.props.item.id == 1956) {
   //     this._onPress();
   //   }
   // }
@@ -49,10 +49,7 @@ export class OverviewListItem extends React.PureComponent {
         <Text style={overviewListStyle.title}>{name}</Text>
 
         <View style={overviewListStyle.contentContainer}>
-          <OverviewListIconContainer
-            size={overviewListBigIconSize}
-            uri={imageURL[0]}
-          />
+          <OverviewListIconContainer uri={imageURL[0]} />
 
           <View style={overviewListStyle.textContainer}>
             <OverviewListItemText iconName="account-box" text={lspName} />

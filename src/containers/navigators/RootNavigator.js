@@ -1,9 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import {
+  createStackNavigator,
+  createBottomTabNavigator,
+  createSwitchNavigator,
+} from 'react-navigation';
 import { HeaderTitle } from '../../components/layout/HeaderTitle';
-import * as Routes from '../../constants/routes';
+import { Routes } from '../../constants/routes';
 import { colors, footerTabIconSize } from '../../constants/theme';
 import {
   CreditsScreen,
@@ -19,61 +23,60 @@ import { AppLoadingScreen } from '../app/AppLoadingScreen';
 
 export const navOptions = ({ navigation }) => ({
   headerStyle: mainStyle.headerStyle,
-  headerTitle: <HeaderTitle />,
   headerTitleStyle: mainStyle.headerTextTitleStyle,
   headerBackTitleStyle: mainStyle.headerTitleStyle,
   headerRight: null,
   headerLeft: null,
-  headerTransparent: true,
+  // headerTransparent: true,
 });
 
-const HomeStack = StackNavigator(
+const HomeStack = createStackNavigator(
   {
-    [Routes.HOME_SCREEN]: { screen: HomeScreen },
+    [Routes.HOME_SCREEN]: HomeScreen,
     [Routes.DETAILS_SCREEN]: { screen: DetailsScreen },
   },
   {
-    navigationOptions: navOptions('tab-button-home'),
+    defaultNavigationOptions: navOptions('tab-button-home'),
   }
 );
 
-const PreviousStack = StackNavigator(
+const PreviousStack = createStackNavigator(
   {
     [Routes.PREVIOUS_SCREEN]: { screen: PreviousScreen },
     [Routes.DETAILS_SCREEN]: { screen: DetailsScreen },
   },
   {
-    navigationOptions: navOptions,
+    defaultNavigationOptions: navOptions,
   }
 );
 
-const SearchStack = StackNavigator(
+const SearchStack = createStackNavigator(
   {
     [Routes.SEARCH_SCREEN]: { screen: SearchScreen },
     [Routes.DETAILS_SCREEN]: { screen: DetailsScreen },
   },
   {
-    navigationOptions: navOptions,
+    defaultNavigationOptions: navOptions,
   }
 );
 
-const SettingsStack = StackNavigator(
+const SettingsStack = createStackNavigator(
   {
-    [Routes.SETTINGS_SCREEN]: { screen: SettingsScreen },
-    [Routes.PRIVACY_POLICY_SCREEN]: { screen: PrivacyPolicyScreen },
-    [Routes.CREDITS_SCREEN]: { screen: CreditsScreen },
+    [Routes.SETTINGS_SCREEN]: SettingsScreen,
+    [Routes.PRIVACY_POLICY_SCREEN]: PrivacyPolicyScreen,
+    [Routes.CREDITS_SCREEN]: CreditsScreen,
   },
   {
-    navigationOptions: navOptions,
+    defaultNavigationOptions: navOptions,
   }
 );
 
-const HomeNavigator = TabNavigator(
+const HomeNavigator = createBottomTabNavigator(
   {
-    [Routes.HOME_SCREEN]: { screen: HomeStack },
-    [Routes.PREVIOUS_SCREEN]: { screen: PreviousStack },
-    [Routes.SEARCH_SCREEN]: { screen: SearchStack },
-    [Routes.SETTINGS_SCREEN]: { screen: SettingsStack },
+    [Routes.HOME_SCREEN]: HomeStack,
+    [Routes.PREVIOUS_SCREEN]: PreviousStack,
+    [Routes.SEARCH_SCREEN]: SearchStack,
+    [Routes.SETTINGS_SCREEN]: SettingsStack,
   },
   {
     tabBarPosition: 'bottom',
@@ -90,7 +93,8 @@ const HomeNavigator = TabNavigator(
       iconStyle: mainStyle.tabBarIconStyle,
       // labelStyle: mainStyle.tabBarLabelStyle
     },
-    navigationOptions: ({ navigation }) => ({
+
+    defaultNavigationOptions: ({ navigation }) => ({
       tabBarLabel: navigation.state.routeName,
       tabBarTestID: `tab-btn-${navigation.state.routeName.replace(' ', '')}`,
       tabBarIcon: ({ focused, tintColor }) => {
@@ -138,13 +142,14 @@ const HomeNavigator = TabNavigator(
   }
 );
 
-export const RootNavigator = StackNavigator(
+export const RootNavigator = createSwitchNavigator(
   {
-    [Routes.APP_LOADING_SCREEN]: { screen: AppLoadingScreen },
+    [Routes.APP_LOADING_SCREEN]: AppLoadingScreen,
     [Routes.HOME_SCREEN]: HomeNavigator,
   },
   {
     headerMode: 'none',
+    initialRouteName: Routes.APP_LOADING_SCREEN,
   }
 );
 

@@ -1,17 +1,20 @@
 import React from 'react';
+import { View } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
-import { Image, View, Text } from 'react-native';
 import mainStyle from '../../styles/mainStyle';
+import { useTranslation } from 'react-i18next';
 
-export const HeaderTitle = props => (
-  <View style={mainStyle.headerTitleContainer}>
-    {props.text ? (
-      <Text style={mainStyle.headerTitleContainerText}>{props.text}</Text>
-    ) : (
-      <Image
-        style={mainStyle.headerImageStyle}
-        source={require('../../../assets/images/title.png')}
-      />
-    )}
-  </View>
-);
+export const HeaderTitle = ({ text = '' }) => {
+  const { t } = useTranslation();
+
+  return (
+    <View style={mainStyle.headerTitleContainer}>
+      <Animatable.Text
+        animation="fadeIn"
+        style={mainStyle.headerTitleContainerText}>
+        {t(text)}
+      </Animatable.Text>
+    </View>
+  );
+};

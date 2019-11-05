@@ -1,0 +1,33 @@
+name: basic node setup
+
+on: [push, pull_request]
+
+jobs:
+  node-lint-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v1
+
+    - name: setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+
+    - uses: actions/cache@preview
+      with:
+        path: ~/.cache/yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+        restore-keys: |
+          ${{ runner.os }}-yarn
+    - name: install node_modules
+      run: yarn install --frozen-lockfile
+
+    - name: node lint
+      run:
+        yarn lint-ci
+
+    - name: node test
+      run:
+        yarn test-ci

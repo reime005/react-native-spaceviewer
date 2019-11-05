@@ -3,7 +3,6 @@
   "plugins": [
     "react-native",
     "flowtype",
-    "react-hooks",
     "redux-saga"
   ],
   "settings": {
@@ -30,8 +29,6 @@
     "strict": "error",
     "comma-dangle": "off",
     "no-alert": "warn",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
     "no-unused-vars": "warn",
   }
 }

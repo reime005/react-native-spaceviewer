@@ -1,10 +1,13 @@
 import React from 'react';
 import { PreviousContainer } from '../components/container';
 import { View } from 'react-native';
+import { HeaderTitle } from '../components/layout/HeaderTitle';
 
 export class PreviousScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
-    return null;
+    return {
+      headerTitle: () => <HeaderTitle text="Previous Rocket Launches" />,
+    };
   };
 
   render() {

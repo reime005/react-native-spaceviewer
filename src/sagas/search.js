@@ -36,9 +36,7 @@ export function* searchEndReached() {
     let launches = yield call(fetchSearchData, searchText, offset);
     launches = yield call(changeImageUrlWithCached, launches);
 
-    if (Array.isArray(launches)) {
-      yield put(searchConcatResultAction(launches));
-    }
+    yield put(searchConcatResultAction(launches));
   }
 }
 
@@ -46,18 +44,11 @@ function* fetchSearchData(name = '', offset = 0) {
   const mode = apiConstants.DEFAULT_PARAM_MODE;
 
   try {
-    const { res, timeout } = yield race({
-      res: fetch(
-        `${
-          apiConstants.URI_SEARCH_LAUNCHES
-        }?name=${name}&offset=${offset}&sort=desc&limit=20&mode=${mode}`
-      ),
-      timeout: call(delay, 10000),
-    });
-
-    if (timeout) {
-      return [];
-    }
+    const res = yield fetch(
+      `${
+        apiConstants.URI_SEARCH_LAUNCHES
+      }?name=${name}&offset=${offset}&sort=desc&limit=20&mode=${mode}`
+    );
 
     const data = yield res.json();
 

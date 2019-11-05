@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, WebView, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import {
   Container,
   Header,
@@ -9,6 +9,7 @@ import {
   Text,
   Body,
 } from 'native-base';
+import { WebView } from 'react-native-webview';
 
 import settingsStyle from '../../styles/settingsStyle';
 import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
@@ -24,11 +25,11 @@ export class CreditsView extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, padding: '1%' }}>
+      <View style={{ flex: 1, padding: '5r' }}>
         <ScrollView>
           <View
             style={{
-              height: headerBottomSpace,
+              height: 0,
             }}
           />
           <Card>

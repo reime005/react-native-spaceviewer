@@ -19,7 +19,7 @@ import overviewDetailsStyle from '../../../styles/overviewDetailsStyle';
 
 export const LocationContent = (location = {}) => {
   return (
-    <Card style={{ alignItems: 'center' }}>
+    <Card style={{ alignItems: 'center', width: '100%' }}>
       <CardItem header>
         <Text>{location.name}</Text>
       </CardItem>

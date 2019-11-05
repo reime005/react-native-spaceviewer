@@ -1,5 +1,5 @@
 import { delay } from 'redux-saga';
-import { call, put, race, select } from 'redux-saga/effects';
+import { call, putResolve, race, select } from 'redux-saga/effects';
 import * as actions from '../actions';
 import * as apiConstants from '../constants/api';
 import * as fileKeys from '../constants/files';
@@ -16,13 +16,13 @@ export function* loadNextLaunches(action) {
   let launches = yield call(getItemFromStore, launchType);
   launches = JSON.parse(launches);
   launches = yield call(changeImageUrlWithCached, launches);
-  yield put.resolve(actions.setLaunchesAction(launches, launchType));
+  yield putResolve(actions.setLaunchesAction(launches, launchType));
 
   if (launchType === fileKeys.FILE_NEXT_LAUNCHES) {
     launches = yield call(fetchReturnNextLaunches, action);
   } else if (launchType === fileKeys.FILE_PREV_LAUNCHES) {
     const enddate = getApiDateToday();
-    yield put.resolve(actions.setPrevEnddateAction(enddate));
+    yield putResolve(actions.setPrevEnddateAction(enddate));
     launches = yield call(fetchReturnPrevLaunches, { ...action, enddate });
   }
 
@@ -37,7 +37,7 @@ export function* loadNextLaunches(action) {
 
   launches = yield call(changeImageUrlWithCached, launches);
 
-  yield put.resolve(actions.setLaunchesAction(launches, launchType));
+  yield putResolve(actions.setLaunchesAction(launches, launchType));
 
   return {};
 }
@@ -51,18 +51,11 @@ function* fetchReturnNextLaunches(action) {
 
   // fetch the initial sequence
   try {
-    const { res, timeout } = yield race({
-      res: fetch(
-        `${
-          apiConstants.URI_NEXT_LAUNCHES
-        }?next=${next}&offset=${offset}&mode=${mode}`
-      ),
-      timeout: call(delay, 10000),
-    });
-
-    if (timeout) {
-      return [];
-    }
+    const res = yield fetch(
+      `${
+        apiConstants.URI_NEXT_LAUNCHES
+      }?next=${next}&offset=${offset}&mode=${mode}`
+    );
 
     const data = yield res.json();
 
@@ -91,7 +84,7 @@ function* fetchReturnPrevLaunches(action) {
 
   let startdate = yield call(getApiDateDaysAgo, enddate);
 
-  yield put.resolve(actions.setPrevEnddateAction(startdate));
+  yield putResolve(actions.setPrevEnddateAction(startdate));
 
   if (!startdate || !enddate) {
     return;
@@ -99,21 +92,11 @@ function* fetchReturnPrevLaunches(action) {
 
   // fetch the initial sequence
   try {
-    const { res, timeout } = yield race({
-      res: fetch(
-        `${
-          apiConstants.URI_PREV_LAUNCHES
-        }?startdate=${startdate}&enddate=${enddate}&limit=${limit}&sort=desc&mode=${mode}`
-      ),
-      timeout: call(
-        delay,
-        apiConstants.DEFAULT_GET_TIMEOUT_MILISECONDS * 1.125
-      ),
-    });
-
-    if (timeout) {
-      return [];
-    }
+    const res = yield fetch(
+      `${
+        apiConstants.URI_PREV_LAUNCHES
+      }?startdate=${startdate}&enddate=${enddate}&limit=${limit}&sort=desc&mode=${mode}`
+    );
 
     const data = yield res.json();
 
@@ -126,7 +109,7 @@ function* fetchReturnPrevLaunches(action) {
     // yield put(setNextLaunchesFailAction());
   }
 
-  yield put.resolve(actions.setPrevEnddateAction(startdate));
+  yield putResolve(actions.setPrevEnddateAction(startdate));
 
   return prevLaunches;
 }
@@ -147,15 +130,15 @@ export function* endReached(action) {
   if (Array.isArray(launches) && launches.length > 0) {
     launches = yield call(changeImageUrlWithCached, launches);
 
-    yield put.resolve(actions.concatLaunchesAction(launches, launchType));
+    yield putResolve(actions.concatLaunchesAction(launches, launchType));
   }
 }
 
 export function* refresh(action) {
   const { launchType } = action;
 
-  yield put.resolve(actions.setLaunchesAction([], launchType));
-  yield put.resolve(actions.setPrevEnddateAction(''));
+  yield putResolve(actions.setLaunchesAction([], launchType));
+  yield putResolve(actions.setPrevEnddateAction(''));
 
   // yield call(delay, REFRESH_DELAY_MS)
 

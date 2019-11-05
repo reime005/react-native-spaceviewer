@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import overviewListStyle from '../../styles/overviewListStyle';
 import { colors, overviewListSmallIconSize } from '../../constants/theme';
-import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
+import * as Animatable from 'react-native-animatable';
 
 const Inner = props => (
   <React.Fragment>
@@ -19,15 +19,10 @@ const Inner = props => (
   </React.Fragment>
 );
 
-export const OverviewListItemText = props =>
-  typeof props.onPress === 'function' ? (
-    <CustomTouchableHighlight
-      onPress={props.onPress}
-      style={overviewListStyle.listStyleContainer}>
-      <Inner {...props} />
-    </CustomTouchableHighlight>
-  ) : (
-    <View style={overviewListStyle.listStyleContainer}>
-      <Inner {...props} />
-    </View>
-  );
+export const OverviewListItemText = props => (
+  <Animatable.View
+    animation="fadeIn"
+    style={overviewListStyle.listStyleContainer}>
+    <Inner {...props} />
+  </Animatable.View>
+);

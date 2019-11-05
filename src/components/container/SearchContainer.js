@@ -8,6 +8,7 @@ import {
 export const SearchContainer = connect(
   state => ({
     data: state.search.searchResult,
+    loading: state.search.loading,
   }),
   dispatch => ({
     endReached: () => {

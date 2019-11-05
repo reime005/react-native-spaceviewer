@@ -21,6 +21,9 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+.classpath
+org.eclipse.*
+.project
 
 # Android/IntelliJ
 #
@@ -39,7 +42,7 @@ yarn-error.log
 # BUCK
 buck-out/
 \.buckd/
-*.keystore
+release.keystore.properties
 
 # fastlane
 #

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { BackHandler, Platform } from 'react-native';
+import { BackHandler, Platform, View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { RootNavigator } from '.';
@@ -51,7 +51,7 @@ class _AppNavigator extends React.Component {
   render() {
     const { dispatch, nav, hasSession } = this.props;
 
-    return <RootNavigator dispatch={dispatch} state={nav} />;
+    return <RootNavigator />;
   }
 }
 
@@ -59,6 +59,7 @@ const mapStateToProps = (state, ownProps) => ({
   nav: state.nav,
 });
 
-export const AppNavigator = connect(mapStateToProps)(_AppNavigator);
+// export const AppNavigator = connect(mapStateToProps)(_AppNavigator);
 
-export default AppNavigator;
+// export default AppNavigator;
+export const AppNavigator = () => <RootNavigator />;
