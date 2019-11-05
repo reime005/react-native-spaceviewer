@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   node-stuff:
-    runs-on: macOS-10.14
+    runs-on: macOS-latest
 
     steps:
     - name: checkout
@@ -24,24 +24,10 @@ jobs:
     - name: install node_modules
       run: yarn install --frozen-lockfile
 
-    - name: pod install
+    - name: node lint
       run:
-        cd ios; pod install; cd -
+        yarn lint-ci
 
-    - name: detox & fastlane setup
-      run: |
-        brew tap wix/brew
-        brew install applesimutils
-
-    - name: iOS build
-      env:
-          DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
+    - name: node test
       run:
-        yarn build-detox-ios
-
-    - name: iOS test
-      env:
-          DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
-      run: |
-        npx detox clean-framework-cache && npx detox build-framework-cache
-        yarn test-detox-ios
+        yarn test-ci
