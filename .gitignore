@@ -21,6 +21,9 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+.classpath
+org.eclipse.*
+.project
 
 # Android/IntelliJ
 #
