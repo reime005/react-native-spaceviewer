@@ -7,10 +7,10 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: checkout
+    - name: Checkout project
       uses: actions/checkout@v1
 
-    - name: setup node
+    - name: Specify node version
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
@@ -24,9 +24,6 @@ jobs:
     - name: Download Android Emulator Image
       run:
         echo y | sudo $ANDROID_HOME/tools/bin/sdkmanager --verbose "system-images;android-27;google_apis;x86"
-
-    - name: Setup emulator
-      run: |
         $ANDROID_HOME/tools/bin/avdmanager create avd -n emu -k "system-images;android-27;google_apis;x86" -b "x86" -c 1G -d 7 -f
 
     - name: Install node_modules & Deploy
@@ -38,12 +35,14 @@ jobs:
       timeout-minutes: 10
       continue-on-error: true
       run: |
+        mkdir -p artifacts
         export PATH=$PATH:$ANDROID_HOME/platform-tools
         $ANDROID_HOME/emulator/emulator @emu &
         adb wait-for-device; adb shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'; adb shell wm dismiss-keyguard
         yarn test-detox-android
 
-    - uses: actions/upload-artifact@master
+    - name: Provide videos of failed E2E tests
+      uses: actions/upload-artifact@master
       with:
         name: android-failing-e2e-videos
         path: artifacts/
