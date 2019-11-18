@@ -22,7 +22,7 @@ jobs:
         architecture: 'x64'
 
     - name: Download Android Emulator Image
-      run:
+      run: |
         echo y | sudo $ANDROID_HOME/tools/bin/sdkmanager --verbose "system-images;android-27;google_apis;x86"
         $ANDROID_HOME/tools/bin/avdmanager create avd -n emu -k "system-images;android-27;google_apis;x86" -b "x86" -c 1G -d 7 -f
 
