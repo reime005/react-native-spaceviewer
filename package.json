@@ -21,6 +21,8 @@
     "test-ios-release": "E2E_DEVICE=local_ios_release jest",
     "build-detox-ios": "detox build -c ios.sim.release",
     "test-detox-ios": "detox test -c ios.sim.release",
+    "build-detox-android": "detox build -c android.emu.debug",
+    "test-detox-android": "detox test -c android.emu.debug",
     "build-ios-release": "xcodebuild -workspace ios/SpaceViewer.xcworkspace -scheme SpaceViewer -configuration Release -sdk iphonesimulator -UseModernBuildSystem=NO -derivedDataPath ios/build/app -quiet; rm ios/app-release.zip; zip -r ios/app-release.zip ios/build/app/Build/Products/Release-iphonesimulator/*.app"
   },
   "dependencies": {
@@ -106,7 +108,7 @@
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
         "build": "pushd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && popd",
         "type": "android.emulator",
-        "name": "Pixel_2_API_29"
+        "name": "emu"
       }
     },
     "test-runner": "jest"

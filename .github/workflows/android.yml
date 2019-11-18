@@ -1,0 +1,48 @@
+name: Android
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v1
+
+    - name: Specify node version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+
+    - name: Use specific Java version for sdkmanager to work
+      uses: joschi/setup-jdk@v1
+      with:
+        java-version: 'openjdk8'
+        architecture: 'x64'
+
+    - name: Download Android Emulator Image
+      run: |
+        echo y | sudo $ANDROID_HOME/tools/bin/sdkmanager --verbose "system-images;android-27;google_apis;x86"
+        $ANDROID_HOME/tools/bin/avdmanager create avd -n emu -k "system-images;android-27;google_apis;x86" -b "x86" -c 1G -d 7 -f
+
+    - name: Install node_modules & Deploy
+      run: |
+        yarn install --frozen-lockfile
+        yarn build-detox-android
+
+    - name: Android test
+      timeout-minutes: 10
+      continue-on-error: true
+      run: |
+        mkdir -p artifacts
+        export PATH=$PATH:$ANDROID_HOME/platform-tools
+        $ANDROID_HOME/emulator/emulator @emu &
+        adb wait-for-device; adb shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'; adb shell wm dismiss-keyguard
+        yarn test-detox-android
+
+    - name: Provide videos of failed E2E tests
+      uses: actions/upload-artifact@master
+      with:
+        name: android-failing-e2e-videos
+        path: artifacts/
