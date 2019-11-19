@@ -2,7 +2,7 @@
 
 ![GitHub Actions status](https://github.com/reime005/react-native-spaceviewer/workflows/iOS/badge.svg)
 
-![GitHub Actions status](https://github.com/reime005/react-native-spaceviewer/workflows/android/badge.svg)
+![GitHub Actions status](https://github.com/reime005/react-native-spaceviewer/workflows/Android/badge.svg)
 
 [![CircleCI](https://circleci.com/gh/reime005/react-native-spaceviewer/tree/master.svg?style=svg)](https://circleci.com/gh/reime005/react-native-spaceviewer/tree/master)
 
