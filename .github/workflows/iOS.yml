@@ -3,7 +3,7 @@ name: iOS
 on: [push, pull_request]
 
 jobs:
-  node-stuff:
+  some-job:
     runs-on: macos-latest
 
     steps:
