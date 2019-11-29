@@ -1,4 +1,4 @@
-name: Android
+name: test
 
 on: [push, pull_request]
 
@@ -33,7 +33,7 @@ jobs:
       working-directory: android
       if: github.event_name == 'tag'
       env:
-        ANDROID_TOKEN: ${{ secrets.ANDROID_TOKEN }}
+        AT: ${{ secrets.ANDROID_TOKEN }}
       run: |
         echo $AT > ~/play_api_key_rn_spaceviewer.json
         fastlane android internal
