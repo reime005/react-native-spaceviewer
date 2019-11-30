@@ -29,20 +29,16 @@ jobs:
       run: |
         yarn install --frozen-lockfile
 
-    - name: Prepare Android keystore
-      env:
-        KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
-      run:
-        echo "$KEYSTORE" | xxd -r -p - > android/app/release.keystore
-
     - name: Deploy Android Bundle & Upload to Internal Test Track
       working-directory: android
       env:
+        KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
         ANDROID_TOKEN: ${{ secrets.ANDROID_TOKEN }}
         android_keystore_pw: ${{ secrets.android_keystore_pw }}
         android_pw: ${{ secrets.android_pw }}
         android_alias: ${{ secrets.android_alias }}
       run: |
+        echo "$KEYSTORE" | xxd -r -p - > app/release.keystore
         echo $AT > ~/play_api_key_rn_spaceviewer.json
         fastlane android internal
         rm -f ~/play_api_key_rn_spaceviewer.json
