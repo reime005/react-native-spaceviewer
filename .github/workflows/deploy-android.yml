@@ -39,6 +39,9 @@ jobs:
       working-directory: android
       env:
         ANDROID_TOKEN: ${{ secrets.ANDROID_TOKEN }}
+        android_keystore_pw: ${{ secrets.android_keystore_pw }}
+        android_pw: ${{ secrets.android_pw }}
+        android_alias: ${{ secrets.android_alias }}
       run: |
         echo $AT > ~/play_api_key_rn_spaceviewer.json
         fastlane android internal

@@ -127,9 +127,9 @@ def keystoreProperties = new Properties()
 
 // CI workaround
 if (System.getenv('signing_key_pw')}) {
-    keystoreProperties.setProperty("key.store.password", "\"${System.getenv('android_keystore_pw')}\"")
-    keystoreProperties.setProperty("key.alias.password", "\"${System.getenv('android_pw')}\"")
-    keystoreProperties.setProperty("key.alias", "\"${System.getenv('android_alias')}\"")
+    keystoreProperties.setProperty("key.store.password", System.getenv('android_keystore_pw'))
+    keystoreProperties.setProperty("key.alias.password", System.getenv('android_pw'))
+    keystoreProperties.setProperty("key.alias", System.getenv('android_alias'))
     keystoreProperties.setProperty("key.store", "~/key.keystore")
 } else if (releaseKeystorePropertiesFile.exists()) {
     // Load your keystore.properties file into the keystoreProperties object.
