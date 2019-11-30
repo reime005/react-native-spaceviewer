@@ -119,13 +119,19 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 // Create a variable called keystorePropertiesFile, and initialize it to your
 // keystore.properties file, in the rootProject folder.
-def keystorePropertiesFile = rootProject.file("keystores/release.keystore.properties")
+def releaseKeystorePropertiesFile = rootProject.file("keystores/release.keystore.properties")
+def debugKeystorePropertiesFile = rootProject.file("keystores/debug.keystore.properties")
 
 // Initialize a new Properties() object called keystoreProperties.
 def keystoreProperties = new Properties()
 
 // CI workaround
-if (keystorePropertiesFile.isFile() && keystorePropertiesFile.canRead()) {
+if (System.getenv('signing_key_pw')}) {
+    keystoreProperties.setProperty("key.store.password", "\"${System.getenv('android_keystore_pw')}\"")
+    keystoreProperties.setProperty("key.alias.password", "\"${System.getenv('android_pw')}\"")
+    keystoreProperties.setProperty("key.alias", "\"${System.getenv('android_alias')}\"")
+    keystoreProperties.setProperty("key.store", "~/key.keystore")
+} else if (releaseKeystorePropertiesFile.exists()) {
     // Load your keystore.properties file into the keystoreProperties object.
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 } else {
@@ -158,7 +164,7 @@ android {
             keyPassword 'android'
         }
         release {
-            keyAlias keystoreProperties['key.alias']
+            keyAlias '~/key.keystore'
             keyPassword keystoreProperties['key.alias.password']
             storeFile file(keystoreProperties['key.store'])
             storePassword keystoreProperties['key.store.password']

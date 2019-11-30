@@ -1,0 +1,46 @@
+name: deploy-android
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v1
+
+    - name: Specify node version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+
+    - name: Use specific Java version for sdkmanager to work
+      uses: joschi/setup-jdk@v1
+      with:
+        java-version: 'openjdk8'
+        architecture: 'x64'
+
+    - name: Fastlane setup
+      run: |
+        sudo gem install fastlane -NV
+
+    - name: Install node_modules
+      run: |
+        yarn install --frozen-lockfile
+
+    - name: Prepare Android keystore
+      env:
+        KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
+      run:
+        echo "$KEYSTORE" | xxd -r -p - > ~/key.keystore
+
+    - name: Deploy Android Bundle & Upload to Internal Test Track
+      working-directory: android
+      env:
+        ANDROID_TOKEN: ${{ secrets.ANDROID_TOKEN }}
+      run: |
+        echo $AT > ~/play_api_key_rn_spaceviewer.json
+        fastlane android internal
+        rm -f ~/play_api_key_rn_spaceviewer.json
+        rm -f ~/key.keystore
