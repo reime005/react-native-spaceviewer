@@ -1,0 +1,32 @@
+name: deploy-android
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v1
+
+    - name: Specify node version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+
+    - name: Fastlane setup
+      run: |
+        sudo gem install fastlane -NV
+
+    - name: Install node_modules
+      run: |
+        yarn install --frozen-lockfile
+
+    - name: Deploy iOS & Upload to TestFlight
+      working-directory: ios
+      env:
+        KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
+      run: |
+        fastlane match appstore
+        fastlane ios beta

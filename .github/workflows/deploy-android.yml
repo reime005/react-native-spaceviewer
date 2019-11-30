@@ -15,12 +15,6 @@ jobs:
       with:
         node-version: '10.x'
 
-    - name: Use specific Java version for sdkmanager to work
-      uses: joschi/setup-jdk@v1
-      with:
-        java-version: 'openjdk8'
-        architecture: 'x64'
-
     - name: Fastlane setup
       run: |
         sudo gem install fastlane -NV
