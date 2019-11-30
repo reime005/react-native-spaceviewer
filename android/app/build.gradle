@@ -132,9 +132,9 @@ if (System.getenv('android_keystore_pw')) {
     keystoreProperties.setProperty("key.alias", "${System.getenv('android_alias')}")
 } else if (releaseKeystorePropertiesFile.exists()) {
     // Load your keystore.properties file into the keystoreProperties object.
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    keystoreProperties.load(new FileInputStream(releaseKeystorePropertiesFile))
 } else {
-    keystoreProperties.load(new FileInputStream(rootProject.file("keystores/debug.keystore.properties")))
+    keystoreProperties.load(new FileInputStream(debugKeystorePropertiesFile))
 }
 
 android {
