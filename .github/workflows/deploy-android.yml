@@ -33,7 +33,7 @@ jobs:
       working-directory: android
       env:
         KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
-        ANDROID_TOKEN: ${{ secrets.ANDROID_TOKEN }}
+        AT: ${{ secrets.ANDROID_TOKEN }}
         android_keystore_pw: ${{ secrets.android_keystore_pw }}
         android_pw: ${{ secrets.android_pw }}
         android_alias: ${{ secrets.android_alias }}
