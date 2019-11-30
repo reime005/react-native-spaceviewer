@@ -164,9 +164,9 @@ android {
             keyPassword 'android'
         }
         release {
-            keyAlias '~/key.keystore'
+            keyAlias keystoreProperties['key.alias']
             keyPassword keystoreProperties['key.alias.password']
-            storeFile file(keystoreProperties['key.store'])
+            storeFile file(keystoreProperties['~/key.keystore'])
             storePassword keystoreProperties['key.store.password']
 	    }
     }
