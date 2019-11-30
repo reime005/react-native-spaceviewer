@@ -1,4 +1,4 @@
-name: deploy-android
+name: deploy-iOS
 
 on: [push]
 
@@ -23,10 +23,12 @@ jobs:
       run: |
         yarn install --frozen-lockfile
 
+    - name: MATCH
+      working-directory: ios
+      run: |
+        fastlane ios beta
+
     - name: Deploy iOS & Upload to TestFlight
       working-directory: ios
-      env:
-        KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
       run: |
-        fastlane match appstore
         fastlane ios beta
