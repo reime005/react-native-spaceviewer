@@ -29,7 +29,7 @@ jobs:
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       run: |
-        match appstore --verbose
+        fastlane match appstore --verbose
 
     - name: Deploy iOS & Upload to TestFlight
       working-directory: ios
