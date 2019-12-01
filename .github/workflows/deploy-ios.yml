@@ -16,6 +16,10 @@ jobs:
       with:
         node-version: '10.x'
 
+    - name: SSH test
+      run: |
+        yes | ssh -T git@github.com
+
     - name: Fastlane setup
       run: |
         sudo gem install fastlane -NV
