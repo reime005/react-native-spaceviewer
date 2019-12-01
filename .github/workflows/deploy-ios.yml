@@ -33,7 +33,7 @@ jobs:
         FASTLANE_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         PW: ${{ secrets.pat }}
       run: |
-        fastlane match appstore -r https://reimerm-dev:$PW@github.com/reime005/certificates.git --verbose
+        fastlane match appstore -r https://reimerm-dev:$PW@github.com/reime005/certificates.git --readonly=true --verbose
 
     - name: Install node_modules
       run: |
