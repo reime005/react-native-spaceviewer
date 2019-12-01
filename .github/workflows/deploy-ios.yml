@@ -37,5 +37,5 @@ jobs:
         FASTLANE_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.pat }}
       run: |
-        fastlane match appstore --readonly=true --verbose
+        fastlane match appstore
         fastlane ios beta
