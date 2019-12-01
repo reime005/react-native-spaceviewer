@@ -1,3 +1,2 @@
-git_url "https://reimerm-dev:$PW@github.com/reime005/certificates.git"
-
-type "appstore" # The default type, can be: appstore, adhoc, enterprise or development
+git_url "https://github.com/reime005/certificates.git"
+username("reimerm-dev")

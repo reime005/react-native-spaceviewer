@@ -35,7 +35,7 @@ jobs:
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         FASTLANE_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-        PW: ${{ secrets.pat }}
+        MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.pat }}
       run: |
-        fastlane match appstore -r https://reimerm-dev:$PW@github.com/reime005/certificates.git --readonly=true --verbose
+        fastlane match appstore --readonly=true --verbose
         fastlane ios beta
