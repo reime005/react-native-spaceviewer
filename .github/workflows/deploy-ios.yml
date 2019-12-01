@@ -30,6 +30,7 @@ jobs:
       working-directory: ios
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        FASTLANE_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         PW: ${{ secrets.pat }}
       run: |
         fastlane match appstore -r https://reimerm-dev:$PW@github.com/reime005/certificates.git --verbose
