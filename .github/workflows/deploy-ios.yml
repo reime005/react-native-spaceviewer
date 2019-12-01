@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: Checkout project
       uses: actions/checkout@v1
+      with:
+        token: ${{ secrets.pat }}
 
     - name: Specify node version
       uses: actions/setup-node@v1
@@ -26,6 +28,8 @@ jobs:
 
     - name: MATCH
       working-directory: ios
+      with:
+        token: ${{ secrets.pat }}
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       run: |
