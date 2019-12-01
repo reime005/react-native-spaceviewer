@@ -28,8 +28,6 @@ jobs:
 
     - name: MATCH
       working-directory: ios
-      with:
-        token: ${{ secrets.pat }}
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       run: |
