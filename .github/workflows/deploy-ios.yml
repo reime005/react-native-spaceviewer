@@ -30,7 +30,7 @@ jobs:
       working-directory: ios
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-        PW: notapw
+        PW: ${{ secrets.pat }}
       run: |
         fastlane match appstore --verbose
 
