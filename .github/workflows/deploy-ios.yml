@@ -26,8 +26,11 @@ jobs:
     - name: MATCH
       working-directory: ios
       env:
+        ssh: ${{ secrets.ssh }}
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       run: |
+        mkdir -p ~/.ssh/ && echo $ssh > ~/.ssh/id_rsa
+        ssh-add ~/.ssh/id_rsa
         fastlane match appstore
 
     - name: Deploy iOS & Upload to TestFlight
