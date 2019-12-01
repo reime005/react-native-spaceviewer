@@ -26,7 +26,11 @@ jobs:
       run: |
         sudo gem install fastlane -NV
 
-    - name: MATCH
+    - name: Install node_modules
+      run: |
+        yarn install --frozen-lockfile
+
+    - name: Deploy iOS & Upload to TestFlight
       working-directory: ios
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
@@ -34,12 +38,4 @@ jobs:
         PW: ${{ secrets.pat }}
       run: |
         fastlane match appstore -r https://reimerm-dev:$PW@github.com/reime005/certificates.git --readonly=true --verbose
-
-    - name: Install node_modules
-      run: |
-        yarn install --frozen-lockfile
-
-    - name: Deploy iOS & Upload to TestFlight
-      working-directory: ios
-      run: |
-        fastlane ios beta
+        fastlane ios beta -r https://reimerm-dev:$PW@github.com/reime005/certificates.git --readonly=true --verbose
