@@ -5,6 +5,7 @@ on: [push]
 jobs:
   deploy:
     runs-on: macos-latest
+    if: "contains(github.event.head_commit.message, 'android-release(')"
 
     steps:
     - name: Checkout project
