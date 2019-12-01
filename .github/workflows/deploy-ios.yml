@@ -30,6 +30,9 @@ jobs:
       run: |
         yarn install --frozen-lockfile
 
+    - name: Set up keychain
+      run: fastlane run create_keychain name:foo password:foo --unlock=true
+
     - name: Deploy iOS & Upload to TestFlight
       working-directory: ios
       env:
@@ -38,5 +41,5 @@ jobs:
         PW: ${{ secrets.pat }}
       run: |
         yarn start &
-        fastlane match appstore -r https://reimerm-dev:$PW@github.com/reime005/certificates.git --readonly=true --verbose
-        fastlane ios beta
+        fastlane match appstore -r https://reimerm-dev:$PW@github.com/reime005/certificates.git --readonly=true --verbose --keychain_name=foo --keychain_password=foo
+        fastlane ios beta --verbose
