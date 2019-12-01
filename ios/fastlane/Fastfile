@@ -7,7 +7,7 @@ platform :ios do
     #build_app(workspace: "SpaceViewer.xcworkspace", scheme: "SpaceViewer")
     #upload_to_testflight
 
-    match(type: "appstore", readonly: is_ci)
+    #match(type: "appstore", readonly: is_ci)
     gym(scheme: "SpaceViewer")
   end
 end

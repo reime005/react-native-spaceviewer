@@ -1,6 +1,0 @@
-git_url "https://reimerm-dev:$MATCH_GIT_BASIC_AUTHORIZATION@github.com/reime005/certificates.git"
-type "appstore"
-username "reimerm-dev"
-shallow_clone true
-readonly true
-verbose true
