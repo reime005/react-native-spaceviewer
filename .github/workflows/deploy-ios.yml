@@ -37,7 +37,7 @@ jobs:
         MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         FASTLANE_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-        PW: ${{ secrets.pat }}
+        pat: ${{ secrets.pat }}
       run: |
         yarn start &
         fastlane ios beta_ci --verbose
