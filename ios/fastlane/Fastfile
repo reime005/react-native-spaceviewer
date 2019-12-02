@@ -10,4 +10,54 @@ platform :ios do
     #match(type: "appstore", readonly: is_ci)
     gym(scheme: "SpaceViewer")
   end
+
+  lane :beta-ci do
+    keychain_name = ENV["MATCH_KEYCHAIN_NAME"]
+    keychain_password = ENV["MATCH_KEYCHAIN_PASSWORD"]
+    pat = ENV["PW"]
+
+    # Create a temporary keychain to
+    # store the certificates.
+    create_keychain(
+      name: keychain_name,
+      password: keychain_password,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
+    )
+
+    # Fetch the necessary certificates and
+    # provisioning profiles.
+    match(
+      keychain_name: keychain_name,
+      keychain_password: keychain_password,
+      readonly: true,
+      verbose: true,
+      type: "appstore",
+      git_url: "https://reimerm-dev:#{pat}@github.com/reime005/certificates.git"
+    )
+
+    # Increment the build number using the
+    # latest Testflight build number.
+    #increment_build_number(
+     # build_number: latest_testflight_build_number() + 1,
+     # xcodeproj: "./Notes.xcodeproj"
+   # )
+
+    # Build the application using the
+    # specified scheme.
+    build_app(scheme: "SpaceViewer")
+
+    # Upload the application to Testflight
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true
+    )
+
+    # Remove the temporary keychain leaving
+    # no trace.
+    delete_keychain(
+      name: keychain_name
+    )
+  end
 end

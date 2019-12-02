@@ -41,5 +41,4 @@ jobs:
         PW: ${{ secrets.pat }}
       run: |
         yarn start &
-        fastlane match appstore -r https://reimerm-dev:$PW@github.com/reime005/certificates.git --readonly=true --verbose --keychain_name=foo --keychain_password=foo
-        fastlane ios beta --verbose
+        fastlane ios beta-ci --verbose
