@@ -14,7 +14,7 @@ platform :ios do
   lane :beta_ci do
     keychain_name = ENV["MATCH_KEYCHAIN_NAME"]
     keychain_password = ENV["MATCH_KEYCHAIN_PASSWORD"]
-    pat = ENV["PW"]
+    pat = ENV["pat"]
 
     # Create a temporary keychain to
     # store the certificates.
