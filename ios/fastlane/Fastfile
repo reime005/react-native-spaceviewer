@@ -11,7 +11,7 @@ platform :ios do
     gym(scheme: "SpaceViewer")
   end
 
-  lane :beta-ci do
+  lane :beta_ci do
     keychain_name = ENV["MATCH_KEYCHAIN_NAME"]
     keychain_password = ENV["MATCH_KEYCHAIN_PASSWORD"]
     pat = ENV["PW"]

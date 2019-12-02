@@ -30,9 +30,6 @@ jobs:
       run: |
         yarn install --frozen-lockfile
 
-    - name: Set up keychain
-      run: fastlane run create_keychain name:foo password:foo
-
     - name: Deploy iOS & Upload to TestFlight
       working-directory: ios
       env:
@@ -41,4 +38,4 @@ jobs:
         PW: ${{ secrets.pat }}
       run: |
         yarn start &
-        fastlane ios beta-ci --verbose
+        fastlane ios beta_ci --verbose
