@@ -48,7 +48,7 @@ platform :ios do
     upload_to_testflight(
       username: "hmack.corp@gmail.com",
       apple_id: "1434055829",
-      skip_waiting_for_build_processing: false
+      skip_waiting_for_build_processing: true
     )
 
     # Remove the temporary keychain leaving
