@@ -5,7 +5,7 @@ on: [push]
 jobs:
   deploy:
     runs-on: macos-latest
-    if: "contains(github.event.head_commit.message, 'android-release(')"
+    if: "contains(github.event.head_commit.message, 'release-android')"
 
     steps:
     - name: Checkout project
@@ -17,14 +17,17 @@ jobs:
         node-version: '10.x'
 
     - name: Fastlane setup
+      if: "contains(github.event.head_commit.message, 'android-release(')"
       run: |
         sudo gem install fastlane -NV
 
     - name: Install node_modules
+      if: "contains(github.event.head_commit.message, 'android-release(')"
       run: |
         yarn install --frozen-lockfile
 
     - name: Deploy Android Bundle & Upload to Internal Test Track
+      if: "contains(github.event.head_commit.message, 'android-release(')"
       working-directory: android
       env:
         KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
