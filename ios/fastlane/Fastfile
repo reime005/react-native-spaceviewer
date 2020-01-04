@@ -1,0 +1,60 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    #increment_build_number(xcodeproj: "SpaceViewer.xcodeproj")
+    #build_app(workspace: "SpaceViewer.xcworkspace", scheme: "SpaceViewer")
+    #upload_to_testflight
+
+    #match(type: "appstore", readonly: is_ci)
+    gym(scheme: "SpaceViewer")
+  end
+
+  lane :beta_ci do
+    keychain_name = ENV["MATCH_KEYCHAIN_NAME"]
+    keychain_password = ENV["MATCH_KEYCHAIN_PASSWORD"]
+    pat = ENV["pat"]
+
+    # Create a temporary keychain to
+    # store the certificates.
+    create_keychain(
+      name: keychain_name,
+      password: keychain_password,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
+    )
+
+    # Fetch the necessary certificates and
+    # provisioning profiles.
+    match(
+      keychain_name: keychain_name,
+      keychain_password: keychain_password,
+      readonly: true,
+      verbose: true,
+      type: "appstore",
+      git_url: "https://reimerm-dev:#{pat}@github.com/reime005/certificates.git"
+    )
+
+    # Incrementing build number just via plist file
+
+    # Build the application using the
+    # specified scheme.
+    build_app(scheme: "SpaceViewer")
+
+    # Upload the application to Testflight
+    upload_to_testflight(
+      username: "hmack.corp@gmail.com",
+      apple_id: "1434055829",
+      skip_waiting_for_build_processing: true
+    )
+
+    # Remove the temporary keychain leaving
+    # no trace.
+    delete_keychain(
+      name: keychain_name
+    )
+  end
+end

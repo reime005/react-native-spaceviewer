@@ -46,3 +46,13 @@ jobs:
       with:
         name: android-failing-e2e-videos
         path: artifacts/
+
+    - name: Deploy Android Bundle & Upload to Internal Test Track
+      working-directory: android
+      if: github.event_name == 'tag'
+      env:
+        ANDROID_TOKEN: ${{ secrets.ANDROID_TOKEN }}
+      run: |
+        echo $AT > ~/play_api_key_rn_spaceviewer.json
+        fastlane android internal
+        rm -f ~/play_api_key_rn_spaceviewer.json

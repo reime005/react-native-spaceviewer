@@ -21,11 +21,15 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>9</string>
 	<key>CodePushDeploymentKey</key>
 	<string></string>
+	<key>NSLocationWhenInUseUsageDescription </key>
+	<string>Space Viewer may use your location when you view the location of rocket launch stations (Google Maps).</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

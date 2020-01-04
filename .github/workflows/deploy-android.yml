@@ -1,0 +1,43 @@
+name: deploy-android
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: macos-latest
+    if: "contains(github.event.head_commit.message, 'release-android')"
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v1
+
+    - name: Specify node version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+
+    - name: Fastlane setup
+      if: "contains(github.event.head_commit.message, 'android-release(')"
+      run: |
+        sudo gem install fastlane -NV
+
+    - name: Install node_modules
+      if: "contains(github.event.head_commit.message, 'android-release(')"
+      run: |
+        yarn install --frozen-lockfile
+
+    - name: Deploy Android Bundle & Upload to Internal Test Track
+      if: "contains(github.event.head_commit.message, 'android-release(')"
+      working-directory: android
+      env:
+        KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
+        AT: ${{ secrets.ANDROID_TOKEN }}
+        android_keystore_pw: ${{ secrets.android_keystore_pw }}
+        android_pw: ${{ secrets.android_pw }}
+        android_alias: ${{ secrets.android_alias }}
+      run: |
+        echo "$KEYSTORE" | xxd -r -p - > app/release.keystore
+        echo $AT > ~/play_api_key_rn_spaceviewer.json
+        fastlane android internal
+        rm -f ~/play_api_key_rn_spaceviewer.json
+        rm -f app/release.keystore

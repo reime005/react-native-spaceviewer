@@ -1,0 +1,43 @@
+name: deploy-iOS
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: macos-latest
+    if: "contains(github.event.head_commit.message, 'release-ios')"
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v1
+      with:
+        token: ${{ secrets.pat }}
+
+    - name: Specify node version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+
+    - name: Fastlane setup
+      if: "contains(github.event.head_commit.message, 'ios-release(')"
+      run: |
+        sudo gem install fastlane -NV
+
+    - name: Install node_modules
+      if: "contains(github.event.head_commit.message, 'ios-release(')"
+      run: |
+        yarn install --frozen-lockfile
+
+    - name: Deploy iOS & Upload to TestFlight
+      if: "contains(github.event.head_commit.message, 'ios-release(')"
+      working-directory: ios
+      env:
+        MATCH_KEYCHAIN_NAME: ${{ secrets.MATCH_KEYCHAIN_NAME }}
+        MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
+        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+        FASTLANE_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        pat: ${{ secrets.pat }}
+      run: |
+        yarn start &
+        fastlane ios beta_ci --verbose
