@@ -8,19 +8,23 @@ jobs:
 
     steps:
     - name: Checkout project
+      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       uses: actions/checkout@v1
 
     - name: Specify node version
+      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
 
     - name: Detox setup
+      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       run: |
         brew tap wix/brew
         brew install applesimutils
 
     - name: Install node_modules & deploy with specific XCode version
+      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       env:
           DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
       run: |
@@ -28,6 +32,7 @@ jobs:
         yarn build-detox-ios
 
     - name: iOS test
+      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       run: |
         npx detox clean-framework-cache && npx detox build-framework-cache
         yarn test-detox-ios
