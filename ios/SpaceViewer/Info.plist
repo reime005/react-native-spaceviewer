@@ -24,12 +24,10 @@
 	<string>12</string>
 	<key>CodePushDeploymentKey</key>
 	<string></string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Space Viewer may use your location when you view the location of rocket launch stations (Google Maps).</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -44,7 +42,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Space Viewer may use your location when you view the location of rocket launch stations (Google Maps).</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MaterialCommunityIcons.ttf</string>
