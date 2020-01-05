@@ -31,7 +31,7 @@
     "i18next": "^17.0.6",
     "idx": "^2.5.6",
     "moment": "^2.24.0",
-    "native-base": "git://github.com/GeekyAnts/NativeBase.git",
+    "native-base": "2.12.1",
     "react": "16.9.0",
     "react-i18next": "^10.11.4",
     "react-native": "0.61.3",

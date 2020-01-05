@@ -1,16 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import {
-  Container,
-  Text,
-  Header,
-  Tab,
-  Tabs,
-  ScrollableTab,
-  Card,
-  TabHeading,
-  Icon,
-} from 'native-base';
+import { View } from 'react-native';
+import { Text, Tab, Tabs, TabHeading, Icon, ScrollableTab } from 'native-base';
 import overviewDetailsStyle from '../../styles/overviewDetailsStyle';
 import { MissionContent } from './Tabs/MissionContent';
 import { ArrayContent } from './Tabs/ArrayContent';
@@ -21,13 +11,13 @@ import { colors } from '../../constants/theme';
 import tabViewStyle from '../../styles/tabViewStyle';
 
 const HeadingItem = ({ iconName = '', title = '' }) => (
-  <TabHeading style={{ backgroundColor: 'white' }}>
+  <TabHeading style={{ backgroundColor: 'transparent' }}>
     <Icon
       name={iconName}
       style={{ color: colors.PRIMARY, fontSize: 22 }}
       type="Ionicons"
     />
-    <Text>{title}</Text>
+    <Text style={{ color: colors.DARK_TEXT_PRIMARY }}>{title}</Text>
   </TabHeading>
 );
 

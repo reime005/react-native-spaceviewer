@@ -7,6 +7,7 @@ export default StyleSheet.create({
   missionsContainer: {},
   missionContainer: {},
   tabStyle: {
+    height: '100%',
     backgroundColor: 'white',
     borderTopWidth: 1,
     borderColor: colors.COOL_GREY,

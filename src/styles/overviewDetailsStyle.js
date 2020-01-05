@@ -97,6 +97,7 @@ export default StyleSheet.create({
     fontSize: layout.isSmallDevice ? wp('5%') : wp('3%'),
   },
   timerContainer: {
+    minHeight: 70,
     paddingTop: 5,
     paddingRight: 3,
     alignItems: 'center',
