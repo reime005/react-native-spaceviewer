@@ -25,7 +25,7 @@ export class CreditsView extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, padding: '5r' }}>
+      <View style={{ flex: 1, padding: 5 }}>
         <ScrollView>
           <View
             style={{

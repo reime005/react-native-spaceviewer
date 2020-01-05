@@ -7,7 +7,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import settingsStyle, { arrowStyle } from '../../styles/settingsStyle';
 import { SettingsListItemIcon } from './SettingsListItemIcon';
-import { SettingsListItemPicker } from './SettingsListItemPicker';
 import { SETTING_FORMAT_DATE } from '../../constants/settings';
 import { settingsListItemIconSize, colors } from '../../constants/theme';
 import { Routes } from '../../constants/routes';
@@ -27,40 +26,11 @@ const Arrow = props => (
 export const SettingsList = ({ saveValue, settings, navigation, openURL }) => {
   const settingsFormatValue = settings[SETTING_FORMAT_DATE];
 
-  const [pickerVisible, setPickerVisible] = useState(false);
   const { t } = useTranslation();
-
-  const onValueChange = useCallback(
-    (key, value) => {
-      setPickerVisible(false);
-
-      saveValue(key, value);
-    },
-    [saveValue]
-  );
 
   return (
     <View style={{ flex: 1 }}>
-      <SettingsListItemPicker
-        visible={pickerVisible}
-        selectedValue={settingsFormatValue}
-        onValueChange={onValueChange}
-        onRequestClose={() => this.setState({ pickerVisible: false })}
-      />
       <List borderColor="transparent">
-        <List.Item
-          title={t('Date Format')}
-          titleInfo={
-            t('Current:') + ' ' + Moment(new Date()).format(settingsFormatValue)
-          }
-          titleInfoPosition="Bottom"
-          hasNavArrow={false}
-          icon={<SettingsListItemIcon name="clock" />}
-          arrowIcon={<Arrow />}
-          titleStyle={settingsStyle.titleStyle}
-          titleBoxStyle={settingsStyle.titleBoxStyle}
-          onPress={() => setPickerVisible(true)}
-        />
         <List.Item
           title={t('Privacy Policy')}
           icon={<SettingsListItemIcon name="account-box" />}
