@@ -1,30 +1,33 @@
 import React from 'react';
-import { View } from 'react-native';
 import Gmaps, { Marker } from 'react-native-maps';
 
-import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
 import overviewDetailsStyle from '../../styles/overviewDetailsStyle';
+import idx from 'idx';
 
-export const MapView = props => (
-  <Gmaps
-    style={overviewDetailsStyle.mapView}
-    initialRegion={{
-      ...props.pad,
-      latitudeDelta: 5,
-      longitudeDelta: 5,
-    }}
-    latitude={props.pad.latitude}
-    longitude={props.pad.longitude}
-    size={{ width: props.size, height: props.size }}>
-    <Marker
-      coordinate={{
+export const MapView = props => {
+  const length = idx(props, _ => _.pad.agencies.length);
+
+  return (
+    <Gmaps
+      style={overviewDetailsStyle.mapView}
+      initialRegion={{
         ...props.pad,
+        latitudeDelta: 5,
+        longitudeDelta: 5,
       }}
-      onPress={() => props.openFirstMapLocation([props.pad])}
-      title={props.pad.agencies.length ? props.pad.agencies[0].name : ''}
-      description={props.pad.name}
-    />
-  </Gmaps>
-);
+      latitude={props.pad ? props.pad.latitude : 0}
+      longitude={props.pad ? props.pad.longitude : 0}
+      size={{ width: props.size, height: props.size }}>
+      <Marker
+        coordinate={{
+          ...props.pad,
+        }}
+        onPress={() => props.openFirstMapLocation([props.pad])}
+        title={length ? props.pad.agencies[0].name : ''}
+        description={props.pad ? props.pad.name : ''}
+      />
+    </Gmaps>
+  );
+};
 
 export default MapView;
