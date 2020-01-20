@@ -149,8 +149,8 @@ android {
         applicationId "com.mariusreimer.spaceviewer"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3145745
-        versionName "2.1.2"
+        versionCode 3145746
+        versionName "2.1.3"
 
         testBuildType System.getProperty('testBuildType', 'debug')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

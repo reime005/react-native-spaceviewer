@@ -1,6 +1,6 @@
 {
   "name": "react-native-spaceviewer",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "main": "App.js",
   "private": true,
   "scripts": {
