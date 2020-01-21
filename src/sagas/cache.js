@@ -1,6 +1,12 @@
+import { placeholderImage } from '../constants/placeholderImage';
+
 export function changeImageUrlWithCached(launches) {
   launches = JSON.parse(JSON.stringify(launches), (key, value) => {
     if (key === 'imageURL') {
+      const isValid = value.startsWith('http');
+      if (!isValid) {
+        return [placeholderImage, placeholderImage];
+      }
       try {
         const prePostUrl = value.split('_');
         const resEnding = prePostUrl[1].split('.');
