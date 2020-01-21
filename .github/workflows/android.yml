@@ -39,17 +39,8 @@ jobs:
     - name: Android test
       if: "!contains(github.event.head_commit.message, '[skip ci]')"
       timeout-minutes: 10
-      continue-on-error: true
       run: |
-        mkdir -p artifacts
         export PATH=$PATH:$ANDROID_HOME/platform-tools
         $ANDROID_HOME/emulator/emulator @emu &
         adb wait-for-device; adb shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'; adb shell wm dismiss-keyguard
-        yarn test-detox-android --record-videos all
-
-    - name: Provide videos of failed E2E tests
-      if: "!contains(github.event.head_commit.message, '[skip ci]')"
-      uses: actions/upload-artifact@master
-      with:
-        name: android-failing-e2e-videos
-        path: artifacts/
+        yarn test-detox-android
