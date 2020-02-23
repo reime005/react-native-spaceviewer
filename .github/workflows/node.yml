@@ -32,9 +32,9 @@ jobs:
     - name: node lint
       if: "!contains(github.event.head_commit.message, '[skip ci]')"
       run:
-        yarn lint-ci
+        yarn workspace mobile lint-ci
 
     - name: node test
       if: "!contains(github.event.head_commit.message, '[skip ci]')"
       run:
-        yarn test-ci
+        yarn workspace mobile test-ci

@@ -23,6 +23,7 @@ jobs:
         node-version: 12
 
     - name: Fastlane setup
+      working-directory: packages/mobile
       if: "!contains(github.event.head_commit.message, '[skip ci]') && contains(github.event.head_commit.message, 'release-ios')"
       run: |
         sudo gem install fastlane -NV
@@ -43,5 +44,5 @@ jobs:
         FASTLANE_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         pat: ${{ secrets.pat }}
       run: |
-        yarn start &
+        yarn workspace mobile start &
         fastlane ios beta_ci --verbose

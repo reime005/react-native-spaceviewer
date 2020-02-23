@@ -25,15 +25,13 @@ jobs:
 
     - name: Install node_modules & deploy with specific XCode version
       if: "!contains(github.event.head_commit.message, '[skip ci]')"
-      env:
-          DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
       run: |
         yarn install --frozen-lockfile
-        yarn build-detox-ios
+        yarn workspace mobile build-detox-ios
 
     - name: iOS test
       timeout-minutes: 10
       if: "!contains(github.event.head_commit.message, '[skip ci]')"
       run: |
         npx detox clean-framework-cache && npx detox build-framework-cache
-        yarn test-detox-ios
+        yarn workspace mobile test-detox-ios

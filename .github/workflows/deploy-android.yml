@@ -32,7 +32,7 @@ jobs:
 
     - name: Deploy Android Bundle & Upload to Internal Test Track
       if: "!contains(github.event.head_commit.message, '[skip ci]') && contains(github.event.head_commit.message, 'release-android')"
-      working-directory: android
+      working-directory: packages/mobile/android
       env:
         KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
         AT: ${{ secrets.ANDROID_TOKEN }}
