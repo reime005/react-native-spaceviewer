@@ -30,17 +30,37 @@ jobs:
         echo y | sudo $ANDROID_HOME/tools/bin/sdkmanager --verbose "system-images;android-27;google_apis;x86"
         $ANDROID_HOME/tools/bin/avdmanager create avd -n emu -k "system-images;android-27;google_apis;x86" -b "x86" -c 1G -d 7 -f
 
-    - name: Install node_modules & Deploy
+    - name: Install node_modules
       if: "!contains(github.event.head_commit.message, '[skip ci]')"
       run: |
         yarn install --frozen-lockfile
-        yarn build-detox-android
 
-    - name: Android test
+    - name: Fastlane setup
+      if: "!contains(github.event.head_commit.message, '[skip ci]')"
+      run: |
+        sudo gem install fastlane -NV
+
+    - name: Build
+      if: "!contains(github.event.head_commit.message, '[skip ci]')"
+      working-directory: packages/mobile/android
+      env:
+        KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
+        AT: ${{ secrets.ANDROID_TOKEN }}
+        android_keystore_pw: ${{ secrets.android_keystore_pw }}
+        android_pw: ${{ secrets.android_pw }}
+        android_alias: ${{ secrets.android_alias }}
+      run: |
+        echo "$KEYSTORE" | xxd -r -p - > app/release.keystore
+        echo $AT > ~/play_api_key_rn_spaceviewer.json
+        fastlane android detox
+        rm -f ~/play_api_key_rn_spaceviewer.json
+        rm -f app/release.keystore
+
+    - name: Test
       if: "!contains(github.event.head_commit.message, '[skip ci]')"
       timeout-minutes: 10
       run: |
         export PATH=$PATH:$ANDROID_HOME/platform-tools
         $ANDROID_HOME/emulator/emulator @emu &
         adb wait-for-device; adb shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'; adb shell wm dismiss-keyguard
-        yarn test-detox-android
+        yarn workspace mobile test-detox-android-release

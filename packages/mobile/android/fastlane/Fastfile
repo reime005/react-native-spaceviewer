@@ -1,0 +1,27 @@
+default_platform(:android)
+
+platform :android do
+  desc "Builds the debug code"
+  lane :bundleDebug do
+    gradle(task: "bundleDebug")
+  end
+
+  lane :detox do
+    gradle(task: "assembleRelease assembleAndroidTest -DtestBuildType=release")
+  end
+
+  desc "Deploys a new Internal Build to Play Store"
+  lane :internal do
+    gradle(task: "bundleRelease")
+
+    supply(
+      skip_upload_screenshots: true,
+      skip_upload_changelogs: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_apk: true,
+      aab: "app/build/outputs/bundle/release/app.aab",
+      track: "internal"
+    )
+  end
+end
