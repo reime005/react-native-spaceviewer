@@ -21,6 +21,11 @@ or alternatively using `brew cask install fastlane`
 fastlane android bundleDebug
 ```
 Builds the debug code
+### android detox
+```
+fastlane android detox
+```
+
 ### android internal
 ```
 fastlane android internal
