@@ -32,12 +32,12 @@ jobs:
 
     - name: Install node_modules
       if: "!contains(github.event.head_commit.message, '[skip ci]')"
-      run:
+      run: |
         yarn install --frozen-lockfile
 
     - name: Fastlane setup
       if: "!contains(github.event.head_commit.message, '[skip ci]')"
-      run:
+      run: |
         sudo gem install fastlane -NV
 
     - name: Build

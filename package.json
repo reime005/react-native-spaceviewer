@@ -16,5 +16,8 @@
   },
   "dependencies": {
     "react-native": "0.61.3"
+  },
+  "devDependencies": {
+    "detox": "^14.5.1"
   }
 }
