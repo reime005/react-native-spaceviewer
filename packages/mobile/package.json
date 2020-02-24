@@ -84,10 +84,10 @@
   "jest": {
     "preset": "react-native",
     "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+      "^.+\\.js$": "<rootDir>/../../node_modules/react-native/jest/preprocessor.js"
     },
     "testMatch": [
-      "<rootDir>/(test/unit/**/*.spec.(js|jsx|ts|tsx)|**/__test__/*.(js|jsx|ts|tsx))"
+      "<rootDir>/../../(test/unit/**/*.spec.(js|jsx|ts|tsx)|**/__test__/*.(js|jsx|ts|tsx))"
     ]
   },
   "detox": {
