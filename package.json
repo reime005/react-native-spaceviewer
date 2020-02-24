@@ -11,8 +11,8 @@
   "scripts": {
     "postinstall": "yarn jetify; yarn workspace mobile postinstall",
     "mobile/start": "yarn workspace mobile start",
-    "run/android": "yarn workspace mobile run-android",
-    "run/ios": "yarn workspace mobile run-ios"
+    "run-android": "yarn workspace mobile run-android",
+    "run-ios": "yarn workspace mobile run-ios"
   },
   "dependencies": {
     "react-native": "0.61.3"

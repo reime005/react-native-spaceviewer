@@ -6,6 +6,10 @@ platform :android do
     gradle(task: "bundleDebug")
   end
 
+  lane :detox do
+    gradle(task: "assembleRelease assembleAndroidTest -DtestBuildType=release")
+  end
+
   desc "Deploys a new Internal Build to Play Store"
   lane :internal do
     gradle(task: "bundleRelease")
