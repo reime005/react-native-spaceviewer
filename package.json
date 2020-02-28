@@ -1,14 +1,16 @@
 {
   "name": "react-native-spaceviewer",
   "version": "2.1.4",
-  "main": "App.js",
   "private": true,
   "workspaces": {
     "packages": [
       "packages/*"
+    ],
+    "nohoist": [
     ]
   },
   "scripts": {
+    "watch": "yarn workspace spaceviewer-common watch",
     "postinstall": "yarn jetify; yarn workspace mobile postinstall",
     "mobile/start": "yarn workspace mobile start",
     "run-android": "yarn workspace mobile run-android",
@@ -18,6 +20,7 @@
     "react-native": "0.61.3"
   },
   "devDependencies": {
+    "typescript": "3.8.2",
     "detox": "^14.5.1"
   }
 }

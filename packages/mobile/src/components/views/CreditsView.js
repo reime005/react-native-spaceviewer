@@ -1,22 +1,10 @@
+import { Card, CardItem, Text } from 'native-base';
 import React from 'react';
-import { View, ScrollView } from 'react-native';
-import {
-  Container,
-  Header,
-  Content,
-  Card,
-  CardItem,
-  Text,
-  Body,
-} from 'native-base';
-import { WebView } from 'react-native-webview';
-
-import settingsStyle from '../../styles/settingsStyle';
-import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
+import { ScrollView, View } from 'react-native';
+import { version } from '../../../package';
 import overviewDetailsStyle from '../../styles/overviewDetailsStyle';
 import { TouchableContainer } from '../container/TouchableContainer';
-import { headerBottomSpace } from '../../constants/theme';
-import { version } from '../../../package';
+import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
 
 export class CreditsView extends React.Component {
   constructor() {

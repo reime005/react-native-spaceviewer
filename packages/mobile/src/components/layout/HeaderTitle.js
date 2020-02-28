@@ -1,6 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
-import * as Animatable from 'react-native-animatable';
+import { View, Animated } from 'react-native';
 
 import mainStyle from '../../styles/mainStyle';
 import { useTranslation } from 'react-i18next';
@@ -10,11 +9,11 @@ export const HeaderTitle = ({ text = '' }) => {
 
   return (
     <View style={mainStyle.headerTitleContainer}>
-      <Animatable.Text
+      <Animated.Text
         animation="fadeIn"
         style={mainStyle.headerTitleContainerText}>
         {t(text)}
-      </Animatable.Text>
+      </Animated.Text>
     </View>
   );
 };

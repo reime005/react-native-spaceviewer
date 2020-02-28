@@ -1,0 +1,34 @@
+{
+  "name": "spaceviewer-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "build": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts build",
+    "test": "react-scripts test"
+  },
+  "dependencies": {
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-native": "0.61.3",
+    "react-native-web": "^0.12.2",
+    "react-router-dom": "^5.1.2",
+    "spaceviewer-common": "*"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.23",
+    "@types/react-native": "0.61.17",
+    "cross-env": "^7.0.0",
+    "react-scripts": "^3.4.0",
+    "typescript": "3.8.2"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
