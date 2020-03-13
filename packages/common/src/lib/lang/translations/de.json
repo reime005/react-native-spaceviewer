@@ -1,0 +1,20 @@
+{
+  "translation": {
+    "loading": "Lade Daten",
+    "search": "Suchen",
+    "Settings": "Einstellungen",
+    "Date Format": "Datumsformat ändern",
+    "Current:": "Momentan:",
+    "About": "Über diese App",
+    "Privacy Policy": "Datenschutzbestimmungen",
+    "Credits": "Danksagungen",
+    "Feedback": "Feedback",
+    "Support": "Support",
+    "Choose your preferred Date Format:": "Wähle dein bevorzugtes Datumsformat:",
+    "Upcoming Rocket Launches": "Bevorstehende Raketenstarts",
+    "Previous Rocket Launches": "Vergangene Raketenstarts",
+    "No Data Found": "Keine Daten gefunden",
+    "Missions": "Missionen",
+    "Rocket Info": "Raketen Informationen"
+  }
+}

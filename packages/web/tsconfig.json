@@ -3,9 +3,18 @@
   "compilerOptions": {
     "isolatedModules": true,
     "noEmit": true,
+    "typeRoots": [
+      "@types",
+      "../../node_modules/@types"
+    ],
     "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src"
+  ],
+  "references": [
+    {
+      "path": "../common"
+    }
   ]
 }

@@ -42,7 +42,7 @@ function _asyncToGenerator(fn) {
 
 const path = require('path');
 
-const _require = require('../../Assets'),
+const _require = require('../../../common/assets'),
   getAssetData = _require.getAssetData;
 
 const _require2 = require('./helpers/js'),

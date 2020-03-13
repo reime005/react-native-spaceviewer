@@ -1,20 +1,23 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
+    "module": "ES2015",
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
+    "allowJs": true,
     "declaration": true,
+    "composite": true,
     "jsx": "react"
   },
-  "include": ["src"]
+  "include": ["src", "src/**/*.json"]
 }

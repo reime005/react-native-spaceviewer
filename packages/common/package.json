@@ -1,29 +1,33 @@
 {
   "name": "spaceviewer-common",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
     "postinstall": "npm run build",
     "build": "rm -rf ./dist && tsc",
-    "watch": "tsc --watch --outDir ./dist"
+    "watch": "rm -rf ./dist && tsc --watch --outDir ./dist"
   },
-  "dependencies": {},
-  "workspaces": {
-    "nohoist": [
-      "react-native",
-      "react-native/**",
-      "react",
-      "react/**"
-    ]
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "1.2.26",
+    "@fortawesome/free-solid-svg-icons": "5.12.0",
+    "@fortawesome/react-native-fontawesome": "0.2.3",
+    "react-native-svg": "12.0.3"
   },
   "devDependencies": {
     "@types/react": "^16.9.23",
     "@types/react-native": "^0.61.17",
+    "@types/react-redux": "^7.1.7",
     "@types/react-router-dom": "^5.1.3",
     "@types/react-router-native": "^5.1.0",
+    "@types/styled-components": "^5.0.1",
+    "moment": "^2.24.0",
     "native-base": "^2.13.8",
+    "react": "16.9.0",
+    "react-redux": "7.2.0",
+    "redux": "4.0.5",
+    "redux-saga": "1.1.3",
     "typescript": "^3.8.2"
   }
 }
