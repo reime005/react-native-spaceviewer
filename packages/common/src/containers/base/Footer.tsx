@@ -26,19 +26,19 @@ export const Footer = () => {
   return (
     <Wrapper>
       <TouchableOpacity onPressIn={() => push(routes.home)}>
-        <FontAwesomeIcon size={18} color={colors.LIST_ICON} icon={faHome} />
+        <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faHome} />
       </TouchableOpacity>
 
       <TouchableOpacity onPressIn={() => push(routes.previous)}>
-        <FontAwesomeIcon size={18} color={colors.LIST_ICON} icon={faHistory} />
+        <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faHistory} />
       </TouchableOpacity>
 
       <TouchableOpacity onPressIn={() => push(routes.search)}>
-        <FontAwesomeIcon size={18} color={colors.LIST_ICON} icon={faCloud} />
+        <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faCloud} />
       </TouchableOpacity>
 
       <TouchableOpacity onPressIn={() => push(routes.settings)}>
-        <FontAwesomeIcon size={18} color={colors.LIST_ICON} icon={faUserCog} />
+        <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faUserCog} />
       </TouchableOpacity>
     </Wrapper>
   );

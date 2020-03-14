@@ -29,7 +29,7 @@ export const Header = () => {
 
   if (routes.search === pathname) {
     return (
-      <Wrapper style={{ height: 85 }}>
+      <Wrapper style={{ height: 75 }}>
         <SearchFieldContainer />
       </Wrapper>
     );
