@@ -5,20 +5,18 @@ on: [push, pull_request]
 jobs:
   node-lint-tests:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
     steps:
     - name: checkout
-      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       uses: actions/checkout@v1
 
     - name: setup node
-      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       uses: actions/setup-node@v1
       with:
         node-version: 12
 
     - uses: actions/cache@preview
-      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       with:
         path: ~/.cache/yarn
         key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
@@ -26,15 +24,16 @@ jobs:
           ${{ runner.os }}-yarn
 
     - name: install node_modules
-      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       run: yarn install --frozen-lockfile
 
     - name: node lint
-      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       run:
         yarn workspace mobile lint-ci
 
     - name: node test
-      if: "!contains(github.event.head_commit.message, '[skip ci]')"
       run:
         yarn workspace mobile test-ci
+
+    - name: bundle test
+      run:
+        npx react-native bundle --entry-file packages/mobile/index.js --bundle-output /dev/null
