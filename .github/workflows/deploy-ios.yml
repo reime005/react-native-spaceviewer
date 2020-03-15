@@ -40,5 +40,4 @@ jobs:
         FASTLANE_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         pat: ${{ secrets.pat }}
       run: |
-        yarn workspace mobile start &
-        fastlane ios beta_ci --verbose
+        fastlane ios beta_ci
