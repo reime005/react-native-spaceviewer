@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
       - name: install node_modules
         working-directory: packages/web
@@ -21,8 +23,8 @@ jobs:
       - name: Build and Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.pat }}
           COMMIT_MESSAGE: "deploy web [skip ci]"
-          BRANCH: master # The branch the action should deploy to.
+          BRANCH: docs # The branch the action should deploy to.
           TARGET_FOLDER: packages/web/deployed # The branch the action should deploy to.
           FOLDER: packages/web/build # The folder the action should deploy.
