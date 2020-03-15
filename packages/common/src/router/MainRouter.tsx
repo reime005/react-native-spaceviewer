@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import { SafeAreaView, StatusBar } from "react-native";
+import { SafeAreaView, StatusBar, Platform } from "react-native";
 import { Provider as ReduxProvider } from "react-redux";
 import { loadNextLaunchesSagaAction } from "../actions";
 import { HomeContainer } from "../components/container/HomeContainer";
 import { PreviousContainer } from "../components/container/PreviousContainer";
 import { SearchContainer } from "../components/container/SearchContainer";
-import { SettingsContainer } from "../components/container/SettingsContainer";
 import { CreditsView } from "../components/views/CreditsView";
 import { FILE_NEXT_LAUNCHES, FILE_PREV_LAUNCHES } from "../constants/files";
 import { AppLoadingScreen } from "../containers/app/AppLoadingScreen";
@@ -14,6 +13,7 @@ import { configureStore } from "../env/configureStore";
 import { Route, Router } from "./Router";
 import { routes } from "./routes";
 import { theme, ThemeProvider } from "./theme";
+import { AdditionalRoutes } from "./AdditionalRoutes";
 
 const store = configureStore();
 
@@ -43,7 +43,10 @@ export const MainRouter = () => {
               path={routes.home}
               render={() => (
                 <BaseScreen>
-                  <HomeContainer />
+                  <HomeContainer
+                    accessibilityLabel={"upcoming-screen"}
+                    testID={"upcoming-screen"}
+                  />
                 </BaseScreen>
               )}
             />
@@ -52,7 +55,10 @@ export const MainRouter = () => {
               path={routes.previous}
               render={() => (
                 <BaseScreen>
-                  <PreviousContainer />
+                  <PreviousContainer
+                    accessibilityLabel={"previous-screen"}
+                    testID={"previous-screen"}
+                  />
                 </BaseScreen>
               )}
             />
@@ -61,16 +67,10 @@ export const MainRouter = () => {
               path={routes.search}
               render={() => (
                 <BaseScreen>
-                  <SearchContainer />
-                </BaseScreen>
-              )}
-            />
-            <Route
-              exact
-              path={routes.settings}
-              render={() => (
-                <BaseScreen>
-                  <SettingsContainer />
+                  <SearchContainer
+                    accessibilityLabel={"search-screen"}
+                    testID={"search-screen"}
+                  />
                 </BaseScreen>
               )}
             />
@@ -83,18 +83,8 @@ export const MainRouter = () => {
                 </BaseScreen>
               )}
             />
-            <Route
-              exact
-              path={routes.privacy}
-              render={() => (
-                <BaseScreen>
-                  {/* <WebView
-                    source={{ uri: "https://mariusreimer.com/privacy-policy" }}
-                    style={{ marginTop: 0 }}
-                  /> */}
-                </BaseScreen>
-              )}
-            />
+
+            <AdditionalRoutes />
           </Router>
         </ReduxProvider>
       </SafeAreaView>

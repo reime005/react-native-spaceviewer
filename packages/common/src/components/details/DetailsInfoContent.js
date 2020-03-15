@@ -20,8 +20,8 @@ export const DetailsInfoContent = props => {
 
   useEffect(() => {
     Animated.spring(width, {
-      toValue: w * 0.5,
-      friction: 1,
+      toValue: w * 0.45,
+      friction: 0.9,
       tension: 1,
       delay: 1500,
     }).start();
@@ -49,7 +49,7 @@ export const DetailsInfoContent = props => {
           <Icon
             style={{
               fontSize: fontSize.DETAILS_VIEW_SUBTITLE * 0.8,
-              paddingRight: 2,
+              marginRight: 2,
             }}
             type="MaterialCommunityIcons"
             active

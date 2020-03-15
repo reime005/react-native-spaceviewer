@@ -12,7 +12,7 @@ export class SettingsView extends React.Component {
 
   render() {
     return (
-      <View style={settingsStyle.container}>
+      <View {...this.props} style={settingsStyle.container}>
         <SettingsList {...this.props} />
       </View>
     );

@@ -27,10 +27,8 @@
     "build-ios-release": "xcodebuild -workspace ios/SpaceViewer.xcworkspace -scheme SpaceViewer -configuration Release -sdk iphonesimulator -UseModernBuildSystem=NO -derivedDataPath ios/build/app -quiet; rm ios/app-release.zip; zip -r ios/app-release.zip ios/build/app/Build/Products/Release-iphonesimulator/*.app"
   },
   "dependencies": {
-    "@react-native-community/async-storage": "1.8.1",
     "@fortawesome/react-native-fontawesome": "0.2.3",
-
-    "react-native-svg": "12.0.3",
+    "@react-native-community/async-storage": "1.8.1",
     "flow": "^0.2.3",
     "i18next": "^17.0.6",
     "idx": "^2.5.6",
@@ -48,8 +46,9 @@
     "react-native-responsive-screen": "^1.2.2",
     "react-native-settings-list": "git://github.com/reime005/react-native-settings-list.git#expo",
     "react-native-splash-screen": "^3.2.0",
+    "react-native-svg": "12.0.3",
     "react-native-vector-icons": "6.6.0",
-    "react-native-webview": "^7.4.3",
+    "react-native-webview": "^8.1.2",
     "react-navigation": "3.11.1",
     "react-navigation-redux-helpers": "3.0.2",
     "react-redux": "^7.2.0",

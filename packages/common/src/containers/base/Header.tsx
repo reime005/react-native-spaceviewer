@@ -3,8 +3,18 @@ import styled from "styled-components/native";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { routes } from "../../router/routes";
-import { SearchFieldContainer } from '../../components/container/SearchFieldContainer';
+import { SearchFieldContainer } from "../../components/container/SearchFieldContainer";
+import { TouchableOpacity, Platform, View } from "react-native";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
+let FontAwesomeIcon: any;
+
+if (Platform.OS === "web") {
+  FontAwesomeIcon = require("@fortawesome/react-fontawesome").FontAwesomeIcon;
+} else {
+  FontAwesomeIcon = require("@fortawesome/react-native-fontawesome")
+    .FontAwesomeIcon;
+}
 
 const routeToName = (route: string): string => {
   switch (route) {
@@ -21,11 +31,36 @@ const routeToName = (route: string): string => {
   }
 };
 
+const BackButton = ({ pathname }: { pathname: string }) => {
+  const { goBack } = useHistory();
+
+  if (![routes.details].includes(pathname)) {
+    return null;
+  }
+
+  return (
+    <TouchableOpacity
+      onPressIn={() => {
+        goBack();
+      }}
+    >
+      <FontAwesomeIcon
+        size={18}
+        color="white"
+        icon={faArrowLeft}
+        style={{ marginLeft: 16, marginRight: 16 }}
+      />
+    </TouchableOpacity>
+  );
+};
+
 export const Header = () => {
   const { t } = useTranslation();
 
-  const { location } = useHistory();
+  const { location }: any = useHistory();
   const { pathname } = location;
+
+  const isDetailsScreen = routes.details === pathname;
 
   if (routes.search === pathname) {
     return (
@@ -36,8 +71,9 @@ export const Header = () => {
   }
 
   return (
-    <Wrapper>
-      <Title>{t(routeToName(pathname))}</Title>
+    <Wrapper style={{ justifyContent: isDetailsScreen ? 'flex-start' : 'center' }}>
+      <BackButton pathname={pathname} />
+      <Title>{location.state?.name || t(routeToName(pathname))}</Title>
     </Wrapper>
   );
 };
@@ -53,5 +89,7 @@ const Wrapper = styled.View`
   background-color: ${props => props.theme.color.primary};
   display: flex;
   justify-content: center;
+
   align-items: center;
+  flex-direction: row;
 `;

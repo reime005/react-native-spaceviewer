@@ -72,7 +72,7 @@ export default StyleSheet.create({
   detailsInfoContainer: {
     flex: 1,
     width: '100%',
-    paddingTop: hp('5%'),
+    paddingTop: 16,
     flexDirection: 'row',
     paddingLeft: 5,
     paddingRight: 5,

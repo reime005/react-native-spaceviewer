@@ -8,6 +8,7 @@ import { SETTING_FORMAT_DATE } from '../../constants/settings';
 import { getFormattedTime } from '../../lib/time/getFormattedTime';
 import { Routes } from '../../constants/routes';
 import { overviewListBigIconSize } from '../../constants/theme';
+import { routes } from '../../router/routes';
 
 export class OverviewListItem extends React.PureComponent {
   state = {
@@ -20,7 +21,7 @@ export class OverviewListItem extends React.PureComponent {
     }
 
     if (this.props.history) {
-      this.props.history.replace('/details', {
+      this.props.history.push(routes.details, {
         item: this.props.item,
         name: this.props.item.name,
       });
