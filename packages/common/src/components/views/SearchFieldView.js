@@ -19,7 +19,7 @@ export const SearchFieldView = ({ value, onChangeText, onClear }) => {
 
   return (
     <View style={searchStyle.searchFieldViewContainer}>
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row", display: 'flex', alignItems: 'center', width: '100%', flex: 1 }}>
         <FontAwesomeIcon size={18} color={colors.DARK_GREY} icon={faSearch} />
         <TextInput
           style={{ outline: 'none', width: '100%', paddingLeft: 8, paddingRight: 8, flex: 1 }}

@@ -19,6 +19,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    height: '65%',
   },
   searchIcon: {
     color: 'grey',
