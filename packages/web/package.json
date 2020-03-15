@@ -1,15 +1,13 @@
 {
-  "name": "spaceviewer-web",
+  "name": "web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts start",
-    "_start": "react-app-rewired start",
+    "start": "cross-env SKIP_PREFLIGHT_CHECK=true BROWSER=none react-scripts start",
     "build": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "test": "react-scripts test"
   },
   "dependencies": {
-
     "@fortawesome/fontawesome-svg-core": "1.2.26",
     "@fortawesome/free-solid-svg-icons": "5.12.0",
     "@fortawesome/react-fontawesome": "0.1.8",

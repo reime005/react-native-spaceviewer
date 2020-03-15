@@ -34,6 +34,6 @@ jobs:
       run:
         yarn workspace mobile test-ci
 
-    - name: bundle test
-      run:
-        npx react-native bundle --entry-file packages/mobile/index.js --bundle-output /dev/null
+    # - name: bundle test
+    #   run:
+    #     npx react-native bundle --entry-file packages/mobile/index.js --bundle-output /dev/null

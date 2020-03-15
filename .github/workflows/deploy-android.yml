@@ -8,30 +8,26 @@ on:
 jobs:
   deploy:
     runs-on: macos-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]') && contains(github.event.head_commit.message, 'release-android')"
 
     steps:
     - name: Checkout project
-      if: "!contains(github.event.head_commit.message, '[skip ci]') && contains(github.event.head_commit.message, 'release-android')"
       uses: actions/checkout@v1
 
     - name: Specify node version
-      if: "!contains(github.event.head_commit.message, '[skip ci]') && contains(github.event.head_commit.message, 'release-android')"
       uses: actions/setup-node@v1
       with:
         node-version: 12
 
     - name: Fastlane actions/setup-node@v1
-      if: "!contains(github.event.head_commit.message, '[skip ci]') && contains(github.event.head_commit.message, 'release-android')"
       run: |
         sudo gem install fastlane -NV
 
     - name: Install node_modules
-      if: "!contains(github.event.head_commit.message, '[skip ci]') && contains(github.event.head_commit.message, 'release-android')"
       run: |
         yarn install --frozen-lockfile
 
     - name: Deploy Android Bundle & Upload to Internal Test Track
-      if: "!contains(github.event.head_commit.message, '[skip ci]') && contains(github.event.head_commit.message, 'release-android')"
       working-directory: packages/mobile/android
       env:
         KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}

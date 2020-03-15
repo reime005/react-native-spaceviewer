@@ -57,10 +57,10 @@ jobs:
         $ANDROID_HOME/emulator/emulator @emu -no-boot-anim &
         adb wait-for-device; adb shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'; adb shell wm dismiss-keyguard
         mkdir -p ./artifacts
-        yarn workspace mobile test-detox-android-release --record-videos all --record-logs all
+        yarn workspace mobile test-detox-android-release --record-videos all
 
     - uses: actions/upload-artifact@master
       if: always()
       with:
-        name: detox
+        name: e2e-test-videos
         path: packages/mobile/artifacts
