@@ -31,7 +31,7 @@ jobs:
         yarn install --frozen-lockfile
 
     - name: Deploy iOS & Upload to TestFlight
-      working-directory: ios
+      working-directory: packages/mobile/ios
       env:
         MATCH_KEYCHAIN_NAME: ${{ secrets.MATCH_KEYCHAIN_NAME }}
         MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
