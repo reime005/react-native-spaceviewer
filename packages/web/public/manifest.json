@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Space Viewer Lite",
+  "name": "React Native Space Viewer Lite (reime005)",
   "icons": [
     {
       "src": "favicon.ico",
