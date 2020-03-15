@@ -7,7 +7,7 @@
     "build": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "test": "react-scripts test"
   },
-  "homepage": "https://reime005.github.io/react-native-spaceviewer/",
+  "homepage": ".",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.26",
     "@fortawesome/free-solid-svg-icons": "5.12.0",
