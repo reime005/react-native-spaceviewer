@@ -94,9 +94,7 @@ export const overviewListNumColumns = Layout.isSmallDevice ? 1 : 2;
 export const settingsListItemIconSize = Layout.isSmallDevice
   ? wp('8%')
   : wp('5%');
-export const overviewListIconBorderWidth = Layout.isSmallDevice
-  ? wp('0.6%')
-  : wp('0.4%');
+export const overviewListIconBorderWidth = 3;
 
 export const mapSize = Layout.isSmallDevice ? wp('75%') : wp('85%');
 
