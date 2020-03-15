@@ -20,9 +20,9 @@ jobs:
         working-directory: packages/web
         run: yarn install --frozen-lockfile
 
-      - name: Deploy 🚀
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Build and Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: packages/web/build
-          publish_branch: docs
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: docs # The branch the action should deploy to.
+          FOLDER: packages/web/build # The folder the action should deploy.
