@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "./precache-manifest.479c36d1c59a8ad1326b499d30917ea3.js"
+  "https://reime005.github.io/react-native-spaceviewer/precache-manifest.09321fb81a3aaefe882b4fc5941d5d47.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("./index.html"), {
-  
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("https://reime005.github.io/react-native-spaceviewer/index.html"), {
+
   blacklist: [/^\/_/,/\/[^\/?]+\.[^\/]+$/],
 });
