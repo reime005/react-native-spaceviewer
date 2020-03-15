@@ -25,19 +25,31 @@ export const Footer = () => {
 
   return (
     <Wrapper>
-      <TouchableOpacity testID="tab-btn-upcoming" onPressIn={() => push(routes.home)}>
+      <TouchableOpacity
+        testID="tab-btn-upcoming"
+        onPressIn={() => push(routes.home)}
+      >
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faHome} />
       </TouchableOpacity>
 
-      <TouchableOpacity testID="tab-btn-previous" onPressIn={() => push(routes.previous)}>
+      <TouchableOpacity
+        testID="tab-btn-previous"
+        onPressIn={() => push(routes.previous)}
+      >
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faHistory} />
       </TouchableOpacity>
 
-      <TouchableOpacity testID="tab-btn-search" onPressIn={() => push(routes.search)}>
+      <TouchableOpacity
+        testID="tab-btn-search"
+        onPressIn={() => push(routes.search)}
+      >
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faCloud} />
       </TouchableOpacity>
 
-      <TouchableOpacity testID="tab-btn-settings" onPressIn={() => push(routes.settings)}>
+      <TouchableOpacity
+        testID="tab-btn-settings"
+        onPressIn={() => push(routes.settings)}
+      >
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faUserCog} />
       </TouchableOpacity>
     </Wrapper>
@@ -45,7 +57,7 @@ export const Footer = () => {
 };
 
 const Wrapper = styled.View`
-  height: ${props => props.theme.sizes.headerHeight};
+  height: ${props => props.theme.sizes.footerHeight};
   background-color: white;
   border-top-width: 1px;
   border-top-color: #ccc;

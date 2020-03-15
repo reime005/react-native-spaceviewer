@@ -24,49 +24,41 @@ if (!process.env.E2E_DEVICE) {
       //await device.reloadReactNative();
     });
 
-    async function screenIsThere(screen = 'Upcoming') {
-      const lower = screen.toLowerCase();
-
-      const viewLabel = `${lower}-screen`;
+    async function screenIsThere(screen = 'upcoming') {
+      const viewLabel = `${screen}-screen`;
       let tabBtn = `tab-btn-${screen}`;
 
-      await expect(element(by.id(tabBtn)).atIndex(0)).toBeVisible();
-      await element(by.id(tabBtn))
-        .atIndex(0)
-        .tap();
+      await expect(element(by.id(tabBtn))).toBeVisible();
+      await element(by.id(tabBtn)).tap();
 
       //HACK: hide auto-focused keyboard
-      if (screen === 'Search') {
+      if (screen === 'search') {
         await element(by.id('searchInput')).typeText('\n');
       }
 
-      await expect(element(by.id(viewLabel)).atIndex(0)).toBeVisible();
+      await expect(element(by.id(viewLabel))).toBeVisible();
     }
 
     it('should step to settings screen', async () => {
-      await screenIsThere('Settings');
+      await screenIsThere('settings');
     });
 
     it('should step to previous screen', async () => {
-      await screenIsThere('Previous');
+      await screenIsThere('previous');
     });
 
     it('should step to search screen', async () => {
-      await screenIsThere('Search');
+      await screenIsThere('search');
     });
 
     it('step through screens and show details screen on item click', async () => {
-      await screenIsThere('Previous');
-      await screenIsThere('Settings');
-      await screenIsThere('Upcoming');
+      await screenIsThere('previous');
+      await screenIsThere('settings');
+      await screenIsThere('upcoming');
 
       // renderer should now be on the upcoming screen
-      await expect(
-        element(by.id(`list-item-${nextLaunchId}`)).atIndex(0)
-      ).toBeVisible();
-      await element(by.id(`list-item-${nextLaunchId}`))
-        .atIndex(0)
-        .tap();
+      await expect(element(by.id(`list-item-${nextLaunchId}`))).toBeVisible();
+      await element(by.id(`list-item-${nextLaunchId}`)).tap();
 
       await expect(element(by.id('details-screen'))).toBeVisible();
     });

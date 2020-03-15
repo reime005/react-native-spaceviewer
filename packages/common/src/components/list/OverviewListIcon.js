@@ -55,7 +55,7 @@ export class OverviewListIcon extends React.Component {
               source={{
                 uri
               }}
-              resizeMode="stretch"
+              resizeMode="cover"
             />
           </CustomTouchableHighlight>
         }

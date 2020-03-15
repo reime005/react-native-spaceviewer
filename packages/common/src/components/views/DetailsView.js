@@ -34,6 +34,7 @@ export const DetailsView = props => {
 
   return (
     <View
+      {...props}
       style={{
         flex: 1,
         height: "100%",

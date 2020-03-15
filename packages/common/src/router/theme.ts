@@ -27,8 +27,8 @@ export const theme: styledComponents.DefaultTheme = {
     primary: '#1e5284'
   },
   sizes: {
-    headerHeight: '65px',
-    footerHeight: '55px',
+    headerHeight: '55px',
+    footerHeight: '50px',
   }
 };
 
