@@ -15,9 +15,9 @@
     "run-ios": "yarn workspace mobile run-ios"
   },
   "dependencies": {
-    "react": "16.9.0",
+    "react": "16.11.0",
     "react-redux": "7.2.0",
-    "react-native": "0.61.3"
+    "react-native": "0.62.0"
   },
   "devDependencies": {
     "typescript": "3.8.2",
