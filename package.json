@@ -20,7 +20,7 @@
     "react-native": "0.62.0"
   },
   "devDependencies": {
-    "typescript": "3.8.2",
+    "typescript": "3.8.3",
     "detox": "^14.5.1"
   }
 }
