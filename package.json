@@ -36,9 +36,5 @@
     "lint-staged": "^9.2.0",
     "detox": "^14.5.1",
     "typescript": "3.8.2"
-  },
-  "resolutions": {
-    "react": "~16.9.0",
-    "react-native": "~0.61.3"
   }
 }
