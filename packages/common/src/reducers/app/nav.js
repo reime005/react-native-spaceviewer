@@ -1,4 +1,3 @@
-
 const INITIAL_STATE = {};
 
 export const nav = (state = INITIAL_STATE, action) => {

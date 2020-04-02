@@ -53,7 +53,7 @@ export class OverviewListIcon extends React.Component {
                 borderRadius: rad,
               }}
               source={{
-                uri
+                uri,
               }}
               resizeMode="cover"
             />

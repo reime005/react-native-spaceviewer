@@ -38,7 +38,7 @@ const _AppLoadingScreen = () => {
           delay={0}
           style={mainStyle.splashTitle}
           onAnimationEnd={() => {
-            replace(routes.home)
+            replace(routes.home);
           }}
           source={require('../../../../assets/images/title.png')}
           resizeMode="contain"

@@ -1,4 +1,4 @@
-import { Card, CardItem, Text } from 'native-base';
+import { Card, CardItem } from 'native-base';
 import React from 'react';
 import { ScrollView, View, Text } from 'react-native';
 import overviewDetailsStyle from '../../styles/overviewDetailsStyle';
@@ -9,7 +9,9 @@ const version = 42;
 export class CreditsView extends React.Component {
   render() {
     return (
-      <View {...props} style={{ flex: 1, padding: 5, backgroundColor: 'white' }}>
+      <View
+        {...this.props}
+        style={{ flex: 1, padding: 5, backgroundColor: 'white' }}>
         <ScrollView>
           <Card>
             <CardItem header bordered>

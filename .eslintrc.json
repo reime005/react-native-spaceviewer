@@ -1,0 +1,57 @@
+{
+  "extends": [
+    "@react-native-community",
+    "react-native-prettier",
+    "plugin:flowtype/recommended",
+    "eslint:recommended"
+  ],
+  "root": true,
+  "plugins": ["react-native", "flowtype", "redux-saga"],
+  "settings": {
+    "react": { "version": "16" },
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
+  },
+  "env": { "browser": true, "node": true, "es6": true, "jest": false },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "impliedStrict": true,
+      "globalReturn": false,
+      "jsx": true
+    }
+  },
+  "globals": {
+    "beforeEach": false,
+    "jasmine": false,
+    "afterAll": false,
+    "beforeAll": false,
+    "device": false,
+    "element": false,
+    "by": false,
+    "jest": false,
+    "fetch": false,
+    "alert": false,
+    "describe": false,
+    "expect": false,
+    "it": false,
+    "XMLHttpRequest": false,
+    "__DEV__": false
+  },
+  "rules": {
+    "no-var": "error",
+    "no-console": "warn",
+    "strict": "error",
+    "comma-dangle": "off",
+    "no-alert": "warn",
+    "no-unused-vars": "warn",
+    "flowtype/no-types-missing-file-annotation": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "import/default": "warn",
+    "import/namespace": "warn"
+  }
+}

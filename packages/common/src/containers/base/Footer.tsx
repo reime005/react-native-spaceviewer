@@ -1,22 +1,22 @@
-import React from "react";
-import { Platform, TouchableOpacity } from "react-native";
-import styled from "styled-components/native";
+import React from 'react';
+import { Platform, TouchableOpacity } from 'react-native';
+import styled from 'styled-components/native';
 import {
   faHome,
   faHistory,
   faCloud,
-  faUserCog
-} from "@fortawesome/free-solid-svg-icons";
-import { colors } from "../../constants/theme";
-import { useHistory } from "react-router-dom";
-import { routes } from "../../router/routes";
+  faUserCog,
+} from '@fortawesome/free-solid-svg-icons';
+import { colors } from '../../constants/theme';
+import { useHistory } from 'react-router-dom';
+import { routes } from '../../router/routes';
 
 let FontAwesomeIcon: any;
 
-if (Platform.OS === "web") {
-  FontAwesomeIcon = require("@fortawesome/react-fontawesome").FontAwesomeIcon;
+if (Platform.OS === 'web') {
+  FontAwesomeIcon = require('@fortawesome/react-fontawesome').FontAwesomeIcon;
 } else {
-  FontAwesomeIcon = require("@fortawesome/react-native-fontawesome")
+  FontAwesomeIcon = require('@fortawesome/react-native-fontawesome')
     .FontAwesomeIcon;
 }
 
@@ -27,29 +27,25 @@ export const Footer = () => {
     <Wrapper>
       <TouchableOpacity
         testID="tab-btn-upcoming"
-        onPressIn={() => push(routes.home)}
-      >
+        onPressIn={() => push(routes.home)}>
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faHome} />
       </TouchableOpacity>
 
       <TouchableOpacity
         testID="tab-btn-previous"
-        onPressIn={() => push(routes.previous)}
-      >
+        onPressIn={() => push(routes.previous)}>
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faHistory} />
       </TouchableOpacity>
 
       <TouchableOpacity
         testID="tab-btn-search"
-        onPressIn={() => push(routes.search)}
-      >
+        onPressIn={() => push(routes.search)}>
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faCloud} />
       </TouchableOpacity>
 
       <TouchableOpacity
         testID="tab-btn-settings"
-        onPressIn={() => push(routes.settings)}
-      >
+        onPressIn={() => push(routes.settings)}>
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faUserCog} />
       </TouchableOpacity>
     </Wrapper>

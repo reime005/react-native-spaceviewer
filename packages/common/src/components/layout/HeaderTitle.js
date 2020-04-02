@@ -20,13 +20,12 @@ export const HeaderTitle = ({ text = '', ...props }) => {
 };
 
 export const ConnectedHeaderTitle = connect(
-  (state) => {
+  state => {
     console.warn(state);
 
-    return({
-    test: state
-  })},
-  (dispatch) => ({
-
-  })
-)(HeaderTitle)
+    return {
+      test: state,
+    };
+  },
+  dispatch => ({})
+)(HeaderTitle);

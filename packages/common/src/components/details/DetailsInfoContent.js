@@ -25,7 +25,7 @@ export const DetailsInfoContent = props => {
       tension: 1,
       delay: 1500,
     }).start();
-  }, []);
+  }, [width]);
 
   return (
     <View style={overviewDetailsStyle.detailsInfoContainer}>

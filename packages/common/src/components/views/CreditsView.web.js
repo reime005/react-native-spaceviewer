@@ -13,4 +13,3 @@ export class CreditsView extends React.Component {
     );
   }
 }
-

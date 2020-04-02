@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-interface Props {
-
-}
+interface Props {}
 
 export const NavHeader = (props: Props) => {
   return null;
-}
+};
