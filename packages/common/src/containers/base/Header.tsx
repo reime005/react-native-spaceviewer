@@ -73,7 +73,9 @@ export const Header = () => {
     <Wrapper
       style={{ justifyContent: isDetailsScreen ? 'flex-start' : 'center' }}>
       <BackButton pathname={pathname} />
-      <Title>{location.state.name || t(routeToName(pathname))}</Title>
+      <Title>
+        {(location.state && location.state.name) || t(routeToName(pathname))}
+      </Title>
     </Wrapper>
   );
 };
