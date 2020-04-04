@@ -46,7 +46,8 @@ export class OverviewListIcon extends React.Component {
               borderWidth: overviewListIconBorderWidth,
               borderColor: colors.BORDER_GREY,
               borderRadius: rad,
-            }}>
+            }}
+          >
             <Image
               style={{
                 flex: 1,

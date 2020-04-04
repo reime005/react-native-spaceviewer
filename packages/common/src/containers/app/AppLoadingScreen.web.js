@@ -34,7 +34,8 @@ const _AppLoadingScreen = props => {
         minHeight: '100vh',
         backgroundColor: colors.PRIMARY,
         justifyContent: 'space-around',
-      }}>
+      }}
+    >
       <Image
         style={{ height: '7vw' }}
         source={require('../../../../assets/images/title.png')}

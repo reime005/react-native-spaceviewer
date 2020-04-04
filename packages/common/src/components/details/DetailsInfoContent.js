@@ -35,7 +35,8 @@ export const DetailsInfoContent = props => {
           flexDirection: 'column',
           justifyContent: 'flex-start',
           alignItems: 'center',
-        }}>
+        }}
+      >
         <OverviewListIconContainer uri={uri} size={detailViewImageSize} />
         <Text style={overviewDetailsStyle.titleStyle}>{lsp.name}</Text>
 
@@ -45,7 +46,8 @@ export const DetailsInfoContent = props => {
             alignItems: 'center',
             flexDirection: 'row',
             paddingLeft: 20,
-          }}>
+          }}
+        >
           <Icon
             style={{
               fontSize: fontSize.DETAILS_VIEW_SUBTITLE * 0.8,
@@ -58,7 +60,8 @@ export const DetailsInfoContent = props => {
           <Text
             style={{
               ...overviewDetailsStyle.subTitleStyle,
-            }}>
+            }}
+          >
             {statusToMessage(status)}
           </Text>
         </View>
@@ -68,7 +71,8 @@ export const DetailsInfoContent = props => {
             alignItems: 'flex-start',
             width: '100%',
             paddingLeft: 5,
-          }}>
+          }}
+        >
           <Animated.View
             useNativeDriver={true}
             style={{

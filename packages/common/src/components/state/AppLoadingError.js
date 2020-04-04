@@ -8,9 +8,9 @@ export const AppLoadingError = (props = {}) => {
   return (
     <View style={[styles.container, props.containerStyle]}>
       <Text style={[styles.text, props.textStyle]}>{props.title}</Text>
-      <Text style={[styles.message, props.messageStyle]}>{`Error message: ${
-        props.message
-      }`}</Text>
+      <Text
+        style={[styles.message, props.messageStyle]}
+      >{`Error message: ${props.message}`}</Text>
       <Button
         title={props.buttonTitle}
         onPress={props.onReload}

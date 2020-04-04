@@ -52,7 +52,8 @@ export class OverviewListItem extends React.PureComponent {
         onPress={this._onPress}
         accessibilityLabel={`list-item-${id}`}
         testID={`list-item-${id}`}
-        style={overviewListStyle.container}>
+        style={overviewListStyle.container}
+      >
         <Text style={overviewListStyle.title}>{name}</Text>
 
         <View style={overviewListStyle.contentContainer}>

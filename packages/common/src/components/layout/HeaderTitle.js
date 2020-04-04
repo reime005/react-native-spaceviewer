@@ -12,7 +12,8 @@ export const HeaderTitle = ({ text = '', ...props }) => {
     <View style={mainStyle.headerTitleContainer}>
       <Animated.Text
         animation="fadeIn"
-        style={mainStyle.headerTitleContainerText}>
+        style={mainStyle.headerTitleContainerText}
+      >
         {t(text)}
       </Animated.Text>
     </View>

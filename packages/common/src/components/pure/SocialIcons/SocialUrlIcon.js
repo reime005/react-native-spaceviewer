@@ -13,7 +13,8 @@ export const SocialUrlIcon = connect(
   return (
     <CustomTouchableHighlight
       onPress={props.onPress ? props.onPress : () => props.openURL(props.url)}
-      style={props.containerStyle}>
+      style={props.containerStyle}
+    >
       <MaterialCommunityIcons
         name={props.iconName}
         size={props.size}

@@ -49,7 +49,8 @@ export class LaunchTimer extends React.PureComponent {
     return (
       <CustomTouchableHighlight
         onPress={this._toggle}
-        style={overviewDetailsStyle.timerContainer}>
+        style={overviewDetailsStyle.timerContainer}
+      >
         {countdown ? (
           <CountDown
             digitBgColor={colors.BACKGROUND_LAUNCH_SUCCESS}

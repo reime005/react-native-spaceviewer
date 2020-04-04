@@ -39,7 +39,8 @@ export const DetailsView = props => {
         flex: 1,
         height: '100%',
         backgroundColor: 'white',
-      }}>
+      }}
+    >
       <ScrollView style={{ height: '100%' }}>
         <DetailsInfoContainer
           uri={imageURL[1]}

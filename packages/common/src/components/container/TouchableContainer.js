@@ -12,7 +12,8 @@ export const TouchableContainer = connect(
   return (
     <CustomTouchableHighlight
       onPress={props.onPress ? props.onPress : () => props.openURL(props.url)}
-      style={props.containerStyle}>
+      style={props.containerStyle}
+    >
       {props.children}
     </CustomTouchableHighlight>
   );

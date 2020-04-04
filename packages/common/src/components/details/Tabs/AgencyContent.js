@@ -17,7 +17,8 @@ export const AgencyContent = (agency = {}) => {
           style={[
             overviewDetailsStyle.cardItem,
             { backgroundColor: '#FFFBF4' },
-          ]}>
+          ]}
+        >
           {agency.wikiURL !== '' && <WikiBadge url={agency.wikiURL} />}
           {renderInfoURLs(agency.infoURLs, false)}
         </CardItem>

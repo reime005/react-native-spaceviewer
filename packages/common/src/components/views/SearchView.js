@@ -15,7 +15,8 @@ export const SearchView = props => {
         width: '100%',
         alignItems: 'center',
         backgroundColor: 'white',
-      }}>
+      }}
+    >
       {!props.loading && props.data.length ? (
         <ItemsView {...props} isLoading={false} />
       ) : null}

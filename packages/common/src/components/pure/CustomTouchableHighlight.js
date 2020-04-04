@@ -6,7 +6,8 @@ export const CustomTouchableHighlight = props => (
   <TouchableOpacity
     {...props}
     underlayColor={colors.TOUCHABLE_UNDERLAY}
-    activeOpacity={touchableOpacity}>
+    activeOpacity={touchableOpacity}
+  >
     {props.children}
   </TouchableOpacity>
 );

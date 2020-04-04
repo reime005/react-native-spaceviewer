@@ -1,12 +1,8 @@
 {
   "extends": [
-    "@react-native-community",
-    "react-native-prettier",
-    "plugin:flowtype/recommended",
-    "eslint:recommended"
+    "@react-native-community"
   ],
   "root": true,
-  "plugins": ["react-native", "flowtype", "redux-saga"],
   "settings": {
     "react": { "version": "16" },
     "flowtype": {
@@ -50,8 +46,6 @@
     "no-alert": "warn",
     "no-unused-vars": "warn",
     "flowtype/no-types-missing-file-annotation": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "import/default": "warn",
-    "import/namespace": "warn"
+    "@typescript-eslint/no-unused-vars": "warn"
   }
 }

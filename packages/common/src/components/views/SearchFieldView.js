@@ -26,7 +26,8 @@ export const SearchFieldView = ({ value, onChangeText, onClear }) => {
           alignItems: 'center',
           width: '100%',
           flex: 1,
-        }}>
+        }}
+      >
         <FontAwesomeIcon size={18} color={colors.DARK_GREY} icon={faSearch} />
         <TextInput
           style={{

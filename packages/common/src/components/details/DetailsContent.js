@@ -29,7 +29,8 @@ export const DetailsContent = ({ item = {} }) => {
       <Tabs
         springFriction={50}
         springTension={25}
-        tabBarUnderlineStyle={overviewDetailsStyle.tabBarUnderlineStyle}>
+        tabBarUnderlineStyle={overviewDetailsStyle.tabBarUnderlineStyle}
+      >
         {item.location.pads.length > 0 && (
           <Tab
             activeTextStyle={overviewDetailsStyle.tabActiveTextStyle}
@@ -48,7 +49,8 @@ export const DetailsContent = ({ item = {} }) => {
                   }
                 />
               </TabHeading>
-            }>
+            }
+          >
             <LocationContent
               {...item.location}
               // {...Array.of(this.props.item.location[0], this.props.item.location[0])}
@@ -66,7 +68,8 @@ export const DetailsContent = ({ item = {} }) => {
             <TabHeading style={tabViewStyle.tabStyle}>
               <HeadingItem iconName="ios-rocket" title={t('Rocket Info')} />
             </TabHeading>
-          }>
+          }
+        >
           <RocketContent {...item.rocket} />
         </Tab>
 
@@ -86,7 +89,8 @@ export const DetailsContent = ({ item = {} }) => {
                   }
                 />
               </TabHeading>
-            }>
+            }
+          >
             <View style={overviewDetailsStyle.rocketContentContainer}>
               <ArrayContent renderItem={MissionContent} data={item.missions} />
             </View>

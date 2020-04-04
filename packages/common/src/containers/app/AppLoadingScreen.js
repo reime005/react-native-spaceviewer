@@ -17,7 +17,8 @@ const _AppLoadingScreen = () => {
         height: '100%',
         backgroundColor: colors.PRIMARY,
         justifyContent: isFinished ? 'center' : 'flex-end',
-      }}>
+      }}
+    >
       {!isFinished && (
         <Animatable.Image
           animation="bounceOutUp"
