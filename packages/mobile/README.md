@@ -4,7 +4,7 @@
 
 ![Android build](https://github.com/reime005/react-native-spaceviewer/workflows/Android/badge.svg)
 
-![space-viewer](assets/images/mockup.png)
+![space-viewer](./mockup.png)
 
 ## Build & Run
 Should be as easy as:

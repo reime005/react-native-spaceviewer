@@ -1,8 +1,14 @@
 # Space Viewer - Rocket Infos (Monorepo)
 
+![iOS build](https://github.com/reime005/react-native-spaceviewer/workflows/iOS/badge.svg)
+
+![Android build](https://github.com/reime005/react-native-spaceviewer/workflows/Android/badge.svg)
+
 This is the source code for the iOS App ['Space Viewer - Rocket Infos'](https://itunes.apple.com/us/app/space-viewer-rocket-infos/id1434055829?ls=1&mt=8) and Android App ['Space Viewer - Information about Rocket Launches'](https://play.google.com/store/apps/details?id=com.mariusreimer.spaceviewer). You can see lots of information about rocket space launches from all over the world! Want to know at which location it will launch? Or do you want to see its live stream? All the information are bundled in this app.
 
 This includes rocket launches from SpaceX, NASA, ROSCOSMOS, ISRO, ULA and many more!
+
+![space-viewer](packages/mobile/mockup.png)
 
 ## Tech Stack
 
