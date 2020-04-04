@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import codePush from 'react-native-code-push';
 
 export const codePushOptions = {
