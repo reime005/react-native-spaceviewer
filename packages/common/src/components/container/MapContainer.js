@@ -10,5 +10,5 @@ export const MapContainer = connect(
     openFirstMapLocation: pads => {
       dispatch(openFirstMapLocationSagaAction(pads));
     },
-  })
+  }),
 )(MapView);

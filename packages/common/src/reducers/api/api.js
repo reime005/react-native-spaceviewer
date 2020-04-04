@@ -11,7 +11,7 @@ export const api = (state, action) => {
         ...nextState,
         isLoading: false,
         [action.launchType]: nextState[action.launchType].concat(
-          action.launches
+          action.launches,
         ),
       };
       break;

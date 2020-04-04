@@ -8,7 +8,7 @@ export const SocialUrlIcon = connect(
   state => ({}),
   dispatch => ({
     openURL: url => dispatch(openURLSagaAction(url)),
-  })
+  }),
 )(props => {
   return (
     <CustomTouchableHighlight

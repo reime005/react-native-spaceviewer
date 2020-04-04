@@ -16,5 +16,5 @@ export const PreviousContainer = connect(
     refresh: () => {
       dispatch(listRefreshSagaAction(FILE_PREV_LAUNCHES));
     },
-  })
+  }),
 )(ItemsView);

@@ -61,5 +61,5 @@ export const AppLoadingScreen = connect(
       dispatch(loadNextLaunchesSagaAction(FILE_NEXT_LAUNCHES));
       dispatch(loadNextLaunchesSagaAction(FILE_PREV_LAUNCHES));
     },
-  })
+  }),
 )(_AppLoadingScreen);

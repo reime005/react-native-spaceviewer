@@ -3,5 +3,5 @@ import { DetailsInfoContent } from '../details/DetailsInfoContent';
 
 export const DetailsInfoContainer = connect(
   state => ({}),
-  dispatch => ({})
+  dispatch => ({}),
 )(DetailsInfoContent);

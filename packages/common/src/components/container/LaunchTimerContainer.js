@@ -5,5 +5,5 @@ export const LaunchTimerContainer = connect(
   state => ({
     settings: state.settings,
   }),
-  dispatch => ({})
+  dispatch => ({}),
 )(LaunchTimer);

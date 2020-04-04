@@ -23,7 +23,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 // Note: createReactNavigationReduxMiddleware must be run before createReduxBoundAddListener
 const navigationMiddleware = createReactNavigationReduxMiddleware(
-  state => state.nav
+  state => state.nav,
 );
 
 const middleware = [

@@ -28,5 +28,5 @@ export const ConnectedHeaderTitle = connect(
       test: state,
     };
   },
-  dispatch => ({})
+  dispatch => ({}),
 )(HeaderTitle);

@@ -16,7 +16,7 @@ export const SearchFieldContainer = connect(
     onChangeText: searchText => {
       dispatch(searchOnChangeTextSagaAction(searchText));
     },
-  })
+  }),
 )(SearchFieldView);
 
 export default SearchFieldContainer;

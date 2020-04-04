@@ -10,5 +10,5 @@ export const OverviewListItemContainer = connect(
     openFirstMapLocation: pads => {
       dispatch(openFirstMapLocationSagaAction(pads));
     },
-  })
+  }),
 )(OverviewListItem);

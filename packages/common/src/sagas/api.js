@@ -51,7 +51,7 @@ function* fetchReturnNextLaunches(action) {
   // fetch the initial sequence
   try {
     const res = yield fetch(
-      `${apiConstants.URI_NEXT_LAUNCHES}?next=${next}&offset=${offset}&mode=${mode}`
+      `${apiConstants.URI_NEXT_LAUNCHES}?next=${next}&offset=${offset}&mode=${mode}`,
     );
 
     const data = yield res.json();
@@ -90,7 +90,7 @@ function* fetchReturnPrevLaunches(action) {
   // fetch the initial sequence
   try {
     const res = yield fetch(
-      `${apiConstants.URI_PREV_LAUNCHES}?startdate=${startdate}&enddate=${enddate}&limit=${limit}&sort=desc&mode=${mode}`
+      `${apiConstants.URI_PREV_LAUNCHES}?startdate=${startdate}&enddate=${enddate}&limit=${limit}&sort=desc&mode=${mode}`,
     );
 
     const data = yield res.json();
