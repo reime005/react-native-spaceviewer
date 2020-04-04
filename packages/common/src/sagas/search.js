@@ -45,9 +45,7 @@ function* fetchSearchData(name = '', offset = 0) {
 
   try {
     const res = yield fetch(
-      `${
-        apiConstants.URI_SEARCH_LAUNCHES
-      }?name=${name}&offset=${offset}&sort=desc&limit=20&mode=${mode}`
+      `${apiConstants.URI_SEARCH_LAUNCHES}?name=${name}&offset=${offset}&sort=desc&limit=20&mode=${mode}`,
     );
 
     const data = yield res.json();

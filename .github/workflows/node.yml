@@ -16,19 +16,12 @@ jobs:
       with:
         node-version: 12
 
-    - uses: actions/cache@preview
-      with:
-        path: ~/.cache/yarn
-        key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
-        restore-keys: |
-          ${{ runner.os }}-yarn
-
     - name: install node_modules
       run: yarn install --frozen-lockfile
 
     - name: node lint
       run:
-        yarn workspace mobile lint-ci
+        yarn lint-check
 
     - name: node test
       run:

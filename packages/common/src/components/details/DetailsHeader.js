@@ -11,7 +11,8 @@ export const DetailsHeader = props => (
 
     <CustomTouchableHighlight
       onPress={props.closeView}
-      underlayColor="transparent">
+      underlayColor="transparent"
+    >
       <MaterialCommunityIcons
         size={detailViewCloseIconSize}
         name="close"

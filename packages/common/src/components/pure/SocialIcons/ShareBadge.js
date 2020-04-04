@@ -9,7 +9,7 @@ export const ShareBadge = connect(
   state => ({}),
   dispatch => ({
     share: data => dispatch(shareDataSagaAction(data)),
-  })
+  }),
 )(props => {
   return (
     <SocialUrlIcon

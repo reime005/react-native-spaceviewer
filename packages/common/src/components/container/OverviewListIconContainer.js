@@ -3,5 +3,5 @@ import { OverviewListIcon } from '../list/OverviewListIcon';
 
 export const OverviewListIconContainer = connect(
   state => ({}),
-  dispatch => ({})
+  dispatch => ({}),
 )(OverviewListIcon);

@@ -59,8 +59,8 @@ jobs:
         mkdir -p ./artifacts
         yarn workspace mobile test-detox-android-release --record-videos all
 
-    - uses: actions/upload-artifact@master
-      if: always()
+    - uses: actions/upload-artifact@v1
+      if: failure()
       with:
         name: e2e-test-videos
         path: packages/mobile/artifacts

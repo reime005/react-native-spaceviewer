@@ -1,4 +1,4 @@
-import { Card, CardItem, Text } from 'native-base';
+import { Card, CardItem } from 'native-base';
 import React from 'react';
 import { ScrollView, View, Text } from 'react-native';
 import overviewDetailsStyle from '../../styles/overviewDetailsStyle';
@@ -9,7 +9,10 @@ const version = 42;
 export class CreditsView extends React.Component {
   render() {
     return (
-      <View {...props} style={{ flex: 1, padding: 5, backgroundColor: 'white' }}>
+      <View
+        {...this.props}
+        style={{ flex: 1, padding: 5, backgroundColor: 'white' }}
+      >
         <ScrollView>
           <Card>
             <CardItem header bordered>
@@ -17,7 +20,8 @@ export class CreditsView extends React.Component {
             </CardItem>
             <CardItem
               bordered
-              style={[overviewDetailsStyle.cardItem, { alignItems: 'center' }]}>
+              style={[overviewDetailsStyle.cardItem, { alignItems: 'center' }]}
+            >
               <Text>Data for this app, provided by </Text>
               <TouchableContainer url={'https://launchlibrary.net'}>
                 <Text>Launch Library</Text>
@@ -25,7 +29,8 @@ export class CreditsView extends React.Component {
             </CardItem>
             <CardItem
               bordered
-              style={[overviewDetailsStyle.cardItem, { alignItems: 'center' }]}>
+              style={[overviewDetailsStyle.cardItem, { alignItems: 'center' }]}
+            >
               <Text>Icons made by </Text>
               <TouchableContainer url={'https://www.freepik.com'}>
                 <Text>Freepik</Text>
@@ -36,7 +41,8 @@ export class CreditsView extends React.Component {
               </TouchableContainer>
               <Text> and is licensed by </Text>
               <CustomTouchableHighlight
-                url={'https://creativecommons.org/licenses/by/3.0'}>
+                url={'https://creativecommons.org/licenses/by/3.0'}
+              >
                 <Text>CC 3.0 BY</Text>
               </CustomTouchableHighlight>
             </CardItem>

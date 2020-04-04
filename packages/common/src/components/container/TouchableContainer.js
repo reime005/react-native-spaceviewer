@@ -7,12 +7,13 @@ export const TouchableContainer = connect(
   state => ({}),
   dispatch => ({
     openURL: url => dispatch(openURLSagaAction(url)),
-  })
+  }),
 )(props => {
   return (
     <CustomTouchableHighlight
       onPress={props.onPress ? props.onPress : () => props.openURL(props.url)}
-      style={props.containerStyle}>
+      style={props.containerStyle}
+    >
       {props.children}
     </CustomTouchableHighlight>
   );

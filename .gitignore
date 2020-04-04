@@ -62,3 +62,5 @@ release.keystore.properties
 ios/Pods/
 
 dist/
+
+yarn-error.log

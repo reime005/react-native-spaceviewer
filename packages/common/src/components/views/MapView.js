@@ -17,7 +17,8 @@ export const MapView = props => {
       }}
       latitude={props.pad ? props.pad.latitude : 0}
       longitude={props.pad ? props.pad.longitude : 0}
-      size={{ width: props.size, height: props.size }}>
+      size={{ width: props.size, height: props.size }}
+    >
       <Marker
         coordinate={{
           ...props.pad,

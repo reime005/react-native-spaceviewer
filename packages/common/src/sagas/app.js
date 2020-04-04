@@ -36,7 +36,7 @@ export function openURL(action) {
       },
       { text: 'Open', onPress: () => Linking.openURL(url) },
     ],
-    { cancelable: true }
+    { cancelable: true },
   );
 }
 
@@ -64,6 +64,6 @@ export function shareData(action) {
     {
       // Android only
       dialogTitle: name,
-    }
+    },
   );
 }

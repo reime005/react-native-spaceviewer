@@ -12,7 +12,8 @@ export const HeaderTitle = ({ text = '', ...props }) => {
     <View style={mainStyle.headerTitleContainer}>
       <Animated.Text
         animation="fadeIn"
-        style={mainStyle.headerTitleContainerText}>
+        style={mainStyle.headerTitleContainerText}
+      >
         {t(text)}
       </Animated.Text>
     </View>
@@ -20,13 +21,12 @@ export const HeaderTitle = ({ text = '', ...props }) => {
 };
 
 export const ConnectedHeaderTitle = connect(
-  (state) => {
+  state => {
     console.warn(state);
 
-    return({
-    test: state
-  })},
-  (dispatch) => ({
-
-  })
-)(HeaderTitle)
+    return {
+      test: state,
+    };
+  },
+  dispatch => ({}),
+)(HeaderTitle);

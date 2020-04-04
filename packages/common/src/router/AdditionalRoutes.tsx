@@ -1,10 +1,10 @@
-import React from "react";
-import WebView from "react-native-webview";
-import { DetailsContainer } from "../components";
-import { BaseScreen } from "../containers/base/BaseScreen";
-import { Route } from "./Router";
-import { routes } from "./routes";
-import { SettingsContainer } from "../components/container/SettingsContainer";
+import React from 'react';
+import WebView from 'react-native-webview';
+import { DetailsContainer } from '../components';
+import { BaseScreen } from '../containers/base/BaseScreen';
+import { Route } from './Router';
+import { routes } from './routes';
+import { SettingsContainer } from '../components/container/SettingsContainer';
 
 export const AdditionalRoutes = () => {
   return (
@@ -16,7 +16,7 @@ export const AdditionalRoutes = () => {
           <BaseScreen>
             <WebView
               source={{
-                uri: "https://mariusreimer.com/privacy-policy"
+                uri: 'https://mariusreimer.com/privacy-policy',
               }}
               style={{ marginTop: 0 }}
             />
@@ -29,8 +29,8 @@ export const AdditionalRoutes = () => {
         render={() => (
           <BaseScreen>
             <SettingsContainer
-              accessibilityLabel={"settings-screen"}
-              testID={"settings-screen"}
+              accessibilityLabel={'settings-screen'}
+              testID={'settings-screen'}
             />
           </BaseScreen>
         )}
@@ -41,8 +41,8 @@ export const AdditionalRoutes = () => {
         render={() => (
           <BaseScreen>
             <DetailsContainer
-              accessibilityLabel={"details-screen"}
-              testID={"details-screen"}
+              accessibilityLabel={'details-screen'}
+              testID={'details-screen'}
             />
           </BaseScreen>
         )}

@@ -36,7 +36,8 @@ export const PadContent = (pad = {}) => {
         style={[
           { backgroundColor: '#FFFBF4' },
           overviewDetailsStyle.mapViewContainer,
-        ]}>
+        ]}
+      >
         <MapContent pad={pad} />
       </CardItem>
 

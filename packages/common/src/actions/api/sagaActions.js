@@ -9,7 +9,7 @@ export function loadNextLaunchesSagaAction(
   next,
   offset,
   mode,
-  fields
+  fields,
 ) {
   return {
     type: LOAD_NEXT_LAUNCHES,

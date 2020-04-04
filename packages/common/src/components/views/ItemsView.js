@@ -20,9 +20,11 @@ export const ItemsView = props => {
           style={{
             ...mainStyle.basicCenterContainer,
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Text
-            style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold' }}>
+            style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold' }}
+          >
             {t('loading')}
           </Text>
           <CustomSpinner />

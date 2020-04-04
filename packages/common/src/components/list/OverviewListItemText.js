@@ -2,14 +2,19 @@ import React from 'react';
 import { Text, View, Platform } from 'react-native';
 import overviewListStyle from '../../styles/overviewListStyle';
 import { colors } from '../../constants/theme';
-import { faClock, faMapMarkedAlt, faIdBadge } from '@fortawesome/free-solid-svg-icons'
+import {
+  faClock,
+  faMapMarkedAlt,
+  faIdBadge,
+} from '@fortawesome/free-solid-svg-icons';
 
 let FontAwesomeIcon;
 
 if (Platform.OS === 'web') {
   FontAwesomeIcon = require('@fortawesome/react-fontawesome').FontAwesomeIcon;
 } else {
-  FontAwesomeIcon = require('@fortawesome/react-native-fontawesome').FontAwesomeIcon;
+  FontAwesomeIcon = require('@fortawesome/react-native-fontawesome')
+    .FontAwesomeIcon;
 }
 
 const nameToIcon = name => {
@@ -20,11 +25,14 @@ const nameToIcon = name => {
   } else if (name === 'clock') {
     return faClock;
   }
-}
+};
 
 const Inner = props => (
   <React.Fragment>
-    <FontAwesomeIcon color={colors.LIST_ICON} icon={nameToIcon(props.iconName)} />
+    <FontAwesomeIcon
+      color={colors.LIST_ICON}
+      icon={nameToIcon(props.iconName)}
+    />
     <Text numberOfLines={2} style={overviewListStyle.text}>
       {props.text}
     </Text>
@@ -32,9 +40,7 @@ const Inner = props => (
 );
 
 export const OverviewListItemText = props => (
-  <View
-    animation="fadeIn"
-    style={overviewListStyle.listStyleContainer}>
+  <View animation="fadeIn" style={overviewListStyle.listStyleContainer}>
     <Inner {...props} />
   </View>
 );

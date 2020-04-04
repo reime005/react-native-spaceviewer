@@ -13,5 +13,5 @@ export const SettingsContainer = connect(
     saveValue: (key, value) => {
       dispatch(settingsSaveValueSagaAction(key, value));
     },
-  })
+  }),
 )(SettingsView);

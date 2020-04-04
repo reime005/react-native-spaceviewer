@@ -14,8 +14,6 @@ import {
   SEARCH_END_REACHED,
 } from '../actions';
 
-import { handleAppLoading } from './app_loading';
-
 import { endReached, refresh, loadNextLaunches } from './api';
 
 import { openFirstMapLocation, openURL, shareData } from './app';
@@ -25,7 +23,6 @@ import { SHARE_DATA } from '../actions/app/share';
 
 export const rootSaga = function* rootSaga() {
   yield all([
-    takeLatest(LOAD_APP_RESOURCES, handleAppLoading),
     takeEvery(LOAD_NEXT_LAUNCHES, loadNextLaunches),
     takeLatest(LIST_END_REACHED, endReached),
     takeLatest(LIST_REFRESH, refresh),

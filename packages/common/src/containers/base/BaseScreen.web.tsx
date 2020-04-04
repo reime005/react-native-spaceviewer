@@ -1,8 +1,8 @@
-import React from "react";
-import { View } from "react-native";
-import styled from "styled-components/native";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
+import React from 'react';
+import { View } from 'react-native';
+import styled from 'styled-components/native';
+import { Header } from './Header';
+import { Footer } from './Footer';
 
 const Outer = styled.View`
   display: flex;

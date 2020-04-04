@@ -1,0 +1,16 @@
+node_modules/
+coverage/
+dist/
+lib/
+e2e/
+artifacts/
+android/
+scripts/
+test-config/
+build/
+web-build/
+web-report/
+.github/
+.vscode/
+docs/
+**/*/*.d.ts

@@ -17,5 +17,5 @@ export const HomeContainer = connect(
       console.warn('refresh');
       dispatch(listRefreshSagaAction(FILE_NEXT_LAUNCHES));
     },
-  })
+  }),
 )(ItemsView);

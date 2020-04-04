@@ -17,5 +17,5 @@ export const SearchContainer = connect(
     refresh: () => {
       dispatch(searchClearSagaAction());
     },
-  })
+  }),
 )(SearchView);

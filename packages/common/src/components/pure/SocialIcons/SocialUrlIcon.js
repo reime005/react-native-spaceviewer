@@ -8,12 +8,13 @@ export const SocialUrlIcon = connect(
   state => ({}),
   dispatch => ({
     openURL: url => dispatch(openURLSagaAction(url)),
-  })
+  }),
 )(props => {
   return (
     <CustomTouchableHighlight
       onPress={props.onPress ? props.onPress : () => props.openURL(props.url)}
-      style={props.containerStyle}>
+      style={props.containerStyle}
+    >
       <MaterialCommunityIcons
         name={props.iconName}
         size={props.size}

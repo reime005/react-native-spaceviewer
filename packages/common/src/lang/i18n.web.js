@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 let lng = window.navigator.language.slice(0, 2);
 
 if (!lng) {
-  lng = "de"
+  lng = 'de';
 }
 
 const resources = {

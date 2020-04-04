@@ -8,6 +8,8 @@
     ]
   },
   "scripts": {
+    "lint": "eslint packages --fix",
+    "lint-check": "eslint packages --quiet",
     "watch": "yarn workspace spaceviewer-common watch",
     "postinstall": "yarn jetify; yarn workspace mobile postinstall",
     "mobile/start": "yarn workspace mobile start",
@@ -16,11 +18,16 @@
   },
   "dependencies": {
     "react": "16.9.0",
-    "react-redux": "7.2.0",
-    "react-native": "0.61.3"
+    "react-native": "0.61.3",
+    "react-redux": "7.2.0"
   },
   "devDependencies": {
-    "typescript": "3.8.2",
-    "detox": "^14.5.1"
+    "@react-native-community/eslint-config": "1.0.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
+    "husky": "^3.0.1",
+    "lint-staged": "^9.2.0",
+    "detox": "^14.5.1",
+    "typescript": "3.8.2"
   }
 }

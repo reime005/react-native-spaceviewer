@@ -17,7 +17,8 @@ const _AppLoadingScreen = () => {
         height: '100%',
         backgroundColor: colors.PRIMARY,
         justifyContent: isFinished ? 'center' : 'flex-end',
-      }}>
+      }}
+    >
       {!isFinished && (
         <Animatable.Image
           animation="bounceOutUp"
@@ -38,7 +39,7 @@ const _AppLoadingScreen = () => {
           delay={0}
           style={mainStyle.splashTitle}
           onAnimationEnd={() => {
-            replace(routes.home)
+            replace(routes.home);
           }}
           source={require('../../../../assets/images/title.png')}
           resizeMode="contain"

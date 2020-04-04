@@ -6,7 +6,7 @@ export const renderInfoURLs = (
   infoURLs = [],
   wrap = true,
   start = 0,
-  end = 2
+  end = 2,
 ) => {
   if (infoURLs.length < 1) {
     return null;

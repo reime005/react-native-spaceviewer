@@ -3,5 +3,5 @@ import { DetailsView } from '../views';
 
 export const DetailsContainer = connect(
   state => ({}),
-  dispatch => ({})
+  dispatch => ({}),
 )(DetailsView);

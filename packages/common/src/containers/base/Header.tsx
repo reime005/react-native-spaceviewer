@@ -1,33 +1,33 @@
-import React from "react";
-import styled from "styled-components/native";
-import { useHistory } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { routes } from "../../router/routes";
-import { SearchFieldContainer } from "../../components/container/SearchFieldContainer";
-import { TouchableOpacity, Platform, View } from "react-native";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import styled from 'styled-components/native';
+import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { routes } from '../../router/routes';
+import { SearchFieldContainer } from '../../components/container/SearchFieldContainer';
+import { TouchableOpacity, Platform, View } from 'react-native';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 let FontAwesomeIcon: any;
 
-if (Platform.OS === "web") {
-  FontAwesomeIcon = require("@fortawesome/react-fontawesome").FontAwesomeIcon;
+if (Platform.OS === 'web') {
+  FontAwesomeIcon = require('@fortawesome/react-fontawesome').FontAwesomeIcon;
 } else {
-  FontAwesomeIcon = require("@fortawesome/react-native-fontawesome")
+  FontAwesomeIcon = require('@fortawesome/react-native-fontawesome')
     .FontAwesomeIcon;
 }
 
 const routeToName = (route: string): string => {
   switch (route) {
     case routes.home:
-      return "Upcoming Rocket Launches";
+      return 'Upcoming Rocket Launches';
     case routes.previous:
-      return "Previous Rocket Launches";
+      return 'Previous Rocket Launches';
     case routes.search:
-      return "";
+      return '';
     case routes.settings:
-      return "Settings";
+      return 'Settings';
     default:
-      return "Space Viewer";
+      return 'Space Viewer';
   }
 };
 
@@ -42,8 +42,7 @@ const BackButton = ({ pathname }: { pathname: string }) => {
     <TouchableOpacity
       onPressIn={() => {
         goBack();
-      }}
-    >
+      }}>
       <FontAwesomeIcon
         size={18}
         color="white"
@@ -71,9 +70,12 @@ export const Header = () => {
   }
 
   return (
-    <Wrapper style={{ justifyContent: isDetailsScreen ? 'flex-start' : 'center' }}>
+    <Wrapper
+      style={{ justifyContent: isDetailsScreen ? 'flex-start' : 'center' }}>
       <BackButton pathname={pathname} />
-      <Title>{location.state?.name || t(routeToName(pathname))}</Title>
+      <Title>
+        {(location.state && location.state.name) || t(routeToName(pathname))}
+      </Title>
     </Wrapper>
   );
 };
