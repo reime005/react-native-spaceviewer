@@ -21,7 +21,7 @@ jobs:
 
     - name: node lint
       run:
-        yarn workspace lint-check
+        yarn lint-check
 
     - name: node test
       run:
