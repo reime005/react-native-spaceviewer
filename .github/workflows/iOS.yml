@@ -22,6 +22,7 @@ jobs:
         brew install applesimutils
 
     - name: Install node_modules & deploy with specific XCode version
+      timeout-minutes: 15
       run: |
         yarn install --frozen-lockfile
         yarn workspace mobile build-detox-ios
