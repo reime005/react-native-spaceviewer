@@ -10,11 +10,9 @@ export const HomeContainer = connect(
   }),
   dispatch => ({
     endReached: () => {
-      console.warn('endReached');
       dispatch(listEndReachedSagaAction(FILE_NEXT_LAUNCHES));
     },
     refresh: () => {
-      console.warn('refresh');
       dispatch(listRefreshSagaAction(FILE_NEXT_LAUNCHES));
     },
   }),

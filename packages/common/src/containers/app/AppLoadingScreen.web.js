@@ -51,11 +51,7 @@ const _AppLoadingScreen = props => {
 };
 
 export const AppLoadingScreen = connect(
-  state => {
-    console.warn(state);
-
-    return {};
-  },
+  state => ({}),
   dispatch => ({
     initLoading: () => {
       dispatch(loadNextLaunchesSagaAction(FILE_NEXT_LAUNCHES));

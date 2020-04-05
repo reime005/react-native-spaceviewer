@@ -1,8 +1,4 @@
 import { StyleSheet } from 'react-native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
 import layout from '../constants/layout';
 import { colors } from '../constants/theme';
 
@@ -13,14 +9,14 @@ export default StyleSheet.create({
     // paddingTop: headerBottomSpace * 1.125,
   },
   container: {
-    height: layout.isSmallDevice ? 200 : 240,
+    minHeight: 175,
     flex: 1,
     marginBottom: 8,
     marginLeft: 4,
     marginRight: 4,
     padding: 16,
     borderRadius: 5,
-    elevation: 2,
+    elevation: 1,
     shadowColor: colors.PRIMARY,
     shadowOpacity: 0.25,
     shadowOffset: {
@@ -32,9 +28,10 @@ export default StyleSheet.create({
   contentContainer: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-    // marginTop: 50,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    display: 'flex',
+    marginTop: 16,
   },
   title: {
     fontSize: 14,
@@ -45,13 +42,16 @@ export default StyleSheet.create({
     flex: 1,
     fontSize: 12,
     color: colors.DARK_TEXT_SECONDARY,
-    margin: 6,
+    margin: 8,
+  },
+  icon: {
+    width: 16,
   },
   textContainer: {
     flexDirection: 'column',
     justifyContent: 'center',
     flex: 1,
-    marginLeft: 20,
+    marginLeft: 24,
   },
   listStyleContainer: {
     justifyContent: 'center',

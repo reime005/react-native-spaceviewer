@@ -13,6 +13,7 @@
     "watch": "yarn workspace spaceviewer-common watch",
     "postinstall": "yarn jetify; yarn workspace mobile postinstall",
     "mobile/start": "yarn workspace mobile start",
+    "web/start": "yarn workspace web start",
     "run-android": "yarn workspace mobile run-android",
     "run-ios": "yarn workspace mobile run-ios"
   },

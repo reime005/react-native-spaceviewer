@@ -61,11 +61,7 @@ export class OverviewListItem extends React.PureComponent {
 
           <View style={overviewListStyle.textContainer}>
             <OverviewListItemText iconName="account-box" text={lspName} />
-            <OverviewListItemText
-              iconName="map-marker"
-              // onPress={() => openFirstMapLocation(item.location.pads)}
-              text={locationName}
-            />
+            <OverviewListItemText iconName="map-marker" text={locationName} />
             <OverviewListItemText
               iconName="clock"
               text={getFormattedTime(dateFormat, net)}

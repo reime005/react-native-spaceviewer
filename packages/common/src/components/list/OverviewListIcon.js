@@ -35,7 +35,7 @@ export class OverviewListIcon extends React.Component {
     }
 
     return (
-      <View style={{ margin: 10 }}>
+      <View>
         {
           <CustomTouchableHighlight
             style={{

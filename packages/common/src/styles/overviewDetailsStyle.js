@@ -144,6 +144,8 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     fontSize: fontSize.DETAILS_VIEW_TITLE,
+    paddingTop: 4,
+    paddingBottom: 4,
   },
   subTitleStyle: {
     color: 'grey',

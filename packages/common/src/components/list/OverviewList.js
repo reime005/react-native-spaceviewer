@@ -45,9 +45,8 @@ export class OverviewList extends React.PureComponent {
 
     return (
       <FlatList
-        useNativeDriver={true}
+        useNativeDriver
         ListHeaderComponent={<View style={{ height: 5 }} />}
-        // initialNumToRender={12}
         numColumns={overviewListNumColumns}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}

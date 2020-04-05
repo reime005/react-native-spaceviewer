@@ -30,7 +30,9 @@ const nameToIcon = name => {
 const Inner = props => (
   <React.Fragment>
     <FontAwesomeIcon
-      color={colors.LIST_ICON}
+      style={{ width: 15 }}
+      // style={overviewListStyle.icon}
+      color={colors.PRIMARY_ALPHA}
       icon={nameToIcon(props.iconName)}
     />
     <Text numberOfLines={2} style={overviewListStyle.text}>
