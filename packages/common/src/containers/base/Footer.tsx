@@ -25,32 +25,38 @@ export const Footer = () => {
 
   return (
     <Wrapper>
-      <TouchableOpacity
-        testID="tab-btn-upcoming"
-        onPressIn={() => push(routes.home)}>
+      <Touchable testID="tab-btn-upcoming" onPressIn={() => push(routes.home)}>
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faHome} />
-      </TouchableOpacity>
+      </Touchable>
 
-      <TouchableOpacity
+      <Touchable
         testID="tab-btn-previous"
-        onPressIn={() => push(routes.previous)}>
+        onPressIn={() => push(routes.previous)}
+      >
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faHistory} />
-      </TouchableOpacity>
+      </Touchable>
 
-      <TouchableOpacity
-        testID="tab-btn-search"
-        onPressIn={() => push(routes.search)}>
+      <Touchable testID="tab-btn-search" onPressIn={() => push(routes.search)}>
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faCloud} />
-      </TouchableOpacity>
+      </Touchable>
 
-      <TouchableOpacity
+      <Touchable
         testID="tab-btn-settings"
-        onPressIn={() => push(routes.settings)}>
+        onPressIn={() => push(routes.settings)}
+      >
         <FontAwesomeIcon size={18} color={colors.PRIMARY} icon={faUserCog} />
-      </TouchableOpacity>
+      </Touchable>
     </Wrapper>
   );
 };
+
+const Touchable = styled.TouchableOpacity`
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Wrapper = styled.View`
   height: ${props => props.theme.sizes.footerHeight};
