@@ -13139,6 +13139,11 @@ react-native-code-push@^5.6.1:
     semver "^5.6.0"
     xcode "1.0.0"
 
+react-native-config@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-1.0.0.tgz#fada8f79996db1eadcee9e221afd713c91f677e5"
+  integrity sha512-ZydFNkGgjPCgJ4nDDGxuoMSsz4HACJH6TyYEDeefnzGW3XS/HXxdiW8SOaOD8B0WACQJHM028ypnwhexJ7hhsA==
+
 react-native-countdown-component@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/react-native-countdown-component/-/react-native-countdown-component-1.7.3.tgz#da62eb1d4306e375f97f92cdb5f3542ebc5290ca"

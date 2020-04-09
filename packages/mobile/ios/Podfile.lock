@@ -211,6 +211,8 @@ PODS:
     - React-cxxreact (= 0.61.3)
     - React-jsi (= 0.61.3)
   - React-jsinspector (0.61.3)
+  - react-native-config (1.0.0):
+    - React
   - react-native-maps (0.25.0):
     - React
   - react-native-splash-screen (3.2.0):
@@ -283,6 +285,7 @@ DEPENDENCIES:
   - React-jsi (from `../../../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../../../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../../../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-config (from `../../../node_modules/react-native-config`)
   - react-native-maps (from `../../../node_modules/react-native-maps`)
   - react-native-splash-screen (from `../../../node_modules/react-native-splash-screen`)
   - react-native-webview (from `../../../node_modules/react-native-webview`)
@@ -344,6 +347,8 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../../../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-config:
+    :path: "../../../node_modules/react-native-config"
   react-native-maps:
     :path: "../../../node_modules/react-native-maps"
   react-native-splash-screen:
@@ -402,6 +407,7 @@ SPEC CHECKSUMS:
   React-jsi: 8bcf5836caa8a759c135ab9ef97f3e023a7b94af
   React-jsiexecutor: ae078e9df9c65bcdcf68f9a17656657932d95528
   React-jsinspector: a8939cc6909607eb5e8a5ecfff7c6226984e174d
+  react-native-config: 7db9b96479164dfd7b2be68eb9079e08279511c4
   react-native-maps: 190c02ca533fddac5bb49cf17bdece3644612107
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-webview: fcb5f377aadc216273300f452ee0d321fb85809b

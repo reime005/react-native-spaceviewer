@@ -1,10 +1,13 @@
 import { Card, CardItem } from 'native-base';
 import React from 'react';
 import { ScrollView, View, Text } from 'react-native';
+import Config from 'react-native-config';
+
 import overviewDetailsStyle from '../../styles/overviewDetailsStyle';
 import { TouchableContainer } from '../container/TouchableContainer';
 import { CustomTouchableHighlight } from '../pure/CustomTouchableHighlight';
-const version = 42;
+
+const version = `${Config.APP_VERSION} (Build ${Config.APP_VERSION_CODE})`;
 
 export class CreditsView extends React.Component {
   render() {

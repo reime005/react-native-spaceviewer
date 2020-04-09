@@ -1,5 +1,7 @@
 apply plugin: "com.android.application"
 
+apply from: "../../../../node_modules/react-native-config/android/dotenv.gradle"
+
 import com.android.build.OutputFile
 
 /**
@@ -147,11 +149,12 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.mariusreimer.spaceviewer"
+        applicationId project.env.get("APP_ID")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3145749
-        versionName "2.2.1"
+        versionCode project.env.get("APP_VERSION_CODE").toInteger()
+        versionName project.env.get("APP_VERSION")
+        resValue "string", "build_config_package", "com.mariusreimer.spaceviewer"
 
         testBuildType System.getProperty('testBuildType', 'debug')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
