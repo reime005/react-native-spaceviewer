@@ -378,7 +378,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mariusreimer.spaceviewer;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				PRODUCT_NAME = SpaceViewer;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mariusreimer.spaceviewer";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -401,7 +401,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mariusreimer.spaceviewer;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				PRODUCT_NAME = SpaceViewer;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.mariusreimer.spaceviewer";
 				TARGETED_DEVICE_FAMILY = "1,2";
