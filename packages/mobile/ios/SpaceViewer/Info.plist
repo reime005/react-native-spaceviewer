@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(APP_VERSION_CODE)</string>
+	<string>$(APP_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(APP_VERSION)</string>
+	<string>$(APP_VERSION_CODE)</string>
 	<key>CodePushDeploymentKey</key>
 	<string></string>
 	<key>ITSAppUsesNonExemptEncryption</key>
