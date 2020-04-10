@@ -88,7 +88,7 @@
       },
       "ios.sim.release": {
         "binaryPath": "ios/build/app/Build/Products/Release-iphonesimulator/SpaceViewer.app",
-        "build": "xcodebuild -workspace ios/SpaceViewer.xcworkspace -scheme SpaceViewer -configuration Release -sdk iphonesimulator -UseModernBuildSystem=NO -derivedDataPath ios/build/app -quiet",
+        "build": "xcodebuild -workspace ios/SpaceViewer.xcworkspace -scheme SpaceViewer -configuration Release -sdk iphonesimulator -derivedDataPath ios/build/app -quiet",
         "type": "ios.simulator",
         "name": "iPhone 11"
       },
