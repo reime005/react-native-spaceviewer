@@ -1,3 +1,5 @@
+const tmpData = {};
+
 /**
  *
  * @param {String} key
@@ -5,8 +7,14 @@
  * @param {Function} [errorCallback]
  * @returns {Promise}
  */
-export const setItemToStore = async (key, value) =>
-  localStorage.setItem(key, value);
+export const setItemToStore = (key, value) => {
+  try {
+    localStorage.setItem(key, value);
+  } catch (error) {
+    tmpData[key] = value;
+  }
+}
+
 
 /**
  *
@@ -14,13 +22,25 @@ export const setItemToStore = async (key, value) =>
  * @param {Function} [callback] - (error: ?Error, result: ?string) => void
  * @returns {Promise}
  */
-export const getItemFromStore = async key => localStorage.getItem(key);
+export const getItemFromStore = key => {
+  try {
+    const ret = localStorage.getItem(key);
+    return ret;
+  } catch (error) {
+    return tmpData[key] || null;
+  }
+}
 
 /**
  *
  * @param {String} key
  * @param {Function} [errorCallback]
- * @returns {Promise}
  */
-export const deleteItemFromStore = async (key, errorCallback) =>
-  localStorage.removeItem(key);
+export const deleteItemFromStore = (key, errorCallback) => {
+  try {
+    localStorage.removeItem(key);
+  } catch (error) {
+    delete tmpData[key];
+  }
+}
+
