@@ -1,5 +1,7 @@
 # Space Viewer - Rocket Infos (Monorepo)
 
+NOTE: This project (API) is deprecated. Please see [Space Seek](https://github.com/reime005/spaceseek/) for the follow up.
+
 ![iOS build](https://github.com/reime005/react-native-spaceviewer/workflows/iOS/badge.svg)
 
 ![Android build](https://github.com/reime005/react-native-spaceviewer/workflows/Android/badge.svg)
